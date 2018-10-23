@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+### USER SEEDS
+#
+users = [
+  {:user_name => 'Kyle', :email => 'kylekyle@gmail.com', :password => 'lmaopasswordsaredumb', :country => 'United States', :search_inputs => []},
+]
+
+users.each do |user|
+  User.create!(user)
+end
