@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
       User.create!(hashofuser)
     end
   end
+
+
+
+
 end
