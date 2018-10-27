@@ -6,6 +6,14 @@ class Searches < ActiveRecord::Base
     client.update("I'm tweeting with ABC!")
   end
 
+  def self.gather_tweets(query, from, to)
+    client = Searches.authenticate
+    client.search("#{query} since:#{from} until:#{to}").take(3).collect do |tweet|
+      puts "#{tweet.text}"
+      puts '---------------------------------------------------------------------'
+    end
+  end
+
   private
   def self.authenticate
     client = Twitter::REST::Client.new do |config|
