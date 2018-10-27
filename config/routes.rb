@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
 
-  root 'users#create'
+  root 'users#new'
 
   resources :users
-    match 'users/home', to: 'users#home', via: :post
-   # post 'users/home', to: 'users#home'
+
+    match 'users/show', to: 'users#show', via: :show
+
+    #post 'users/home', to: 'users#home'
+   # match 'users/home', to: 'users#home', via: :show
 
 
 

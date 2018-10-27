@@ -5,27 +5,32 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_id, :email, :session_token)
   end
 
+  def show
+
+
+  end
+
 
   def new
-    # default: render 'new' template
+    #this just renders the sign up page.
   end
 
+  #when the button is clicked in new.htmlhaml, info routes to this method.
   def create
-    # test = User.find params[:id]
-    puts "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    puts params[:user_id]
-    puts params[:email]
-    puts "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
 
+    # use: params[:user_id], params[:email], params[:password], params[:verify_password]
 
-    #redirect_to users_home_url
+    # if password does not equal verify password
+    # redirect to new
+    # elseif
+    # user id is taken
+    # redirect to new
+    # else
+    # create user
+    # redirect to user homepage (for now. redirect to main when implemented.)
+    redirect_to :controller => 'users', :action => 'show'
+
   end
-
-  def home
-    puts "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
-    puts "TEST branch commit"
-  end
-
 
   #def edit
   #  @user = User.find params[:id]
