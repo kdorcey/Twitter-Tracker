@@ -27,12 +27,12 @@ div#main {
 }
 a {
   background: transparent;
-  color: maroon;
+  color: skyblue;
   text-decoration: underline;
   font-weight: bold;
 }
 h1 {
-  color: maroon;
+  color: skyblue;
   font-size: 150%;
   font-style: italic;
   display: block;
@@ -48,18 +48,18 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
-table#movies {
+table#history {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
   border-bottom: 2px solid black;
 }
-table#movies th {
+table#history th {
   border: 2px solid white;
   font-weight: bold;
   background-color: wheat;
 }
-table#movies th, table#movies td {
+table#history th, table#history td {
   padding: 4px;
   text-align: left;
 }
@@ -72,5 +72,5 @@ form label {
   display: block;
   line-height: 25px;
   font-weight: bold;
-  color: maroon;
+  color: skyblue;
 }

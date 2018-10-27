@@ -1,0 +1,17 @@
+%h1 User Sign up
+
+= form_tag users_url do
+
+  = label :user, :user_id, 'User-ID'
+  = text_field params[:user_id], 'user_id', :id => 'signupUser'
+
+  = label :user, :email, 'E-mail'
+  = text_field :user,'email'
+
+  = label :user, :password, 'Password'
+  = text_field :user, 'Password'
+
+  = label :user, :password, 'Verify Password'
+  = text_field params[:verify_password], 'Verify Password'
+
+  = submit_tag 'Create my account'

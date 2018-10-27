@@ -1,13 +1,29 @@
 !!!
 %html
   %head
-    %title AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!
+    %title User Homepage
     = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
-    %h1.title A A A A A A A A A A A!
+    %h1.title Welcome to your homepage, User!
+
+%h1 Options
+
+%h1 Search Term History
+
+%table#history
+  %thead
+    %tr
+      %th Search Term
+      %th Geographical Restriction
+      %th Search Date
+      %th Additional Details
+      %th Delete Term
+  %tbody
+
+
 
     #main
       - if flash[:notice]
@@ -16,3 +32,4 @@
         #warning.message= flash[:warning]
 
       = yield
+
