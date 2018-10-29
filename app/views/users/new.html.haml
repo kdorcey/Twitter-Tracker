@@ -8,10 +8,10 @@
   = label :user, :email, 'E-mail'
   = text_field :user, 'email'
 
-  = label :password, 'pass'
-  = text_field :user, 'password'
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
 
   = label :verify_password, 'Verify Password'
-  = text_field :verify_password, params[:verify_password]
+  = password_field :verify_password, params[:verify_password]
 
   = submit_tag 'Create my account'

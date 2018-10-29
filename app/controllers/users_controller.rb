@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
   #when the button is clicked in new.htmlhaml, info routes to this method.
   def create
-
+    puts "OIOIOIOIOIOIOIOIOIOI"
+    puts params[:verify_password]
     # use: params[:user_id], params[:email], params[:password], params[:verify_password]
 
     # if password does not equal verify password
@@ -29,9 +30,13 @@ class UsersController < ApplicationController
     # create user
     # redirect to user homepage (for now. redirect to main when implemented.)
     #User.create_user!(user_params)
-    test = {:user_name=> params[:user_name], :password => params[:password], :email =>params[:email], :verify_password => params[:verify_password]}
-    User.create_user!(user_params)
-    redirect_to :controller => 'users', :action => 'show'
+    if (!User.username_exists?(user_params[:user_name]) && !User.email_exists?(user_params[:email]) && (user_params[:password] == params[:verify_password]))
+      User.create_user!(user_params)
+      redirect_to :controller => 'users', :action => 'show'
+    else
+      redirect_to :controller => 'users', :action => 'new'
+    end
+
 
   end
 
