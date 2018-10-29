@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:user_id, :email, :session_token)
+    params.permit(:user_name, :email, :password,:verify_password)
   end
 
   def show
@@ -28,6 +28,9 @@ class UsersController < ApplicationController
     # else
     # create user
     # redirect to user homepage (for now. redirect to main when implemented.)
+    #User.create_user!(user_params)
+    test = {:user_name=> params[:user_name], :password => params[:password], :email =>params[:email]}
+    User.create_user!(test)
     redirect_to :controller => 'users', :action => 'show'
 
   end

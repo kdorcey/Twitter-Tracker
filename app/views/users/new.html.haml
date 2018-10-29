@@ -2,16 +2,16 @@
 
 = form_tag users_path do
 
-  = label :user, :user_id, 'User-ID'
-  = text_field params[:user_id], 'user_id', :id => 'signupUser'
+  = label :user, :user_name, 'User-ID'
+  = text_field params[:user_id], 'user_name', :id => 'signupUser'
 
   = label :user, :email, 'E-mail'
   = text_field params[:email],'email'
 
-  = label :user, :password, 'Password'
-  = text_field params[:password], 'Password'
+  = label :user, :password, 'pass'
+  = text_field params[:password], 'pass'
 
-  = label :user, :password, 'Verify Password'
+  = label :user, :verify_password, 'Verify Password'
   = text_field params[:verify_password], 'Verify Password'
 
   = submit_tag 'Create my account'
