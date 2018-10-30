@@ -2,29 +2,36 @@ class UsersController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:user_id, :email, :session_token)
+    params.require(:user).permit(:user_name, :email, :session_token, :password)
+  end
+
+  def show
+
+
   end
 
 
   def new
-    # default: render 'new' template
+    #this just renders the sign up page.
   end
 
+  #when the button is clicked in new.html.haml, info routes to this method.
   def create
-    # test = User.find params[:id]
-    puts "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    puts params[:user_id]
-    puts params[:email]
-    puts "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+    password = user_params[:password]
+
+    #params[:verify_password] returns an array so take the first index of array
+    verify_password = params[:verify_password][0]
 
 
-    #redirect_to users_home_url
+    if (!User.username_exists?(user_params[:user_name]) && !User.email_exists?(user_params[:email]) && (password == verify_password))
+      User.create_user!(user_params)
+      redirect_to :controller => 'sessions', :action => 'new'
+    else
+      redirect_to :controller => 'users', :action => 'new'
+    end
+
+
   end
-
-  def home
-    puts "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
-  end
-
 
   #def edit
   #  @user = User.find params[:id]
