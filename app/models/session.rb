@@ -15,7 +15,7 @@ class Session < ActiveRecord::Base
 
       rehashed_password = BCrypt::Password.new(user_email_and_session[1])
 
-      if sessions_params[:password] == rehashed_password
+      if rehashed_password == sessions_params[:password]
         return user_email_and_session[0]
       else
         return nil
