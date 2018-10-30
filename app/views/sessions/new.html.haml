@@ -1,0 +1,11 @@
+%h1 User Login
+
+= form_tag login_create_path do
+
+  = label :user, :user_name, 'User-ID'
+  = text_field :user, 'user_name'
+
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
+
+  = submit_tag 'Login to my account'

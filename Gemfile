@@ -4,6 +4,8 @@ ruby '2.4.4'
 
 gem 'twitter' ##think this is what we need.
 
+gem 'bcrypt', '~> 3.1.7'
+
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'

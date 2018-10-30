@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
     match 'users/show', to: 'users#show', via: :show
 
-    #post 'users/home', to: 'users#home'
-   # match 'users/home', to: 'users#home', via: :show
+  match '/login', to: 'sessions#new', via: :get
+  match '/login_create', to: 'sessions#create', via: :post
+  match '/logout', to: 'sessions#destroy', via: :delete
 
+  #post 'users/home', to: 'users#home'
+  # match 'users/home', to: 'users#home', via: :show
 
 
   #

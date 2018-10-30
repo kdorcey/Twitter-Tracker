@@ -15,24 +15,17 @@ class UsersController < ApplicationController
     #this just renders the sign up page.
   end
 
-  #when the button is clicked in new.htmlhaml, info routes to this method.
+  #when the button is clicked in new.html.haml, info routes to this method.
   def create
-    puts "OIOIOIOIOIOIOIOIOIOI"
-    puts params[:verify_password]
-    # use: params[:user_id], params[:email], params[:password], params[:verify_password]
+    password = user_params[:password]
 
-    # if password does not equal verify password
-    # redirect to new
-    # elseif
-    # user id is taken
-    # redirect to new
-    # else
-    # create user
-    # redirect to user homepage (for now. redirect to main when implemented.)
-    #User.create_user!(user_params)
-    if (!User.username_exists?(user_params[:user_name]) && !User.email_exists?(user_params[:email]) && (user_params[:password] == params[:verify_password]))
+    #params[:verify_password] returns an array so take the first index of array
+    verify_password = params[:verify_password][0]
+
+
+    if (!User.username_exists?(user_params[:user_name]) && !User.email_exists?(user_params[:email]) && (password == verify_password))
       User.create_user!(user_params)
-      redirect_to :controller => 'users', :action => 'show'
+      redirect_to :controller => 'sessions', :action => 'new'
     else
       redirect_to :controller => 'users', :action => 'new'
     end
