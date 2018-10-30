@@ -14,8 +14,7 @@ class SessionsController < ApplicationController
 
     if user_logged_in.nil?
       flash[:notice] = "Invalid username/password combination."
-      #Todo: redirect to login path when implemented.
-      #redirect_to login_path
+      redirect_to :controller => 'sessions', :action => 'new'
     else
       session[:session_token] = user_logged_in
       flash[:notice]  = "You are logged in as " + sessions_params[:user_name]
