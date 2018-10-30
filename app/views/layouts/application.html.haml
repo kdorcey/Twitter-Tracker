@@ -8,7 +8,10 @@
 
   %body
     %h1.title The Emotions of Twitter!
-
+    - if !@current_user
+      = button_to 'Sign up/Login', login_path, :method => :get, :id => 'signupLogin'
+    - else
+      = button_to 'Logout', logout_path, :method => :delete, :id => 'logout'
 
     #main
       - if flash[:notice]
