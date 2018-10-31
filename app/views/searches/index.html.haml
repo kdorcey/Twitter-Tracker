@@ -1,0 +1,11 @@
+%h1 Search Keyword
+
+= form_tag searches_create_path do
+
+  = label :searches, :search_term, 'Keyword'
+  = text_field :searches, 'search_term'
+
+  = select_tag :time, options_for_select([['Past hour', '1'], ['Past day', '1'], ['Past Week', '7'], ['Past Month', '30'], ['Past Year', '356']])
+
+  = submit_tag 'Search'
+
