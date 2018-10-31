@@ -1,3 +1,14 @@
+!!!
+%html
+  %head
+    %title Main Page
+    = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %h1.title Welcome to the main page of The Emotions of Twitter! Enjoy!
+
 %h1 Search Keyword
 
 = form_tag searches_create_path do
@@ -9,3 +20,23 @@
 
   = submit_tag 'Search'
 
+%h1 Popular search terms
+
+%table#popular
+  %thead
+    %tr
+      %th Search Term
+      %th Geographical Restriction
+      %th Search Date
+      %th Additional Details
+  %tbody
+
+
+
+    #main
+      - if flash[:notice]
+        #notice.flashMessage= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+
+      = yield

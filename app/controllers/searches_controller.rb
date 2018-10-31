@@ -6,11 +6,6 @@ class SearchesController < ApplicationController
     params.require(:searches).permit(:search_term, :time)
   end
 
-  def main
-    #renders the main page
-  end
-
-
   def index
 
   end

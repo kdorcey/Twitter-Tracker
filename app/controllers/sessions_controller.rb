@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     @current_user = nil
     session[:session_token] = nil
     flash[:notice] = "successful logout"
-    redirect_to searches_main_path
+    redirect_to :controller => 'searches', :action => 'index'
   end
 
 end

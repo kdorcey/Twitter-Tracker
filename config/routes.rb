@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root 'users#new'
+  root 'searches#index'
 
   resources :users
 
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
     match '/searches_create', to: 'searches#create', via: :post
     match '/searches', to: 'searches#index', via: :get
-    match '/searches_main', to: 'searches#main', via: :get
 
   #post 'users/home', to: 'users#home'
   # match 'users/home', to: 'users#home', via: :show
