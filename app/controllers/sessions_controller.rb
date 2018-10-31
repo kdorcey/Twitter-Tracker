@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     @current_user = nil
     session[:session_token] = nil
     flash[:notice] = "successful logout"
-    #Todo:: redirect to the main page when implemented.
+    redirect_to searches_main_path
   end
 
 end

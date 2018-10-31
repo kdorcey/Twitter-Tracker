@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   match '/login_create', to: 'sessions#create', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
 
-  match '/searches_create', to: 'searches#create', via: :post
-  match '/searches', to: 'searches#index', via: :get
+  resources :searches
+
+    match '/searches_create', to: 'searches#create', via: :post
+    match '/searches', to: 'searches#index', via: :get
+    match '/searches_main', to: 'searches#main', via: :get
 
   #post 'users/home', to: 'users#home'
   # match 'users/home', to: 'users#home', via: :show

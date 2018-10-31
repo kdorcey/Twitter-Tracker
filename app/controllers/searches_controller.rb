@@ -1,8 +1,15 @@
 class SearchesController < ApplicationController
 
+  before_filter 'set_current_user'
+
   def searches_params
     params.require(:searches).permit(:search_term, :time)
   end
+
+  def main
+    #renders the main page
+  end
+
 
   def index
 
