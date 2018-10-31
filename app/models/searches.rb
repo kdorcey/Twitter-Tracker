@@ -2,7 +2,6 @@ class Searches < ActiveRecord::Base
 
   def self.test_functionality
     client = Searches.authenticate
-    puts "BBBBBBBBBBBBBBBBBBBBB"
     client.update("I'm tweeting with ABC!")
   end
 
