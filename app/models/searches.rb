@@ -8,7 +8,7 @@ class Searches < ActiveRecord::Base
   def self.gather_tweets(query, from, to)
     client = Searches.authenticate
     count = 0
-    number_of_tweets = client.search("#{query} since:#{from} until:#{to}", :lang => 'en').collect
+    number_of_tweets = client.search("#{query} since:#{from} until:#{to}", :lang => 'en').take(15).collect
     number_of_tweets.each do
       count += 1
     end
