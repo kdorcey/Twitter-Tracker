@@ -1,10 +1,12 @@
 require 'bcrypt'
 
-class Session < ActiveRecord::Base
+class Session
 
   include BCrypt
 
   def self.verify_login(sessions_params)
+
+    puts sessions_params.to_s
 
     #If successful login, return session token ID. else return nil.
     #

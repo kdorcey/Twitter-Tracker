@@ -3,19 +3,25 @@ require 'rails_helper'
 
 describe SessionsController do
   describe 'logging in' do
-    it 'should check for and recognize invalid search terms input by the user' do
+
+    it 'should call the method that does the login verification' do
+      fake_results = [double('user1')]
+      expect(Session).to receive(:verify_login).with({:user_name => "hi"}).
+        and_return(fake_results)
+      post :create, :user => {:user_name => "hi"}
+    end
+    it 'should select the home page for rendering after successful login.' do
       fake_results = [double('new_user_session')]
       allow(Session).to receive(:verify_login).and_return(fake_results)
 
-      post :create, {:search_terms => '             '}
-      response.should redirect_to('/movies')
-
-      post :search_tmdb, {:search_terms => ''}
-      response.should redirect_to('/movies')
+      post :create, :user => {:user_name => "hi"}
+      response.should redirect_to users_show_path
     end
-    it 'should redirect to the home page if no movies are found in the database' do
-      post :search_tmdb, {:search_terms => 'nbawlgnkljawnglkjawnglkjawebglkjawebglkwaejg'}
-      response.should redirect_to('/movies')
+    it 'should redirect back to the login page after incorrect login' do
+      allow(Session).to receive(:verify_login).and_return(nil)
+      post :create, :user => {:user_name => "hi"}
+      #expect(response).to render_template('Sessions_controller#new')
+      response.should redirect_to login_path
     end
   end
 end

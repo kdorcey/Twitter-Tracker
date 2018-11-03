@@ -16,11 +16,11 @@ describe User do
       end
       it 'should return error code false for invalid emails' do
         user = {:user_name => 'different', :email=> 'moo 2@gmail.com'}
-        expect(User.create_user(user)).to eq(false)
+        expect(User.create_user!(user)).to eq(false)
       end
       it 'should return error code false for invalid usernames' do
         user = {:user_name => 'diffe rent', :email=> 'moo2@gmail.com'}
-        expect(User.create_user(user)).to eq(false)
+        expect(User.create_user!(user)).to eq(false)
       end
     end
     context 'happy path :)' do
