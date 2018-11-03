@@ -16,9 +16,19 @@
   = label :searches, :search_term, 'Keyword'
   = text_field :searches, 'search_term'
 
-  = select_tag :time, options_for_select([['Past hour', '1'], ['Past day', '1'], ['Past Week', '7'], ['Past Month', '30'], ['Past Year', '356']])
+  = select_tag :time, options_for_select([['Past day', '1'], ['Past two days', '2'], ['Past three days', '3'], ['Past four days', '4'], ['Past five days', '5'], ['Past six days', '6'], ['Past week', '7']])
 
   = submit_tag 'Search'
+
+%h1 Past Searches
+
+%table
+  %thead
+    %tr
+      %th Search Term
+      %th Date Range
+      %th Number of Associated Tweets
+  %tbody
 
 %h1 Popular search terms
 
