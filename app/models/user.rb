@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
       return false, message[0]
     elsif email_exists?(hash_of_user[:email])
       return false, message[1]
-   # elsif username_is_valid?(hash_of_user[:user_name])
-   #   return false, message[2]
-   # elsif email_is_valid?(hash_of_user[:email])
-   #   return false, message[3]
+    elsif !(username_is_valid?(hash_of_user[:user_name]))
+      return false, message[2]
+    elsif !(email_is_valid?(hash_of_user[:email]))
+      return false, message[3]
     else
       hash_of_user[:session_token] = SecureRandom.base64
       hash_of_user[:password] = BCrypt::Password.create(hash_of_user[:password])

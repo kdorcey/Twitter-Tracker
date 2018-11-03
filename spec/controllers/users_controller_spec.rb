@@ -1,34 +1,29 @@
 require 'spec_helper'
 require 'rails_helper'
 
-=begin
 describe UsersController do
   describe 'creating a user' do
-    it 'should redirect back to the signup page with incorrect sign up parameters' do
-      test_user = {:user_name => 'Ted', :email => 'asldfjskldf', :password => 'asdf'}
-      post :create, {:user => test_user, :verify_password => 'asdf'}
-      expect(response).to render_template('login_create')
+    context 'sad paths :(' do
+    it 'should redirect back to the signup page with un-matching passwords' do
+      test_user = {:user_name => 'Ted', :email => 'asldfjskldf', :password => 'unmatching_password'}
+      verify_pass = ['doesnt_match']
+      post :create, {:user => test_user, :verify_password => verify_pass}
+      expect(response).to redirect_to new_user_path
     end
-    it 'should have the TMDB search results be available for its given view' do
-      fake_results = [double('Movie'), double('Movie')]
-      allow(Movie).to receive(:find_in_tmdb).and_return (fake_results)
-      post :search_tmdb, {:search_terms => 'Ted'}
-      expect(assigns(:movies)).to eq(fake_results)
+    it 'should redirect back to the signup page regardless of the type of input' do
+      test_user = {:user_name => '', :email => 'test@gmail.com', :password => 'match'}
+      verify_pass = ['match']
+      post :create, {:user => test_user, :verify_password => verify_pass}
+      expect(response).to redirect_to new_user_path
     end
-    it 'should check for and recognize invalid search terms input by the user' do
-      fake_results = [double('Movie'), double('Movie')]
-      allow(Movie).to receive(:find_in_tmdb).and_return (fake_results)
-      post :search_tmdb, {:search_terms => '             '}
-
-      response.should redirect_to('/movies')
-
-      post :search_tmdb, {:search_terms => ''}
-      response.should redirect_to('/movies')
     end
-    it 'should redirect to the home page if no movies are found in the database' do
-      post :search_tmdb, {:search_terms => 'a;slkgnja;slkgjas;lkgjaslk;gjasklgjaslkglka;shgl;kashg;lkashg;lkashgk;anglkawem glawiuvnawiuvnawelkjgnakjegnaliunbawlgnkljawnglkjawnglkjawebglkjawebglkwaejg'}
-      response.should redirect_to('/movies')
+    context 'happy path! :D' do
+    it 'should redirect to user login after correct inputs are input.' do
+      test_user = {:user_name => 'testing', :email => 'testing@gmail.com', :password => 'password'}
+      verify_pass = ['password']
+      post :create, {:user => test_user, :verify_password => verify_pass}
+      expect(response).to redirect_to login_path
+    end
     end
   end
-  end
-=end
+end

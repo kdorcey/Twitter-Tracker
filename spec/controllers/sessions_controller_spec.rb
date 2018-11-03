@@ -23,5 +23,5 @@ describe SessionsController do
       #expect(response).to render_template('Sessions_controller#new')
       response.should redirect_to login_path
     end
-  end
+    end
 end
