@@ -1,5 +1,11 @@
 class Searches < ActiveRecord::Base
 
+  belongs_to :user
+
+  def self.create_search!(hash_of_search)
+    Searches.create!(hash_of_search)
+  end
+
   def self.test_functionality
     client = Searches.authenticate
     client.update("I'm tweeting with ABC!")
@@ -13,6 +19,12 @@ class Searches < ActiveRecord::Base
       count += 1
     end
     return count
+  end
+
+  def self.update_table(id)
+    table_hash = {}
+    table_hash = Searches.all
+    return table_hash
   end
 
   private

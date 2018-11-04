@@ -19,9 +19,17 @@
   %thead
     %tr
       %th Search Term
-      %th Date Range
+      %th From
+      %th To
       %th Number of Associated Tweets
   %tbody
+    - if !@user_searches.nil?
+      - @user_searches.each do |search|
+        %tr
+          %td= search.search_term
+          %td= search.from_date
+          %td= search.to_date
+          %td= search.number_of_tweets
 
 %h1 Popular search terms
 

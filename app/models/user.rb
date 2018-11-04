@@ -2,6 +2,8 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
+  has_many :searches, :dependent => :destroy
+
   include BCrypt
 
   def self.create_user!(hash_of_user)
