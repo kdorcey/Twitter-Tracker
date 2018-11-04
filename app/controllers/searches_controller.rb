@@ -7,7 +7,8 @@ class SearchesController < ApplicationController
   end
 
   def index
-    
+    @user_searches = {}
+    @user_searches = Searches.update_table
   end
 
   def create

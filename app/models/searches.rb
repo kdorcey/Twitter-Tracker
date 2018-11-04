@@ -21,7 +21,7 @@ class Searches < ActiveRecord::Base
     return count
   end
 
-  def self.update_table(id)
+  def self.update_table()
     table_hash = {}
     table_hash = Searches.all
     return table_hash
