@@ -29,9 +29,6 @@ class SearchesController < ApplicationController
     search_hash[:number_of_tweets] = @count
 
     Searches.create_search!(search_hash)
-    id = @current_user.id
-    @user_searches = {}
-    @user_searches = Searches.update_table(id)
     redirect_to searches_path
   end
 
