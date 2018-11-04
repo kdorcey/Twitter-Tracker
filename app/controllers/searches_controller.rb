@@ -30,12 +30,17 @@ class SearchesController < ApplicationController
       search_hash[:to_date] = date
       search_hash[:number_of_tweets] = @count
 
-    Searches.create_search!(search_hash)
-    redirect_to searches_path
-  end
+      Searches.create_search!(search_hash)
+      redirect_to searches_path
+    else
+      flash[:notice] = "Nah homie, gotta make an account first."
+      redirect_to root_path
+    end
 
   def destroy
 
   end
 
+  end
 end
+

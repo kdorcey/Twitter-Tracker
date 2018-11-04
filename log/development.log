@@ -2912,3 +2912,81 @@ Processing by SearchesController#index as HTML
   [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
   Rendered searches/index.html.haml within layouts/application (2.4ms)
 Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-04 17:53:20 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (24.2ms)
+Completed 200 OK in 343ms (Views: 323.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-04 17:53:23 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-04 17:53:29 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2JFbMBPmjJfKYStsyWVv3NhRzwm0ws0VzEc9wrwHJakOYG9ticdyfcF/BXcfHzEoR4RSd3D/rp5GUcnfJx9r0Q==", "searches"=>{"search_term"=>"asfd"}, "time"=>"1", "commit"=>"Search"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-04 17:53:29 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-04 17:53:30 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-04 17:53:33 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VywJYu62oYlBtGqz/aEsQ+A1A22BO0KOt/9RRvw4IiuB3T0/dJdfY0qqRKgr23K3f+CeE0UGIQU96aVbZyBsUw==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "evan"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "evan"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 91ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-04 17:53:34 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  Rendered users/show.html.haml within layouts/application (12.2ms)
+Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-04 17:53:35 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-04 17:53:37 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wn+y/LTJj5aJawGrOIX7+jAegULbumRnNsOJOyZ9vyAUjoahLuhxfIJ1L7Du/6UOr8scPB+HB+y81X0mvWXxWA==", "searches"=>{"search_term"=>"asdf"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "asdf"], ["from_date", "2018-11-03"], ["to_date", "2018-11-4"], ["number_of_tweets", "15"], ["created_at", "2018-11-04 23:53:38.405181"], ["updated_at", "2018-11-04 23:53:38.405181"]]
+  [1m[35m (9.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches
+Completed 302 Found in 645ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-04 17:53:38 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.4ms)
