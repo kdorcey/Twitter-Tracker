@@ -14,4 +14,8 @@
   = label :verify_password, 'Verify Password'
   = password_field :verify_password, params[:verify_password]
 
+  = label :user, :country, 'Country:'
+  = select_tag :country,options_for_select(['Canada', 'The Moon', 'Mars', 'Rhode Island'])
+
+
   = submit_tag 'Create my account'

@@ -16,3 +16,11 @@ users = [
 users.each do |user|
   User.create!(user)
 end
+
+# searches = [
+#   {:user_id => User.find_by_sql('1'), :search_term => 'Kanye', :from_date => '2018-11-01', :to_date => '2018-11-02', :number_of_tweets => '100'}
+# ]
+#
+# searches.each do |search|
+#   Searches.create!(search)
+# end

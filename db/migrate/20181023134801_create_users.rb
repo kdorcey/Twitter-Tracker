@@ -1,5 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
-  def change
+  #def change
+  def self.up
     create_table :users do |t|
       t.string 'user_name'
       t.string 'email'
@@ -12,5 +13,20 @@ class CreateUsers < ActiveRecord::Migration
       # of when movies are added or modified:
       t.timestamps
     end
+
+    create_table :searches do |t|
+      t.integer 'user_id'
+      t.string 'search_term'
+      t.string 'from_date'
+      t.string 'to_date'
+      t.string 'number_of_tweets'
+      t.timestamps
+    end
   end
+
+  def self.down
+    drop_table :searches
+    drop_table :users
+  end
+  #end
 end

@@ -1,19 +1,30 @@
 class Searches < ActiveRecord::Base
 
+  belongs_to :user
+
+  def self.create_search!(hash_of_search)
+    Searches.create!(hash_of_search)
+  end
+
   def self.test_functionality
     client = Searches.authenticate
-    puts "BBBBBBBBBBBBBBBBBBBBB"
     client.update("I'm tweeting with ABC!")
   end
 
   def self.gather_tweets(query, from, to)
     client = Searches.authenticate
     count = 0
-    number_of_tweets = client.search("#{query} since:#{from} until:#{to}", :lang => 'en').collect
+    number_of_tweets = client.search("#{query} since:#{from} until:#{to}", :lang => 'en').take(15).collect
     number_of_tweets.each do
       count += 1
     end
     return count
+  end
+
+  def self.update_table()
+    table_hash = {}
+    table_hash = Searches.all
+    return table_hash
   end
 
   private
