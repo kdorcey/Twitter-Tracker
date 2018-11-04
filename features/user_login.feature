@@ -14,3 +14,7 @@ Feature: have successful user sign up and login
       | evanm     | evan-meyer@uiowa.edu     | evanpass   | The Moon     |
       | darreng   | darren-goh@uiowa.edu     | darrenpass | Rhode Island |
 
+  Scenario: sign-up and login as newly signed-up user
+    When I choose to create a user with the username "cucumber", email "cucumber@gmail.com", password "pickled", and country "Canada"
+    And I am on the login page
+    Then The login page should welcome user "cucumber"
