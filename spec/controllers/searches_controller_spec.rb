@@ -10,7 +10,7 @@ require 'rails_helper'
 #      post :gather_tweets, {:search_term => 'Ruby', :time => '2'}
 #    end
 #    it 'should select the Search Results template for rendering' do
-
+#
 #      allow(Searches).to receive(:gather_tweets)
 #      post :create, {:search_term => 'Ruby', :time => '3'}
 #      response.should redirect_to searches_path
