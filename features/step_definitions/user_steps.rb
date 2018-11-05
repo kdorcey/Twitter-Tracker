@@ -17,11 +17,11 @@ Given /^the following users have signed up for "The Emotions of Twitter":/ do |u
   end
 end
 
-When /^I choose to create a user with the username "(.*?)", email "(.*?)", password "(.*?)", and country "(.*?)"$/ do |user_name, email, password, country|
+When /^I choose to create a user with the username "(.*?)", email "(.*?)", password "(.*?)", verify password "(.*?)", and country "(.*?)"$/ do |user_name, email, password, verify_pass, country|
   fill_in 'User-ID', :with => user_name
   fill_in 'E-mail', :with => email
   fill_in 'Password', :with => password
-  fill_in 'verify_password_', :with => password
+  fill_in 'verify_password_', :with => verify_pass
   select country, :from => 'country'
   click_button 'Create my account'
 end
@@ -30,6 +30,22 @@ end
 Then /^The login page should welcome user "(.*?)"$/ do |user_name|
   welcome_message = page.find("#notice").text
   welcome_message.should == "New Account Created! Welcome, #{user_name} - Enjoy your stay. :D"
+end
+
+Then /^The same page should display a "(.*?)" error$/ do |error_string|
+  error_notice = page.find("#notice").text
+  error_notice.should == error_string
+end
+
+When /^I choose to login with the username "(.*?)" and the password "(.*?)"$/ do |username, password|
+  fill_in 'User-ID', :with => username
+  fill_in 'Password', :with => password
+  click_button 'Login to my account'
+end
+
+Then /^My homepage should welcome me as "(.*?)"$/ do |username|
+  welcome_message = page.find("#notice").text
+  welcome_message.should == "You're logged in as: #{username}"
 end
 
 When /^I have search a term "(.*?)" in the "(.*?)"$/ do |title, time|
