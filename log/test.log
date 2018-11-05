@@ -515,3 +515,1064 @@ Processing by SessionsController#new as HTML
   Rendered sessions/new.html.haml within layouts/application (1.7ms)
 Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms)
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/searches" for 127.0.0.1 at 2018-11-04 20:14:13 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (16.7ms)
+Completed 200 OK in 175ms (Views: 165.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$qWu1w6oEr2SWH2gUQzpPsObUfRfWRKB7.RqehBO5R83pYdSev6QVK"], ["country", "Mars"], ["session_token", "mzjbHHKIhfRW6Zw3yU268Q=="], ["created_at", "2018-11-05 02:14:13.386464"], ["updated_at", "2018-11-05 02:14:13.386464"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$nCL3hWK9bnNqmxQunywkw.0R8MgyDn.BHIlHHWtdHRH4aJGXUhikW"], ["country", "Canada"], ["session_token", "2VvuGOB8Z8vi4uKXSMghxw=="], ["created_at", "2018-11-05 02:14:13.441843"], ["updated_at", "2018-11-05 02:14:13.441843"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$TsvsoDfadIukBruO3Kuj6Org2N/bo4yONQ5rewoYDjhtIm3XBMVnq"], ["country", "Rhode Island"], ["session_token", "wCtH6ciJ1kxqSRNPBfdwcQ=="], ["created_at", "2018-11-05 02:14:13.495944"], ["updated_at", "2018-11-05 02:14:13.495944"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$Ehi3W8dL6Mk43MO8jYQcROZ19HjwfKVBK6CKk8x4.23aufhQTE7tG"], ["country", "The Moon"], ["session_token", "roiziQ+XPhFzC2bgjTrPvA=="], ["created_at", "2018-11-05 02:14:13.550272"], ["updated_at", "2018-11-05 02:14:13.550272"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$usWGT9ziY1hkCF.ks431nOlTWSVEfTwDojk4UQZe3GNoJaYEbk38."], ["country", "Rhode Island"], ["session_token", "OuFw3vxVem0IAPrA43XJbw=="], ["created_at", "2018-11-05 02:14:13.604241"], ["updated_at", "2018-11-05 02:14:13.604241"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:13 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:14:13 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "cucumber"], ["email", "cucumber@gmail.com"], ["password", "$2a$10$mAhA6f3D/YOUTlKvF3Rcz.03Q0st9VS7MePALfF1dcdTB8QpIoHKi"], ["country", "Canada"], ["session_token", "A7wnrcARTf4gqbcIvICR5w=="], ["created_at", "2018-11-05 02:14:13.687135"], ["updated_at", "2018-11-05 02:14:13.687135"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 63ms (ActiveRecord: 0.2ms)
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:14:13 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$DwERPV7jO8RJhQzRbhZ.e.C4u9ov.VPy/BXYtIbo1iQMkSmeZiy4O"], ["country", "Mars"], ["session_token", "K1rqlFPhU7GXTkdZDfO/wQ=="], ["created_at", "2018-11-05 02:14:13.773909"], ["updated_at", "2018-11-05 02:14:13.773909"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$21cEDe0DuBXfJHlYYSO7devr/tLO19gLYXXkoDSTCz.4Xgmf.iYlG"], ["country", "Canada"], ["session_token", "fmcSTSzkh7OwgIx1i+KB5A=="], ["created_at", "2018-11-05 02:14:13.828565"], ["updated_at", "2018-11-05 02:14:13.828565"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$R9UUJ4D9IWUQ6h80Wd2YMu84NeG2UrD/6XKkGWqVk0s47KecKEw2m"], ["country", "Rhode Island"], ["session_token", "gqnsjFYxNGwZYKaXq4Nvzg=="], ["created_at", "2018-11-05 02:14:13.884663"], ["updated_at", "2018-11-05 02:14:13.884663"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$Wx4cNba5MRhUs/Qp.KDU6enYWAC2qRDYOOOrcI1kTaVbvdt2iDLEe"], ["country", "The Moon"], ["session_token", "PhS/o9PH8h+y6rMxEihUPg=="], ["created_at", "2018-11-05 02:14:13.939503"], ["updated_at", "2018-11-05 02:14:13.939503"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$eFZDCmYV/MU3yCVZM1w8MevCR980JnXHQU1el/Hu55XdKC7OB1itu"], ["country", "Rhode Island"], ["session_token", "tz350A7IoYKq3XF1P5JUXw=="], ["created_at", "2018-11-05 02:14:13.994313"], ["updated_at", "2018-11-05 02:14:13.994313"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:13 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"kylel", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kylel"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$uZ/mw56mlnq7CdAorzM3k.ryFNDSi6CQCnpH6/OKW3kVT0I7qZY/2"], ["country", "Mars"], ["session_token", "pMtpZ6ys98L9QVeRK+RgOw=="], ["created_at", "2018-11-05 02:14:14.068619"], ["updated_at", "2018-11-05 02:14:14.068619"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$lMaADqNGoKV8efFLEFCpwevVH04tzhBsVXyng2StRDWikzElt3i6m"], ["country", "Canada"], ["session_token", "bCOJFm6QLtSR/2oYEoqbOg=="], ["created_at", "2018-11-05 02:14:14.123211"], ["updated_at", "2018-11-05 02:14:14.123211"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$YwcZr0kfD.9yG6lGQw./7OVz3yn.9sNfbLr0rtmNeMAiz80AXNseO"], ["country", "Rhode Island"], ["session_token", "3lwyNLlWoDWueZSFrTEgvQ=="], ["created_at", "2018-11-05 02:14:14.177624"], ["updated_at", "2018-11-05 02:14:14.177624"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$ikNCI13SQ/WYE2UEK0kGT.8IKCtnCXYLnBNfGB8OJe9Y79lJICEWy"], ["country", "The Moon"], ["session_token", "dA4gpXkUmpTW4LiZvrZU6A=="], ["created_at", "2018-11-05 02:14:14.232124"], ["updated_at", "2018-11-05 02:14:14.232124"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$qfWGK5BS55IwYUjuP0b4L.m5.tQg9R4w0ldJFvw3u.WBH41hwWtre"], ["country", "Rhode Island"], ["session_token", "3NWp/OW0rb0sFNQ7M/WbaA=="], ["created_at", "2018-11-05 02:14:14.286355"], ["updated_at", "2018-11-05 02:14:14.286355"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"a", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "a"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$pX3ZYOqb.l5aWsi51c1zueVx/0yj64TjZ8JEzycAQzKKtR58N0jAe"], ["country", "Mars"], ["session_token", "JArmoPKOHOg1Hm3JbD/P9Q=="], ["created_at", "2018-11-05 02:14:14.359556"], ["updated_at", "2018-11-05 02:14:14.359556"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$u/kHCy/SQKHeCi0tayJ54O9XBYaEFshhDGok8oHC4xaqchQGS3hqu"], ["country", "Canada"], ["session_token", "+V80i0B5inZV2V7tIAwp1A=="], ["created_at", "2018-11-05 02:14:14.414248"], ["updated_at", "2018-11-05 02:14:14.414248"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$ZlPTNQ3mOc9lJI5/oUSqfOi3mEqu.ZDY.tXhnOQplJV6VYDBTOIUe"], ["country", "Rhode Island"], ["session_token", "Zjqrnz+N2PVurPY9lbrOWw=="], ["created_at", "2018-11-05 02:14:14.468558"], ["updated_at", "2018-11-05 02:14:14.468558"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$3SgY4vMT5.CV7hpB7LWV1.4fcaj.f0OZwZxnqwwEkXNEdMC6Tm.T."], ["country", "The Moon"], ["session_token", "Nl6pZd6+k5trAvdLhXGgVA=="], ["created_at", "2018-11-05 02:14:14.522869"], ["updated_at", "2018-11-05 02:14:14.522869"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$yypsb6vaZXaXNCET116epOEv/BVsJ3M81Ile/xKzqe.p3eMAoUfgq"], ["country", "Rhode Island"], ["session_token", "/k6+QmXc6fvi/yWyxjkLuQ=="], ["created_at", "2018-11-05 02:14:14.577106"], ["updated_at", "2018-11-05 02:14:14.577106"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"kyle-levy@uiowa.edu", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "cucumber"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "kyle-levy@uiowa.edu"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$mFcntHOZA9P.gK0ghwgTfOAmrey7boPsMxjeyybqHekqJaLQAA89K"], ["country", "Mars"], ["session_token", "+ua+f/DGSK4cJA4fDQAy2w=="], ["created_at", "2018-11-05 02:14:14.654990"], ["updated_at", "2018-11-05 02:14:14.654990"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$StoPdgHXOFnzdYHAnh/KfOBUZPKIsVEYeYj6x49.EgwmeqZmguwI6"], ["country", "Canada"], ["session_token", "fqHPwaAqU5MWzZZItSHa1g=="], ["created_at", "2018-11-05 02:14:14.710060"], ["updated_at", "2018-11-05 02:14:14.710060"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$smo2V8Gg6iKIAdrgUTZZf.HUdtpNh6lTEFG5YMkSP4bmZy21.aTEm"], ["country", "Rhode Island"], ["session_token", "b7msoOI2HtCHi2N/gg/usg=="], ["created_at", "2018-11-05 02:14:14.764976"], ["updated_at", "2018-11-05 02:14:14.764976"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$evGoY1UN84xTWQq2GszUz.X6XMlWg3f35nez1En4mNObiir6W3vCi"], ["country", "The Moon"], ["session_token", "TE3pBF9BxxfDOKdpMdVZ2A=="], ["created_at", "2018-11-05 02:14:14.819410"], ["updated_at", "2018-11-05 02:14:14.819410"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$sk3grzP3sjwW6DgvDzyGEOnKLzlKa70/sLIH/AHoCAtYFJP6L/lyC"], ["country", "Rhode Island"], ["session_token", "Bo/RV8IISoY5EQFXELDG/w=="], ["created_at", "2018-11-05 02:14:14.874208"], ["updated_at", "2018-11-05 02:14:14.874208"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"a", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "a"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:14:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SearchesController#create as HTML
+  Parameters: {"search_term"=>"Ruby", "time"=>"2"}
+Redirected to http://test.host/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SearchesController#create as HTML
+  Parameters: {"search_term"=>"Ruby", "time"=>"2"}
+Redirected to http://test.host/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"hi"}}
+Redirected to http://test.host/users/show
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"hi"}}
+Redirected to http://test.host/users/show
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"hi"}}
+Redirected to http://test.host/login
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"Ted", "email"=>"asldfjskldf", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]"}
+Redirected to http://test.host/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"", "email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", ""]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "test@gmail.com"]]
+Redirected to http://test.host/users/new
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"testing", "email"=>"testing@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "testing"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "testing@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_name", "testing"], ["email", "testing@gmail.com"], ["password", "$2a$10$W/8vBshsQMdiGaRHKivhY.yZU3nHvcJ1/c5Qb48eXXcJ7L0UNMsqu"], ["session_token", "ejmJZ8jm+SKuV2sgG3wARw=="], ["created_at", "2018-11-05 02:19:16.015447"], ["updated_at", "2018-11-05 02:19:16.015447"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 62ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markus2"]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "asdfkhlakshdglkhalksdhg"]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_name", "test"], ["email", "test@gmail.com"], ["created_at", "2018-11-05 02:19:31.337759"], ["updated_at", "2018-11-05 02:19:31.337759"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "test"]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_name", "test"], ["email", "moo@gmail.com"], ["created_at", "2018-11-05 02:19:31.339770"], ["updated_at", "2018-11-05 02:19:31.339770"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "different"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "moo@gmail.com"]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "different"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "moo 2@gmail.com"]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "diffe rent"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "moo2@gmail.com"]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "testy"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "moo@gmail.com"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "session_token", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_name", "testy"], ["email", "moo@gmail.com"], ["session_token", "7oVr8LjoNXx863SzG7DKvQ=="], ["password", "$2a$10$eXaL/EYFj2q9CK5ZQNc6MuroyOmVWyYdX2SSXoYtYr0ZaofsCDOoS"], ["created_at", "2018-11-05 02:19:31.399668"], ["updated_at", "2018-11-05 02:19:31.399668"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/searches" for 127.0.0.1 at 2018-11-04 20:25:27 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 91ms (Views: 83.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$dYzFUMH9vWqF3rO3NrK9dedmhc2hLWsww3bOzofyedyRNCi6pz60G"], ["country", "Mars"], ["session_token", "PlAfAG/cn+MJ0BtJsz2KZQ=="], ["created_at", "2018-11-05 02:25:27.439942"], ["updated_at", "2018-11-05 02:25:27.439942"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$TMw23V6RPPnDCynLujUYV.3FiGiEe9C4YjjmDWz0q146UbblUs2Ci"], ["country", "Canada"], ["session_token", "yd/u++S8ZaqiujKli7r5mw=="], ["created_at", "2018-11-05 02:25:27.495549"], ["updated_at", "2018-11-05 02:25:27.495549"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$L4Bwv0lX.g0e2Jg3z9KMHuY/./m8HlTvgQ/JsXN9OYERr/ZenHqs2"], ["country", "Rhode Island"], ["session_token", "vO0SO3uioZPjOgWn0uSXig=="], ["created_at", "2018-11-05 02:25:27.550373"], ["updated_at", "2018-11-05 02:25:27.550373"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$J1aO62G8sN.D3yETKBt29OWvYqXH0aCYPQYoIxjorS78T0uCVtxsW"], ["country", "The Moon"], ["session_token", "aCpM96WP4t913mvU8rqh3w=="], ["created_at", "2018-11-05 02:25:27.605247"], ["updated_at", "2018-11-05 02:25:27.605247"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$PIr48eDwodOkOXD7Xj/okuihGPZTVPJVg9w/oN7Zp5bVUqCLPjYc2"], ["country", "Rhode Island"], ["session_token", "B5vKF8wQ09+ZfeMR6JoP/A=="], ["created_at", "2018-11-05 02:25:27.659769"], ["updated_at", "2018-11-05 02:25:27.659769"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:27 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:25:27 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "cucumber"], ["email", "cucumber@gmail.com"], ["password", "$2a$10$vIZuNJ7jEziLkzk.VS6QWO/kLWmiAxC9OAGwmi9ac6wgtEwSCu7MW"], ["country", "Canada"], ["session_token", "YVzHrbfRe5qlhwh6Q5gxew=="], ["created_at", "2018-11-05 02:25:27.745157"], ["updated_at", "2018-11-05 02:25:27.745157"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 65ms (ActiveRecord: 0.4ms)
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:25:27 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$MpoJrA7Xbo.EX79VlFyc2OEBGv2LwJRD.0bQeqSxnDGZfW//yDnsy"], ["country", "Mars"], ["session_token", "Tk9EySLyQRvv7GN40FRoMg=="], ["created_at", "2018-11-05 02:25:27.821075"], ["updated_at", "2018-11-05 02:25:27.821075"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$jULzEad1Iqw6ZP/iXPLgWODfnfc4IREM2q52UQGeWTtw.jcagSO1y"], ["country", "Canada"], ["session_token", "1nN90O4BbpSgu8DckvmO/A=="], ["created_at", "2018-11-05 02:25:27.875654"], ["updated_at", "2018-11-05 02:25:27.875654"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$5Y3IXX1xAF/BU.iuI/bYnuiy7KzgMe8xlcnsgYri3nnQW5hKqMRYe"], ["country", "Rhode Island"], ["session_token", "tK7Kh23oh9fbyiuxjpuv9Q=="], ["created_at", "2018-11-05 02:25:27.930125"], ["updated_at", "2018-11-05 02:25:27.930125"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$wgkBmFggpIXL7wHtuEKzqe37Wi9Fr17uOs0xQRX6z77W5DSNR1.RW"], ["country", "The Moon"], ["session_token", "pKDtPZ/jSVjVUMqFmO/4uw=="], ["created_at", "2018-11-05 02:25:27.984866"], ["updated_at", "2018-11-05 02:25:27.984866"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$cA7/FoA/Pf3ffx8Y61FMMeumxRteMwViT9T8u68oSxBuskQng33YC"], ["country", "Rhode Island"], ["session_token", "r+67ssQamgJMoU0FlL+9yg=="], ["created_at", "2018-11-05 02:25:28.040013"], ["updated_at", "2018-11-05 02:25:28.040013"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"kylel", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kylel"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$ONVvjjbHFF6l09KCn22vv.wBsfbL6idsukDkbrw8w8UVxSOPoltqy"], ["country", "Mars"], ["session_token", "yZyARmX+ld87vGLpmExlMA=="], ["created_at", "2018-11-05 02:25:28.124845"], ["updated_at", "2018-11-05 02:25:28.124845"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$2d2.Wx8glP877faOm9fSB.0273v5uYHhTlf5fhzDCX409cIIx3tHO"], ["country", "Canada"], ["session_token", "bDmlU1g8pDP9PTSy5i3Whg=="], ["created_at", "2018-11-05 02:25:28.180046"], ["updated_at", "2018-11-05 02:25:28.180046"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$xsccdHo9VZzkbhbHSdml8edjLFa4pnPwZfN11je.UhGLRlrR.83gO"], ["country", "Rhode Island"], ["session_token", "LfsqvohKxuDxPsa22ViE6Q=="], ["created_at", "2018-11-05 02:25:28.234606"], ["updated_at", "2018-11-05 02:25:28.234606"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$o.2pjm8J60CIBNYuyfqp0uGTxl8knbxlNIwjw3GamTDeg6Tr4oCDO"], ["country", "The Moon"], ["session_token", "R02LEgQ3oQkzAFenstXbvg=="], ["created_at", "2018-11-05 02:25:28.289184"], ["updated_at", "2018-11-05 02:25:28.289184"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$AYO/uzXR7Tos.doa9W30l.dO2ZnkbtxADEsalov6j31q0D9.9F.o6"], ["country", "Rhode Island"], ["session_token", "F2qHV24KwleqlrmYNZKW0Q=="], ["created_at", "2018-11-05 02:25:28.344057"], ["updated_at", "2018-11-05 02:25:28.344057"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"a", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "a"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$7cgX1lBEsTsFhxHwgdmcmu.9DU2sxqKgYB1hT2mBKYxDnIQtQEF6e"], ["country", "Mars"], ["session_token", "t9o1zQHwiRAUyLBjQtItyg=="], ["created_at", "2018-11-05 02:25:28.418383"], ["updated_at", "2018-11-05 02:25:28.418383"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$ZeKHQKnIXcc/.WtDXkWLC.lHRAcOAtMnwjKQYJEwzEVu7pNRBskgq"], ["country", "Canada"], ["session_token", "XRp1WyxNL3JJAimCalb8Ag=="], ["created_at", "2018-11-05 02:25:28.473046"], ["updated_at", "2018-11-05 02:25:28.473046"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$acsDQF0Bl8/ckHrPhe9JcOIwRViOkp6fO/OsgkZhqpM9lY4mr2Nwm"], ["country", "Rhode Island"], ["session_token", "gnowwTFkURrvWpDC2cnpow=="], ["created_at", "2018-11-05 02:25:28.527604"], ["updated_at", "2018-11-05 02:25:28.527604"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$uWLFwRpuiWNAUMuOlADLCuPa.MOCG2lnCUeIBc2rR0jwlPANbFOZy"], ["country", "The Moon"], ["session_token", "gsu+xYpFXa+Kv/ICqeV5oQ=="], ["created_at", "2018-11-05 02:25:28.582641"], ["updated_at", "2018-11-05 02:25:28.582641"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$1QOgcjOYF6Zfayan47mS4OIXpOlonQxRV5ca5gXsNMU4ibd5u20C6"], ["country", "Rhode Island"], ["session_token", "xyd4PhcE/rBXYeLcpfP4wA=="], ["created_at", "2018-11-05 02:25:28.637388"], ["updated_at", "2018-11-05 02:25:28.637388"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"kyle-levy@uiowa.edu", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "cucumber"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "kyle-levy@uiowa.edu"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$LXDIjEs2Y5cfdYOBUu.6auNiUd.btEfcoB9o7Nuk8DXo/5QK.lOZ."], ["country", "Mars"], ["session_token", "mlZtnXgpQlyoTu95chIHZw=="], ["created_at", "2018-11-05 02:25:28.712690"], ["updated_at", "2018-11-05 02:25:28.712690"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$EwLgmaDFnDEOxHAZMgUKe.7fPqWjazFxKVRgz5BM6MzEZJ60gL/ma"], ["country", "Canada"], ["session_token", "UXyxrB3CEJNRzYlH/2MAfA=="], ["created_at", "2018-11-05 02:25:28.768318"], ["updated_at", "2018-11-05 02:25:28.768318"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$3h2ihfeCCeoEOx0ficpDBOBdtBknXGBCtnSAAjRKHNtHBk.6zfS.G"], ["country", "Rhode Island"], ["session_token", "BVLm+Z7ZZjQNd86RyK8nDw=="], ["created_at", "2018-11-05 02:25:28.823266"], ["updated_at", "2018-11-05 02:25:28.823266"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$sMPQ/qnwnb9P.Ij.BoQyTuV5FFy3J6KhbuXqk36Rci5WZ1P4ETc6a"], ["country", "The Moon"], ["session_token", "/qamRWHAitsRuVC1TifqpQ=="], ["created_at", "2018-11-05 02:25:28.877716"], ["updated_at", "2018-11-05 02:25:28.877716"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$SFCOs1k0TbEUEWN7jQxPIu5qlG1SRAxWd1lLjuQbzI5Mle.UnmQUK"], ["country", "Rhode Island"], ["session_token", "o9biGyLiiHs/nzUgkmUIxg=="], ["created_at", "2018-11-05 02:25:28.932332"], ["updated_at", "2018-11-05 02:25:28.932332"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"a", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "a"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:28 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$JXbkimc.CPeG.b15dT6bqukusXVVToxlE1j.fpnodwWAqyGIlyJP6"], ["country", "Mars"], ["session_token", "8kPpRcgA4HjwErFjYVLekQ=="], ["created_at", "2018-11-05 02:25:29.013412"], ["updated_at", "2018-11-05 02:25:29.013412"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$RKtNkhqwkiNNCBy/1jVDQerBW7XbY8bWxt0aGCrXv4xIlTbdr0eEW"], ["country", "Canada"], ["session_token", "6PLfgfm20myGCm8Yqm/bxQ=="], ["created_at", "2018-11-05 02:25:29.068955"], ["updated_at", "2018-11-05 02:25:29.068955"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$NxKhWCu0pd74w95fG4CSuuS3aZ60K24RHxqCxH.SX/Xbo77ZYJ6Ra"], ["country", "Rhode Island"], ["session_token", "C9CbLbtWRYzGT/e1Nw/J8A=="], ["created_at", "2018-11-05 02:25:29.123851"], ["updated_at", "2018-11-05 02:25:29.123851"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$bejD.2j831wEIs6FYQChJOgyh6INksWtsxMjhSvgbFTMIFSJ/HfkS"], ["country", "The Moon"], ["session_token", "wQFquX3am4LUM8xxj1+hhQ=="], ["created_at", "2018-11-05 02:25:29.179037"], ["updated_at", "2018-11-05 02:25:29.179037"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$eOxNcyV0voZGVjRc/rnm.OwcRgQnHWzsr62rpR583iFe1NNw4aDqi"], ["country", "Rhode Island"], ["session_token", "AfOlW815RZkiwd8c2viUzg=="], ["created_at", "2018-11-05 02:25:29.233785"], ["updated_at", "2018-11-05 02:25:29.233785"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:29 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:25:29 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:25:29 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/searches" for 127.0.0.1 at 2018-11-04 20:45:50 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 125ms (Views: 117.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$UC6q1U0ypdMquzbCUQfFUe7aEHC.394syEFv7MOOTBUkq8lj8X9fO"], ["country", "Mars"], ["session_token", "Cb3aeYjIc53qCraFPRIpZQ=="], ["created_at", "2018-11-05 02:45:50.966233"], ["updated_at", "2018-11-05 02:45:50.966233"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$fNqDm.dsKPOlfGk7g16jyufJvbvbJJ0W0RtuGbny7YGu75972j7fy"], ["country", "Canada"], ["session_token", "xR81cnwVPbCrx12Y8pOR8w=="], ["created_at", "2018-11-05 02:45:51.022496"], ["updated_at", "2018-11-05 02:45:51.022496"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$4biWdx2B.8u/ZmssGL.06.BfCXhs86bntH6DqA5dRFLVrLxYKUVxa"], ["country", "Rhode Island"], ["session_token", "BK/q9DplghDK8+1eFiK6/A=="], ["created_at", "2018-11-05 02:45:51.077643"], ["updated_at", "2018-11-05 02:45:51.077643"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$CQSY9SX7d3RMI/e4uT0RQ.tphV8UnULvphJ.O9mAR.hnySDbLD01K"], ["country", "The Moon"], ["session_token", "vE3GXhXxJV5hUHsOj4fNkg=="], ["created_at", "2018-11-05 02:45:51.132220"], ["updated_at", "2018-11-05 02:45:51.132220"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$urml8bToASjTE8mYlVqDN.vK6nE6cxaLDJTgz.mGkw9WkCI5ElAti"], ["country", "Rhode Island"], ["session_token", "5iZ0S4QpkXqpUvJof8KJ3w=="], ["created_at", "2018-11-05 02:45:51.187421"], ["updated_at", "2018-11-05 02:45:51.187421"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "cucumber"], ["email", "cucumber@gmail.com"], ["password", "$2a$10$r/OnI/sU/CYw.ISNZ9N5He5VAPD06xBJbD2PuLA82ibSYqKfYT30q"], ["country", "Canada"], ["session_token", "MGQC0Pd5oU672EKTbbM3cA=="], ["created_at", "2018-11-05 02:45:51.270904"], ["updated_at", "2018-11-05 02:45:51.270904"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 64ms (ActiveRecord: 0.3ms)
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$bniBlS7dZ0amG6TEYiK4U.jTbZZ7B7sKtEglL9t6xYjsZNAjUrn26"], ["country", "Mars"], ["session_token", "zBLF8etEXTaeycTvAiRTbQ=="], ["created_at", "2018-11-05 02:45:51.344650"], ["updated_at", "2018-11-05 02:45:51.344650"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$iHZjAYKW2XTmFQGBCrON2O9UF9I2RGUOwTgvbWBcsPY0790NO2MEO"], ["country", "Canada"], ["session_token", "3tiBKC8r/lp5ybzDN2KKlA=="], ["created_at", "2018-11-05 02:45:51.399417"], ["updated_at", "2018-11-05 02:45:51.399417"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$9jbOAPQbefANWBCjlJWy1.No4idrlgBlyUWxTTPq9.XBb.WBVIO8i"], ["country", "Rhode Island"], ["session_token", "bqQuVBygN1VCUV8enBssNg=="], ["created_at", "2018-11-05 02:45:51.453976"], ["updated_at", "2018-11-05 02:45:51.453976"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$JCdxb4WiKgeroWI2j7Hn3.LWeW/EqyZrwPLlyBWrsFBmj/h3RMcPy"], ["country", "The Moon"], ["session_token", "do91UOyJW7YwfIvq5cBxIA=="], ["created_at", "2018-11-05 02:45:51.508683"], ["updated_at", "2018-11-05 02:45:51.508683"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$kVG9kdX429KqgDv9KNIr1OFeZggGtCzgMKNYKzXkOaKZgeTSidM72"], ["country", "Rhode Island"], ["session_token", "FSE7BACEQSH+6xvEadHcGA=="], ["created_at", "2018-11-05 02:45:51.563027"], ["updated_at", "2018-11-05 02:45:51.563027"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"kylel", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kylel"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$tc06ON9nYmYvC3Jr4O7lOuzpx8bvlz0ebYGr7aRuWqdLPx93GGxs6"], ["country", "Mars"], ["session_token", "qDuNVlOr1s01L4aV+hmG5Q=="], ["created_at", "2018-11-05 02:45:51.635472"], ["updated_at", "2018-11-05 02:45:51.635472"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$TJKKmXMDnR0u0lI3prKHyOB0/80Oy7dN.0QPrX0h1NDRiyh09hGSS"], ["country", "Canada"], ["session_token", "rlqzFDer2E0V4MCRUcUi8Q=="], ["created_at", "2018-11-05 02:45:51.690750"], ["updated_at", "2018-11-05 02:45:51.690750"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$nIiwIKp0iQY3bR57QsR6j.Rfgz4craB.79SR8KrUUJA7HAejabTZS"], ["country", "Rhode Island"], ["session_token", "v6i+ZS8Q3Itnv5UfciEHPQ=="], ["created_at", "2018-11-05 02:45:51.747026"], ["updated_at", "2018-11-05 02:45:51.747026"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$zdIHBVtcDtPIo55hm3mube22GDGieiL39CGeG4racrhOOmF5G6ZB2"], ["country", "The Moon"], ["session_token", "HbwHrq2GOOI3HbPyevwvmg=="], ["created_at", "2018-11-05 02:45:51.804819"], ["updated_at", "2018-11-05 02:45:51.804819"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$lKFAJzCbyAM/9M1QRr5.supiTSXKjNzHd9L0YQYXZoXVd6zKpfPCm"], ["country", "Rhode Island"], ["session_token", "5IeajY5zMExMGSh4VMGqRA=="], ["created_at", "2018-11-05 02:45:51.861930"], ["updated_at", "2018-11-05 02:45:51.861930"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"a", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "a"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:51 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$UBMDN4LE64aOy5EBh8lBOOHqiufFHHcY5EqltWl2lKMbPI5BRcpxm"], ["country", "Mars"], ["session_token", "gf575NpLC4Pk998eoTSytw=="], ["created_at", "2018-11-05 02:45:51.936552"], ["updated_at", "2018-11-05 02:45:51.936552"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$jryXs0IniqTxsoFOzG6SJOm7sbfY.aW63DpJJLVb640MuQqCX9tY2"], ["country", "Canada"], ["session_token", "o9pa+XY6fZ1L7YqMhpogcQ=="], ["created_at", "2018-11-05 02:45:51.991369"], ["updated_at", "2018-11-05 02:45:51.991369"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$ceMogiEA8IYYS8LoEahKl.2xvNLVHGdN29FlgYpy5N3KYKXx1YtaK"], ["country", "Rhode Island"], ["session_token", "2IjM2vxztgyPTjCtDc0GoQ=="], ["created_at", "2018-11-05 02:45:52.046591"], ["updated_at", "2018-11-05 02:45:52.046591"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$yiEA3xPEfcAUDnIus9mX.eUjeCCA52s8as40yl9JUq0r4eB/hXvCO"], ["country", "The Moon"], ["session_token", "3F0tRc01r/2Q8zEHLe/bOQ=="], ["created_at", "2018-11-05 02:45:52.100935"], ["updated_at", "2018-11-05 02:45:52.100935"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$aGnjAkSAIFwK7iZQZNyLm.ovKDvpPoaNb/MLAX2jkbOljD4eP0aHG"], ["country", "Rhode Island"], ["session_token", "KoxfvwOYHg6etGOB6BkhKQ=="], ["created_at", "2018-11-05 02:45:52.156034"], ["updated_at", "2018-11-05 02:45:52.156034"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"kyle-levy@uiowa.edu", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "cucumber"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "kyle-levy@uiowa.edu"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$uJYkVg89GecbNTaani6.VO0RQF32he03RxBYtqLakcpjQfGDn5NO."], ["country", "Mars"], ["session_token", "3zi5z9p43EC/f8RLig0lXw=="], ["created_at", "2018-11-05 02:45:52.227470"], ["updated_at", "2018-11-05 02:45:52.227470"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$YMLjGrJye19kurPJxuopx.DWDit2b0HpL0.aO6q.9QbLQbN2Ky1Xi"], ["country", "Canada"], ["session_token", "KN1WA9IdXHZvYePZ5PSorw=="], ["created_at", "2018-11-05 02:45:52.282491"], ["updated_at", "2018-11-05 02:45:52.282491"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$3ubtq2FDthZ2Z3NcUBbqaeZNn5KAYL1RmyzGph9H/O6EWN/5uCRP6"], ["country", "Rhode Island"], ["session_token", "ndUaH35Hwq44ncSYMYdEZg=="], ["created_at", "2018-11-05 02:45:52.336936"], ["updated_at", "2018-11-05 02:45:52.336936"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$1Q/OwRQvwwk/r0wKrW7leejoE38KbZka5BK6z5ufJwQ6cGbfifDbG"], ["country", "The Moon"], ["session_token", "tcQMZm2ISNQWLd5/DfCiPA=="], ["created_at", "2018-11-05 02:45:52.392352"], ["updated_at", "2018-11-05 02:45:52.392352"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$ll07ITafn5ry5EPTg0CsdOvMPhwfMnBn/ksYIyEkrdncoebeBpUgS"], ["country", "Rhode Island"], ["session_token", "kS/nBS2N730lGXWDZ6ZEFA=="], ["created_at", "2018-11-05 02:45:52.446985"], ["updated_at", "2018-11-05 02:45:52.446985"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"a", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "a"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$n//U8sthfUR9bXVFWCgDZ.e72Ni6NACFyUeJrBQ573FbFtLduFr8m"], ["country", "Mars"], ["session_token", "sizL0xefJ5TYA5wL3g6qdw=="], ["created_at", "2018-11-05 02:45:52.518509"], ["updated_at", "2018-11-05 02:45:52.518509"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$5lMATJbB7OMlVs0iZ01qze15aX7mYEzoEVvYZ3KfgH/U186nkEjga"], ["country", "Canada"], ["session_token", "ElOkW6oE4GWrDkiYBbqa0Q=="], ["created_at", "2018-11-05 02:45:52.573282"], ["updated_at", "2018-11-05 02:45:52.573282"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$P9oxzP4cKB6OuA6BX5ij4ubOzQqYJMiX54DNRomfPCCs8QVkERVse"], ["country", "Rhode Island"], ["session_token", "0TRwhkAK9+x9Cfk+08IipQ=="], ["created_at", "2018-11-05 02:45:52.628099"], ["updated_at", "2018-11-05 02:45:52.628099"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$z689aPGzVO0gZCqkO9pzfeej1wfOK6R/0vWA0ihsBMrqqRUZyMydO"], ["country", "The Moon"], ["session_token", "g0ERuJDtx5pMYxmjnBHMYQ=="], ["created_at", "2018-11-05 02:45:52.683296"], ["updated_at", "2018-11-05 02:45:52.683296"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$j3xwTtASxGJwwhI1ONiXUesPjpct6cN.zVEoPZ18bHBCaMI//irCu"], ["country", "Rhode Island"], ["session_token", "fBDAJnYT5oiBpY8GMm589w=="], ["created_at", "2018-11-05 02:45:52.737936"], ["updated_at", "2018-11-05 02:45:52.737936"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:45:52 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$LO.qPW.A45c43qgbnvwS6uEfnTc/DNcC72xTAwmttCENtTnvLRH4q"], ["country", "Mars"], ["session_token", "lqRLZVR28fAorCobksHWdw=="], ["created_at", "2018-11-05 02:45:52.808409"], ["updated_at", "2018-11-05 02:45:52.808409"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$qaJAVm2nPST74t5s5QFFS.3JEjOBDUmJo6E3J5Aen4Fww53WYl.2i"], ["country", "Canada"], ["session_token", "oHiQOhGYznRF1TGdJH8mWQ=="], ["created_at", "2018-11-05 02:45:52.863607"], ["updated_at", "2018-11-05 02:45:52.863607"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$zMA7kXgchlesVipcll.F/eE2HqhlhgEGhcevUWyjPgPWPjyABcPGO"], ["country", "Rhode Island"], ["session_token", "h45BYAAProWOffYMNEpUyQ=="], ["created_at", "2018-11-05 02:45:52.918564"], ["updated_at", "2018-11-05 02:45:52.918564"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$qcB9NODljY4O8AHZ67KeneAWLj4f1n5GY1j4SjUR4PsGWyqd6ddlO"], ["country", "The Moon"], ["session_token", "yVcpUkyAo5UkAXiAsuJcow=="], ["created_at", "2018-11-05 02:45:52.973241"], ["updated_at", "2018-11-05 02:45:52.973241"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$3t6bACtPYD/vw9cKEGcTuOEOr31YW85g0/6.EjpTqxIZ3irXaVoxK"], ["country", "Rhode Island"], ["session_token", "RvQlEEzKUPSC2dgM0VywhQ=="], ["created_at", "2018-11-05 02:45:53.028920"], ["updated_at", "2018-11-05 02:45:53.028920"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:45:53 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+Started POST "/login_create" for 127.0.0.1 at 2018-11-04 20:45:53 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"kylel", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kylel"]]
+  [1m[35m (0.1ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kylel"]]
+Redirected to http://www.example.com/users/show
+Completed 302 Found in 57ms (ActiveRecord: 0.1ms)
+Started GET "/users/show" for 127.0.0.1 at 2018-11-04 20:45:53 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "lqRLZVR28fAorCobksHWdw=="]]
+  Rendered users/show.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$v6bkrvZtBSlEjp9ft64kcOM.MXw.BMwdK0KaByFefhQLFflF8EwWq"], ["country", "Mars"], ["session_token", "fyx/ei1SMRdC+maR7Fc7+A=="], ["created_at", "2018-11-05 02:45:53.158487"], ["updated_at", "2018-11-05 02:45:53.158487"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$40TusnkTP4yBIcPnsSu7CeGFtyGy7g5UNG/z7OHF5SBIBfNnweCWu"], ["country", "Canada"], ["session_token", "f6F5fjhS66tqsoR6spm92g=="], ["created_at", "2018-11-05 02:45:53.213530"], ["updated_at", "2018-11-05 02:45:53.213530"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$jLhI8Ikno2ZZH9uwxJJvEezzQolQz1ZJmQigYCPqaiMF4mF63Q4b6"], ["country", "Rhode Island"], ["session_token", "56EVIFTJc4Saq7UqB4cckA=="], ["created_at", "2018-11-05 02:45:53.268101"], ["updated_at", "2018-11-05 02:45:53.268101"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$z9U1klNa724eAUnoJp36Qe1GJm8W.sWU4noOfXXPyKPLvAJSraBK."], ["country", "The Moon"], ["session_token", "dAs6RE0+RrJJIiE0xuMToA=="], ["created_at", "2018-11-05 02:45:53.322719"], ["updated_at", "2018-11-05 02:45:53.322719"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$KENO.fMC9K8bZEhgzxDuMeOsuGfugpKAAk/5Dj8N6dLMaH2Bf/SZq"], ["country", "Rhode Island"], ["session_token", "mrEsCTut4KD/FZeTSc9Qqg=="], ["created_at", "2018-11-05 02:45:53.377429"], ["updated_at", "2018-11-05 02:45:53.377429"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:45:53 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started POST "/login_create" for 127.0.0.1 at 2018-11-04 20:45:53 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"afdasdfas", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "afdasdfas"]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:45:53 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/searches" for 127.0.0.1 at 2018-11-04 20:47:45 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 129ms (Views: 121.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$/Ezp.zMqOAUb9ffXQiz8oOHeCeM7n/BhaEJiGcuMUm684NjLzL3ki"], ["country", "Mars"], ["session_token", "M+ct494QTz8G0k+DQky+ug=="], ["created_at", "2018-11-05 02:47:45.746755"], ["updated_at", "2018-11-05 02:47:45.746755"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$EbVAZKZIBVrTaSjSoVH2gOSCjK/Fxw7v5mat2oN3pKjM87yTE/apW"], ["country", "Canada"], ["session_token", "e6Clpw/3Qj0R8jgsmgp0uw=="], ["created_at", "2018-11-05 02:47:45.802681"], ["updated_at", "2018-11-05 02:47:45.802681"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$kp0bnX4/tSy0OdzC0yyv6uKSh.lobLSVRRY949lQr8N.M4OgW553K"], ["country", "Rhode Island"], ["session_token", "rcr6QNvwE4Rd3/J+5o1f7g=="], ["created_at", "2018-11-05 02:47:45.859049"], ["updated_at", "2018-11-05 02:47:45.859049"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$FY/vU3qr52Acac5MmnTeBuasyb8PMWg5Rbzfj7RDb4NAGeZGEjbQS"], ["country", "The Moon"], ["session_token", "NOPNAvO9+5m3SzB0K33KIw=="], ["created_at", "2018-11-05 02:47:45.914205"], ["updated_at", "2018-11-05 02:47:45.914205"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$tzhRLUioGYGXUQ2GPu.MLOlpCAI.vncFTcOzUH4NhRKhcFRyjMen6"], ["country", "Rhode Island"], ["session_token", "mLBuynL9sGOKqh7EwYX1ag=="], ["created_at", "2018-11-05 02:47:45.969337"], ["updated_at", "2018-11-05 02:47:45.969337"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:45 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:47:45 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "cucumber"], ["email", "cucumber@gmail.com"], ["password", "$2a$10$CuNxBCIufTtSvJx8hFfeeuyBrXBNcf.69iEYS5veIdWf4WxozBGyq"], ["country", "Canada"], ["session_token", "fZk9uQkBK1oEPViaeAZaiw=="], ["created_at", "2018-11-05 02:47:46.056780"], ["updated_at", "2018-11-05 02:47:46.056780"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 65ms (ActiveRecord: 0.3ms)
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$stWQ81uxBFmvda0GNHC7KeCKWAXQRdGpVIyQDtMl2s6soMGk4yaYK"], ["country", "Mars"], ["session_token", "6a9YRGL8eWJWT96S1WN7Fw=="], ["created_at", "2018-11-05 02:47:46.138742"], ["updated_at", "2018-11-05 02:47:46.138742"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$DScOktElEBUZBG9uDScOyOepahl8jQ/QBVwD4EnB9akq2WMQENOx6"], ["country", "Canada"], ["session_token", "faS9fMsmcqo867b6DNZaLw=="], ["created_at", "2018-11-05 02:47:46.193636"], ["updated_at", "2018-11-05 02:47:46.193636"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$zzPrMH6g/rA/G8J.tytey.qvCYqqtQGiJ5RjcCkR1YlJydprUFjRK"], ["country", "Rhode Island"], ["session_token", "ofpPbQVivMUW9qds7G7h2w=="], ["created_at", "2018-11-05 02:47:46.248139"], ["updated_at", "2018-11-05 02:47:46.248139"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$Yi40fCbMrlyNRxJNmhRAaOaAuFyBH7ZvUNrO2jf0I.wAtU8kQdg5C"], ["country", "The Moon"], ["session_token", "WDz3dAP0xaByeo2WAIAQyg=="], ["created_at", "2018-11-05 02:47:46.303428"], ["updated_at", "2018-11-05 02:47:46.303428"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$tAOHeKRtAGkM41.gucVZT.QrrYYRD0foDiZiY4MHiL18ERuJfhMIi"], ["country", "Rhode Island"], ["session_token", "kf7M8AvSE8JfyMKGf37hnw=="], ["created_at", "2018-11-05 02:47:46.358174"], ["updated_at", "2018-11-05 02:47:46.358174"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"kylel", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kylel"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$naPcsAUtzTBIUc8YoVvqq.X7XhwTQZzZUTfHas4/hqbPovr96z6DW"], ["country", "Mars"], ["session_token", "RmNyJPqPfJFUvbxaRIdt2Q=="], ["created_at", "2018-11-05 02:47:46.431000"], ["updated_at", "2018-11-05 02:47:46.431000"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$opmLW1m1QKjx/06wFenFMuBgz.78WdzfreFG1mAY8T07vDj8XVYgy"], ["country", "Canada"], ["session_token", "39Do0PBGLQophP2o77+NyQ=="], ["created_at", "2018-11-05 02:47:46.485770"], ["updated_at", "2018-11-05 02:47:46.485770"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$mD/7WSwjCQQpTjnVdh87DOzQ3ZIZXlvHUsIjxiPUIhxkcHV3F9tUa"], ["country", "Rhode Island"], ["session_token", "Wp2T6yfcxuBSyO49AcYk0g=="], ["created_at", "2018-11-05 02:47:46.540700"], ["updated_at", "2018-11-05 02:47:46.540700"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$/HIifOP7c0mYhxE.EMujQ.WRHvOj2ifR574WLjJRN9a5wyrreDExm"], ["country", "The Moon"], ["session_token", "27ghRm+d+IbXsItJUr5Aeg=="], ["created_at", "2018-11-05 02:47:46.595476"], ["updated_at", "2018-11-05 02:47:46.595476"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$ya3K8g6xDCgw14LzhdVJ1uV0xru15JIpw9u8wLg6afw.WlLNwIOPu"], ["country", "Rhode Island"], ["session_token", "WCNkKpFRaoKrTwrGl37OoQ=="], ["created_at", "2018-11-05 02:47:46.650726"], ["updated_at", "2018-11-05 02:47:46.650726"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"a", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "a"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "cucumber@gmail.com"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$oz6azirnPg5Xtewo63ebz./eHw3zmkNx65Ft0CliLhoXfBV7/hCKC"], ["country", "Mars"], ["session_token", "lUfFE+QhnpqoM80Oinf88w=="], ["created_at", "2018-11-05 02:47:46.723724"], ["updated_at", "2018-11-05 02:47:46.723724"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$q09ISPngGEyQPFo/zlZBXOlkAbwFYLaR2bNzT8ELf6Up6jrrsHdN6"], ["country", "Canada"], ["session_token", "vu3R0+XK7dIK8S/qxFSZgA=="], ["created_at", "2018-11-05 02:47:46.778687"], ["updated_at", "2018-11-05 02:47:46.778687"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$EWQZykqlE9z8jvn..7bWk.OCcde4BJZtAU6olrqngzo4t2OCy9aK."], ["country", "Rhode Island"], ["session_token", "GXemeSARZm9+4nDkXhHidg=="], ["created_at", "2018-11-05 02:47:46.833579"], ["updated_at", "2018-11-05 02:47:46.833579"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$Jgk.zSHtXbIFNHOys9S/t.hUTurVY2u9IBP1IpVulTJf/7jWFAX5m"], ["country", "The Moon"], ["session_token", "fHDYsBBDGE1g+RlqC1KmRA=="], ["created_at", "2018-11-05 02:47:46.889553"], ["updated_at", "2018-11-05 02:47:46.889553"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$wqJh5auJYaD4ZOU.3ourieBM4h7oxdupYBEbcDxIqeyFvGVhvr9UG"], ["country", "Rhode Island"], ["session_token", "HXC5BwyhDhHhNXpHiTNV4Q=="], ["created_at", "2018-11-05 02:47:46.944902"], ["updated_at", "2018-11-05 02:47:46.944902"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"kyle-levy@uiowa.edu", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "cucumber"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "kyle-levy@uiowa.edu"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$JdgozJmdDbPT4kYydZaSCuExbNvm/YTUsI3hnTjx50YO5eZVH7zKe"], ["country", "Mars"], ["session_token", "koeTIm3mDWaYdZNqCp/CFQ=="], ["created_at", "2018-11-05 02:47:47.018554"], ["updated_at", "2018-11-05 02:47:47.018554"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$6xIAwDQdRWlX0Uu/kJmtQuma9NZ9/oG4b/M9pzWiS0c7zsDvyzGJK"], ["country", "Canada"], ["session_token", "sNz1UH6jIDpNQIpvMQxnsQ=="], ["created_at", "2018-11-05 02:47:47.073990"], ["updated_at", "2018-11-05 02:47:47.073990"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$iN5SyDtwzodcPECRV7o5SuY8SP0Mw/ekX/F4DL/Nb7I4aVBbi4NLy"], ["country", "Rhode Island"], ["session_token", "n75CQ9Cqcbf2xnXk/KHqLQ=="], ["created_at", "2018-11-05 02:47:47.128845"], ["updated_at", "2018-11-05 02:47:47.128845"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$aC66QXeI6C8CtJPALxOUl.LCIYsN353/fc8TbOVgzKceWaLVUzo12"], ["country", "The Moon"], ["session_token", "nnL8xGcHs2KQ3ZJ2xF1JCQ=="], ["created_at", "2018-11-05 02:47:47.183710"], ["updated_at", "2018-11-05 02:47:47.183710"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$awjlUbnG0EYYzMxHnpDP/O7HoDWtgKAjEaC7zKcKu3oRR0Z.D0/xm"], ["country", "Rhode Island"], ["session_token", "J4GaB7hIlC85VxP36AZjjw=="], ["created_at", "2018-11-05 02:47:47.239015"], ["updated_at", "2018-11-05 02:47:47.239015"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"a", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cucumber"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "a"]]
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$.AVvpTc17xib2GtKyGOxjuD7058ed5VwJgIjBYo8ImGhToAU2KZv6"], ["country", "Mars"], ["session_token", "bhKGOgMDIiSIzxCBUyxVCg=="], ["created_at", "2018-11-05 02:47:47.311817"], ["updated_at", "2018-11-05 02:47:47.311817"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$SiogDvKZLYaQvxOq8tMlCOoGCUkkN7/eBwzaOSDsdQvCY7aunVtWa"], ["country", "Canada"], ["session_token", "s8Ey8SmacGJrrnzeHzyfUw=="], ["created_at", "2018-11-05 02:47:47.367279"], ["updated_at", "2018-11-05 02:47:47.367279"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$oihwQTmhxBM6FhLadAG5/ed7bI.A8IN0MQhtJ4ohtVyZ4RPCPo52G"], ["country", "Rhode Island"], ["session_token", "gfSvW7BTfeVSpX2dm/NfPg=="], ["created_at", "2018-11-05 02:47:47.422106"], ["updated_at", "2018-11-05 02:47:47.422106"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$Ij3G0cdvLrQl3FSR1eWwrOXxYk//31LQCOMeKwFJiMi2/g4eY5T.K"], ["country", "The Moon"], ["session_token", "46bH03cW2mAYs3ZglfvbXQ=="], ["created_at", "2018-11-05 02:47:47.477625"], ["updated_at", "2018-11-05 02:47:47.477625"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$Hl57i.bFJo4F5yi.yx63Ku.x5AE2Exx4vWykhKHKnYyWUk6aDzt92"], ["country", "Rhode Island"], ["session_token", "2dI3PuurVZHKnvFRsArdFA=="], ["created_at", "2018-11-05 02:47:47.532437"], ["updated_at", "2018-11-05 02:47:47.532437"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"cucumber", "email"=>"cucumber@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+Redirected to http://www.example.com/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$Nj0RftOrL1MSEK0k8ZrDuejCcRFTfGFDeOTefZTeGLD6S.Okg92w2"], ["country", "Mars"], ["session_token", "N2J5+dUv9q/3B1mnqlcgeg=="], ["created_at", "2018-11-05 02:47:47.604897"], ["updated_at", "2018-11-05 02:47:47.604897"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$t799ywuXTvvbvOQUe0f4we2EbtwQJyEj7Uk3BIz1b9y.BgoLaCc6G"], ["country", "Canada"], ["session_token", "5JpT4C58jqGRzFnvJ2ZCIw=="], ["created_at", "2018-11-05 02:47:47.660934"], ["updated_at", "2018-11-05 02:47:47.660934"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$OvXcArC7/LMd4Ci7fC79uukw0YXTbnevm0Ou7ApRAU.XDNVz8WVW6"], ["country", "Rhode Island"], ["session_token", "/3ioktWpjrQnqg9Fj2lD/Q=="], ["created_at", "2018-11-05 02:47:47.715952"], ["updated_at", "2018-11-05 02:47:47.715952"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$3YR6w4404t1Uby1I7A2F1.96O3JWcVRN80oDVu4PuAAkL.pe7c46a"], ["country", "The Moon"], ["session_token", "zrxIuquSW+jfDKSDrHTyXA=="], ["created_at", "2018-11-05 02:47:47.771018"], ["updated_at", "2018-11-05 02:47:47.771018"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$RhYKtBBGoTGvzt0D8rNn1eWPfCKoWifRuLciCnD794yr7WIqpp/c2"], ["country", "Rhode Island"], ["session_token", "AzXJcxDsZxovhW90/eEGMA=="], ["created_at", "2018-11-05 02:47:47.826099"], ["updated_at", "2018-11-05 02:47:47.826099"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started POST "/login_create" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"kylel", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kylel"]]
+  [1m[35m (0.1ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kylel"]]
+Redirected to http://www.example.com/users/show
+Completed 302 Found in 58ms (ActiveRecord: 0.1ms)
+Started GET "/users/show" for 127.0.0.1 at 2018-11-04 20:47:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "N2J5+dUv9q/3B1mnqlcgeg=="]]
+  Rendered users/show.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kylel"], ["email", "kyle-levy@uiowa.edu"], ["password", "$2a$10$iGOdSF82Quhm20B5mk6XbeqiFPgyiAe/kwUCUZmi/HuVcB6P5RGku"], ["country", "Mars"], ["session_token", "CkkMZhv26buhQrD9eRiIoQ=="], ["created_at", "2018-11-05 02:47:47.961039"], ["updated_at", "2018-11-05 02:47:47.961039"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "markusd"], ["email", "markus-drealan@uiowa.edu"], ["password", "$2a$10$tJwDPIjEScKXwWM2cKMjn.tckm/1rpu1LO8tJ8vHTgmXrSM0rraqu"], ["country", "Canada"], ["session_token", "5NxCX3atofZRWNham2aXMw=="], ["created_at", "2018-11-05 02:47:48.018201"], ["updated_at", "2018-11-05 02:47:48.018201"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "kyled"], ["email", "kyle-dorcey@uiowa.edu"], ["password", "$2a$10$ZIUbZgc3OOWyq5kL/aQf1e2lnn8RreDeA7zKYqcESrdLbQIexDW2e"], ["country", "Rhode Island"], ["session_token", "4+Om9p5Mrtuk0ixEejZxng=="], ["created_at", "2018-11-05 02:47:48.073644"], ["updated_at", "2018-11-05 02:47:48.073644"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evanm"], ["email", "evan-meyer@uiowa.edu"], ["password", "$2a$10$Gs8ReyxDKoaXnvyrm35Xo.JUK.EjjzN/WiDpghnVHKlpAsFKirk.K"], ["country", "The Moon"], ["session_token", "qPuBR/ldG19iF57J5kusRg=="], ["created_at", "2018-11-05 02:47:48.128305"], ["updated_at", "2018-11-05 02:47:48.128305"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "darreng"], ["email", "darren-goh@uiowa.edu"], ["password", "$2a$10$zvb0/D7CpWrrTBICrhcM.uhOCeJxAC1yA4cGvpGrZ0FthKfr5Mu6q"], ["country", "Rhode Island"], ["session_token", "K/7wX+yHfoAy0jQL9/VWpA=="], ["created_at", "2018-11-05 02:47:48.182972"], ["updated_at", "2018-11-05 02:47:48.182972"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:47:48 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+Started POST "/login_create" for 127.0.0.1 at 2018-11-04 20:47:48 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"user_name"=>"afdasdfas", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "afdasdfas"]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2018-11-04 20:47:48 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
