@@ -4,7 +4,7 @@ require 'rails_helper'
 describe SearchesController do
   describe 'searching a keyword' do
     it 'should call the model method that performs Twitter search' do
-      fake_results = dobule('Integer')
+      fake_results = double('Integer')
       expect(Searches).to receive(:gather_tweets).with('Ruby', :time => '2').
         and_return(fake_results)
       post :gather_tweets, {:search_term => 'Ruby', :time => '2'}
