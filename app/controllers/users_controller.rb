@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+#test
 
   end
 
