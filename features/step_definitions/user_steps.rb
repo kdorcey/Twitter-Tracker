@@ -31,3 +31,21 @@ Then /^The login page should welcome user "(.*?)"$/ do |user_name|
   welcome_message = page.find("#notice").text
   welcome_message.should == "New Account Created! Welcome, #{user_name} - Enjoy your stay. :D"
 end
+
+When /^I have search a term "(.*?)" in the "(.*?)"$/ do |title, time|
+  visit searches_path
+  fill_in 'Keyword', :with => title
+  select time, :from => 'Time'
+  click_button 'Search'
+end
+
+Then /^I should see a search list entry with title "(.*?)" and the number of times tweeted in a time frame$/ do |title|
+  result=false
+  all("tr").each do |tr|
+    if tr.has_content?(title)
+      result = true
+      break
+    end
+  end
+  expect(result).to be_truthy
+end
