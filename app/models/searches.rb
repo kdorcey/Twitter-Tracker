@@ -6,6 +6,11 @@ class Searches < ActiveRecord::Base
     Searches.create!(hash_of_search)
   end
 
+  #this probably needs some security
+  def self.get_saved
+
+  end
+
   def self.test_functionality
     client = Searches.authenticate
     client.update("I'm tweeting with ABC!")

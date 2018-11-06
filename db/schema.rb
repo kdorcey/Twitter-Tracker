@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181103172647) do
+ActiveRecord::Schema.define(version: 20181105223550) do
 
   create_table "searches", force: :cascade do |t|
     t.integer  "user_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20181103172647) do
     t.string   "number_of_tweets"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "saved"
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,6 +13,26 @@
 
   = submit_tag 'Search'
 
+%h1 Current Search
+%table
+  %thead
+    %tr
+      %th Search Term
+      %th From
+      %th To
+      %th Number of Associated Tweets
+  %tbody
+    -#this will probably be problematic with multiple users but for now it's aight
+    - if !@user_searches.nil?
+      - if !@current_user.nil? && Searches.last.user_id == @current_user.id
+        %tr
+          %td= Searches.last.search_term
+          %td= Searches.last.from_date
+          %td= Searches.last.to_date
+          %td= Searches.last.number_of_tweets
+          %td= button_tag "save topic", :id => "button_#{Searches.last}"
+
+
 %h1 Past Searches
 
 %table
@@ -23,13 +43,18 @@
       %th To
       %th Number of Associated Tweets
   %tbody
-    - if !@user_searches.nil?
+    -# this should also be handled by the controller but since
+    -# this is just a place holder for the graphs it's aight
+    - if !@user_searches.nil? && !@current_user.nil?
       - @user_searches.each do |search|
-        %tr
-          %td= search.search_term
-          %td= search.from_date
-          %td= search.to_date
-          %td= search.number_of_tweets
+        - if search.user_id == @current_user.id
+          %tr
+            %td= search.search_term
+            %td= search.from_date
+            %td= search.to_date
+            %td= search.number_of_tweets
+
+
 
 %h1 Popular search terms
 
