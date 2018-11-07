@@ -18,15 +18,12 @@ class SearchesController < ApplicationController
 
   def save_topic
     if !@current_user.nil?
-      #to_save = {}
-      puts "mopooopopopo"
       to_save = Searches.update_table.last
       puts to_save.saved
       to_save.update(saved: true)
       Searches.update_table
-      @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
 
-      redirect_to users_get_saved_topics_path
+      redirect_to user_path(@current_user.id)
     else
       flash[:notice] = "You are not logged in"
       redirect_to searches_path
