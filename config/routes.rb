@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
   resources :searches
 
-    match '/searches_create', to: 'searches#create', via: :post
-    match '/searches', to: 'searches#index', via: :get
+  match '/searches_create', to: 'searches#create', via: :post
+  match '/searches', to: 'searches#index', via: :get
+  match '/searches_save_topic', to: 'searches#save_topic', via: :post
 
   #post 'users/home', to: 'users#home'
   # match 'users/home', to: 'users#home', via: :show
