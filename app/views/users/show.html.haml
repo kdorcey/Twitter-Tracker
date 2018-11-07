@@ -24,6 +24,14 @@
       %th Additional Details
       %th Delete Term
   %tbody
+    -#this will probably be problematic with multiple users but for now it's aight
+    - if !@user_saved_topics.nil?
+      - @user_saved_topics.each do |print|
+        %tr
+          %td= print.search_term
+          %td= print.from_date
+          %td= print.to_date
+          %td= print.number_of_tweets
 
 
 %h1 Search Term History

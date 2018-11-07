@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   match '/searches_create', to: 'searches#create', via: :post
   match '/searches', to: 'searches#index', via: :get
   match '/searches_save_topic', to: 'searches#save_topic', via: :post
+  match '/users_get_saved_topics', to: 'users#get_saved_topics', via: :get, as: :users_get_saved_topics
 
   #post 'users/home', to: 'users#home'
   # match 'users/home', to: 'users#home', via: :show

@@ -12,6 +12,19 @@ class UsersController < ApplicationController
 
   end
 
+  def index
+    @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+    puts "owowoowow"
+    puts @user_saved_topics.nil?
+  end
+
+  def get_saved_topics
+    @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+    puts "owowoowow"
+    puts @user_saved_topics.nil?
+    redirect_to user_path(@current_user.id)
+  end
+
 
   def new
     #this just renders the sign up page.
