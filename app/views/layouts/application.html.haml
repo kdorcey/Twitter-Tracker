@@ -12,6 +12,7 @@
       = button_to 'Sign up/Login', login_path, :method => :get, :id => 'signupLogin'
     - else
       = button_to 'Logout', logout_path, :method => :delete, :id => 'logout'
+      = link_to 'Return to Homepage', user_path(@current_user.id)
 
     #main
       - if flash[:notice]

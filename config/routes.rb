@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-    match 'users/show', to: 'users#show', via: :show
+  match 'users/show', to: 'users#show', via: :show
 
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post

@@ -6,6 +6,10 @@ class SearchesController < ApplicationController
     params.require(:searches).permit(:search_term, :time)
   end
 
+  def user_search
+    @current_search =Searches.last
+  end
+
   def index
     @user_searches = {}
     @user_searches = Searches.update_table

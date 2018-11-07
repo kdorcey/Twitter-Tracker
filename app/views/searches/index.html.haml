@@ -24,13 +24,13 @@
   %tbody
     -#this will probably be problematic with multiple users but for now it's aight
     - if !@user_searches.nil?
-      - if !@current_user.nil? && Searches.last.user_id == @current_user.id
+      - if !@current_user.nil? && @user_searches.last.user_id == @current_user.id
         %tr
-          %td= Searches.last.search_term
-          %td= Searches.last.from_date
-          %td= Searches.last.to_date
-          %td= Searches.last.number_of_tweets
-          %td= button_tag "save topic", :id => "button_#{Searches.last}"
+          %td= @user_searches.last.search_term
+          %td= @user_searches.last.from_date
+          %td= @user_searches.last.to_date
+          %td= @user_searches.last.number_of_tweets
+          %td= button_to "save topic", :id => "button_#{@user_searches.last}"
 
 
 %h1 Past Searches
