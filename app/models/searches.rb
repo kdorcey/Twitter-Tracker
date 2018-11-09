@@ -3,7 +3,7 @@ class Searches < ActiveRecord::Base
   belongs_to :user
 
   def self.create_search!(hash_of_search)
-    Searches.create!(hash_of_search)
+    search = Searches.create!(hash_of_search)
   end
 
   #this probably needs some security

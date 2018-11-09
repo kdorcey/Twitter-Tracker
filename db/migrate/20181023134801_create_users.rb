@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string 'session_token'
       t.string 'search_inputs'
+      t.string 'current_search'
       # Add fields that let Rails automatically keep track
       # of when movies are added or modified:
       t.timestamps
