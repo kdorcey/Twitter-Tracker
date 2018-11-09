@@ -10888,3 +10888,248 @@ Processing by UsersController#show as HTML
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
   Rendered users/show.html.haml within layouts/application (10.6ms)
 Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:50:56 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (7.1ms)
+Completed 200 OK in 32ms (Views: 26.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-07 01:50:57 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0JEJr/z8tPb2CwVft/hiiSSRG+1qE4P7jtQUE8ByjIziqsB63/mwSPzS/9pWuFF7mY0WgL611BbjRx0QaWXWAg==", "commit"=>"Save Topic"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users_get_saved_topics
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users_get_saved_topics" for 127.0.0.1 at 2018-11-07 01:50:57 -0600
+Processing by UsersController#get_saved_topics as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-07 01:50:57 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  Rendered users/show.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:55:10 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 36ms (Views: 25.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-07 01:55:11 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9wCvRnHGyJnhr+RC62PrahY9fubgMwSPdqgEDlQx7yzFO2aTUsPMJ+t2HscKI9iYqyFzizSVU2IbOw0N/Sa1og==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-07 01:55:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 4], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-07 01:55:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 4], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.7ms)
+Completed 200 OK in 36ms (Views: 24.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:55:31 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-07 01:55:32 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gH/4/RU994DF/AMUNtndGsAa4oh4+t63N4wqWTJ2VXSyRDEoNjjzPs8l+ZHXme7ofQbv5axciVpaHyNam2EP+g==", "commit"=>"Save Topic"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-07 01:55:32 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 4], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.9ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-07 01:56:10 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 4], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.6ms)
+Completed 200 OK in 35ms (Views: 24.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:56:12 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-07 01:56:13 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vwv/atZgbOgvrjafa5nTH+HtL/FRu5tRMt5bBRttcAtlMDa/9WVoViV3zBqK2eDtXPEinIUdzLxfTVIGsnoqhQ==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-07 01:56:13 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "RMScU4I2h1b4CR9Rdnk9Dw=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 4], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.6ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-07 01:56:43 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QfAONm9Q0BS97ly4xgpTZ13SD5JFiyffx1/Mjjfxxllzy8fjTFXUqrc3pj0nSmCV4M4C/5EtcDKqzMWNnuac1w=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-07 01:56:43 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-07 01:56:44 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-07 01:56:47 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"76HW6p/cuYFW3ZzqmWjjyBYVCQtWY+Vfix9skT53AG/dmh8/vNm9P1wEZm94KNA6qwkEZoLFsrLmjGWSl2Ba4Q==", "user"=>{"user_name"=>"cat", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "cat"]]
+  [1m[35m (0.2ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "cat"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 58ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-07 01:56:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 7], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 26ms (Views: 21.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:56:49 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-07 01:56:51 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f6KAnc5kbSqF3wQbY4hq+WUvDN+LN+H5DRRIg4G6SthNmUlI7WFplI8G/p6CyFkL2DMBsl+RthRgh0GAKK0QVg==", "searches"=>{"search_term"=>"rat"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "saved", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 7], ["search_term", "rat"], ["from_date", "2018-11-06"], ["to_date", "2018-11-7"], ["number_of_tweets", "15"], ["saved", "f"], ["created_at", "2018-11-07 07:56:52.307270"], ["updated_at", "2018-11-07 07:56:52.307270"]]
+  [1m[36m (11.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches
+Completed 302 Found in 589ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:56:52 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-07 01:56:53 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZfwOArfp7nuVnzB6kp8KDDwaHB9FM5je/5SVhOuJN7hXx8fXlOzqxZ9Gyv9z3zn+gQYRcpGVzzOSB5yHQp5tNg==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "searches" SET "saved" = ?, "updated_at" = ? WHERE "searches"."id" = ?  [["saved", "t"], ["updated_at", "2018-11-07 07:56:53.470189"], ["id", 63]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 18ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2018-11-07 01:56:53 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 7], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.1ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-07 01:56:55 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2018-11-07 01:56:56 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "FTAb1GSoDJr3nIrFhRPlpg=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 7], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.8ms)
