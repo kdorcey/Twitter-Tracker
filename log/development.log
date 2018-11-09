@@ -13213,3 +13213,260 @@ Processing by SearchesController#display as HTML
   Rendered searches/display.html.haml within layouts/application (0.5ms)
 Completed 200 OK in 16ms (Views: 11.1ms | ActiveRecord: 0.1ms)
 >>>>>>> HistorySetup
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 11:55:24 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "Ex1kFngykIeu2ZpoyEgaqQ=="]]
+  Rendered searches/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 167ms (Views: 131.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-09 11:55:25 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-09 11:55:25 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 11:55:27 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-09 11:55:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R/THhLeOvjSmkbkrFHL8WcdmDeEqqtxEdM6NIE8uQ3GRBfPZLa9A3q2PlzDCCKKtWLOQn+6Xv8/+2Hk91DYNCQ==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "evan"]]
+  [1m[35m (0.1ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "evan"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 83ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-09 11:55:30 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  Rendered users/show.html.haml within layouts/application (12.6ms)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-09 11:55:32 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  [1m[36mSearches Load (0.6ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (11.2ms)
+Completed 200 OK in 26ms (Views: 22.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-09 11:55:38 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JmYgdZCHeyP5rRc6wgMzomOmHO17aHgIRireFFCE2CjwlxQoCqaFyfKzOSEUeW1W/HOBk79VG4PMPCoJy5yWUA==", "searches"=>{"search_term"=>"Kanye"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "Kanye"], ["from_date", "2018-11-08"], ["to_date", "2018-11-9"], ["number_of_tweets", "15"], ["created_at", "2018-11-09 17:55:38.870658"], ["updated_at", "2018-11-09 17:55:38.870658"]]
+  [1m[36m (8.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 641ms (ActiveRecord: 8.9ms)
+
+NoMethodError (undefined method `current_search=' for #<User:0x00007f358c6e9308>):
+  app/controllers/searches_controller.rb:59:in `create'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (43.9ms)
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (8.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20181023134801)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/markus/RubymineProjects/selt18project-g005/db/migrate/20181023134801_create_users.rb:15)
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "email" varchar, "password" varchar, "country" varchar, "session_token" varchar, "search_inputs" varchar, "current_search" varchar, "created_at" datetime, "updated_at" datetime) 
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/markus/RubymineProjects/selt18project-g005/db/migrate/20181023134801_create_users.rb:24)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "searches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "search_term" varchar, "from_date" varchar, "to_date" varchar, "number_of_tweets" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181023134801"]]
+  [1m[36m (9.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSearches (20181103172647)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181103172647"]]
+  [1m[35m (6.9ms)[0m  commit transaction
+Migrating to AddSavedTopics (20181105223550)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "searches" ADD "saved" boolean
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181105223550"]]
+  [1m[36m (6.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.1ms)[0m  [1mDROP TABLE "searches"[0m
+  [1m[35m (7.7ms)[0m  CREATE TABLE "searches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "search_term" varchar, "from_date" varchar, "to_date" varchar, "number_of_tweets" varchar, "created_at" datetime, "updated_at" datetime, "saved" boolean) 
+  [1m[36m (6.9ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (7.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "email" varchar, "password" varchar, "country" varchar, "session_token" varchar, "search_inputs" varchar, "current_search" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.2ms)[0m  CREATE TABLE "searches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "search_term" varchar, "from_date" varchar, "to_date" varchar, "number_of_tweets" varchar, "created_at" datetime, "updated_at" datetime, "saved" boolean) 
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "email" varchar, "password" varchar, "country" varchar, "session_token" varchar, "search_inputs" varchar, "current_search" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (9.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (9.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181105223550')
+  [1m[36m (9.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181103172647')[0m
+  [1m[35m (7.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181023134801')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "search_inputs", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "Kyle"], ["email", "kylekyle@gmail.com"], ["password", "lmaopasswordsaredumb"], ["country", "United States"], ["search_inputs", "[]"], ["created_at", "2018-11-09 17:57:37.010990"], ["updated_at", "2018-11-09 17:57:37.010990"]]
+  [1m[35m (7.7ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 11:58:08 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  Rendered searches/index.html.haml within layouts/application (11.6ms)
+Completed 200 OK in 152ms (Views: 133.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 11:58:11 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-09 11:58:14 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fg5NWle6p7Ocwce4zFfSTYHVVzLcEuf7fP1lVpS7yKvA/3kHzZtZWZff6aMaLYy5HgDKTBgvhHD265FLD6OG0w==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "evan"]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 10ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 11:58:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-11-09 11:58:16 -0600
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"I8yUc2eFRn2TQML3X2v3oJZw95FpLc/7EN2S8kubhiP1PaAu/aS4l5he7OyJEalUCaVq760QrHCay2bv0IPIWw=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  Rendered users/new.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-09 11:58:25 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U7c8eR2RIKeEANUEEJqo5pWBA26soLrV9nnhnWJPQMWFRggkh7DeTY8e+x/G4PYSClSeEGid2V58bxWA+VcOvQ==", "user"=>{"user_name"=>"evan", "email"=>"evan@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "3PeokHpEFW2Wrhdkye71Fg=="]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "evan"]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "evan@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evan"], ["email", "evan@gmail.com"], ["password", "$2a$10$C/2FnggKeH54NrfmSFkk7eoxuHrsKJ9xjyKoBA8DTidOq8EeTTiJW"], ["country", "Canada"], ["session_token", "upd7Az44n4I6w2ZO+oBg5A=="], ["created_at", "2018-11-09 17:58:25.932580"], ["updated_at", "2018-11-09 17:58:25.932580"]]
+  [1m[35m (7.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/login
+Completed 302 Found in 133ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 11:58:25 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-09 11:58:29 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nGLp+9E1bkKyKY00yozQNdxOJPRZh0OdtkfwQmdzlmdKk92mSxSQqLk3oy8c9o7BQ5u5ip26IBY8UQRf/GvYHw==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "evan"]]
+  [1m[35m (0.2ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "evan"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 75ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-09 11:58:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (11.9ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-09 11:58:30 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-09 11:58:32 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e4nD7EETK8U8EUcBqAlVLcJZFi96GxjwB8SgvNi+lHStePex2zLVLzcPaRp+cwvZXYyLUb4me3uN0lShQ6baDA==", "searches"=>{"search_term"=>"bob"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "bob"], ["from_date", "2018-11-08"], ["to_date", "2018-11-9"], ["number_of_tweets", "15"], ["created_at", "2018-11-09 17:58:33.367417"], ["updated_at", "2018-11-09 17:58:33.367417"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "1"], ["updated_at", "2018-11-09 17:58:33.379309"], ["id", 2]]
+  [1m[35m (6.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=bob&to_date=2018-11-9&user_id=2
+Completed 302 Found in 767ms (ActiveRecord: 16.7ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=bob&to_date=2018-11-9&user_id=2" for 127.0.0.1 at 2018-11-09 11:58:33 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"15", "search_term"=>"bob", "to_date"=>"2018-11-9", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered searches/display.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-09 11:58:36 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZXPewSlP+hItvIOk+dtxYhCV3v94ZDE0YPVecpiWIwGzguqcs24E+Cairb8voS+Wj0BDgbxZUr/q46pvA45teQ==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "searches" SET "saved" = ?, "updated_at" = ? WHERE "searches"."id" = ?  [["saved", "t"], ["updated_at", "2018-11-09 17:58:36.948501"], ["id", 1]]
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 12ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-09 11:58:36 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (11.3ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-09 11:58:38 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-09 11:58:44 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CZ3lzSFWhYTyWIlngI3LFDlrAlnh9YoLuRTC8to1jwLfbNGQu3d7bvlGp3xW95Xgpr6fJyXI6YAzAjbvQS3Beg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 11:58:44 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
