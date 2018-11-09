@@ -39,19 +39,14 @@ class SearchesController < ApplicationController
       redirect_to searches_path
     else
       if @current_user != nil
-        now = DateTime.now
-        year = now.year.to_s
-        day = now.day.to_s
-        month = now.month.to_s
-        date = year + '-' + month + '-' + day
-        from_day = now.day - params[:time].to_i
-        from_date = year + '-' + month + '-' + '0' + from_day.to_s
-        @count = Searches.gather_tweets(searches_params[:search_term].to_s, from_date, date)
+        now = Date.today
+        from_date = now - params[:time].to_i
+        @count = Searches.gather_tweets(searches_params[:search_term].to_s, from_date.to_s, now.to_s)
         search_hash = {}
         search_hash[:user_id] = @current_user.id
         search_hash[:search_term] = searches_params[:search_term].to_s
         search_hash[:from_date] = from_date
-        search_hash[:to_date] = date
+        search_hash[:to_date] = now
         search_hash[:number_of_tweets] = @count
         search_hash[:saved] = false
 
