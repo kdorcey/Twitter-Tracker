@@ -19,7 +19,6 @@ class SearchesController < ApplicationController
   def save_topic
     if !@current_user.nil?
       to_save = Searches.update_table.last
-      puts to_save.saved
       to_save.update(saved: true)
       Searches.update_table
 
@@ -53,10 +52,13 @@ class SearchesController < ApplicationController
         search_hash[:from_date] = from_date
         search_hash[:to_date] = date
         search_hash[:number_of_tweets] = @count
-        search_hash[:saved] = false
+       # search_hash[:saved] = false
 
-        Searches.create_search!(search_hash)
-        redirect_to searches_path
+        new_search = Searches.create_search!(search_hash)
+
+        @current_user.current_search=new_search.id #Set users current search to the search they just made
+        @current_user.save
+        redirect_to searches_display_path(search_hash)
       else
         flash[:notice] = "Nah homie, gotta make an account first."
         redirect_to root_path
@@ -67,6 +69,17 @@ class SearchesController < ApplicationController
 
   end
 
+  def display
+    if !@current_user.current_search.nil?
+    @curr_view_search = Searches.find_by_id(@current_user.current_search)
+    else
+      flash[:notice] = "Hmm - Looks like you don't have any search..."
+    end
+   # @user_searches = Searches.update_table
   end
+
+
+
+end
 end
 
