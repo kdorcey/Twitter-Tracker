@@ -13470,3 +13470,852 @@ Started GET "/" for 127.0.0.1 at 2018-11-09 11:58:44 -0600
 Processing by SearchesController#index as HTML
   Rendered searches/index.html.haml within layouts/application (0.9ms)
 Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 19:19:12 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (20.6ms)
+Completed 200 OK in 1237ms (Views: 1217.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for ::1 at 2018-11-09 19:19:14 -0600
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for ::1 at 2018-11-09 19:19:14 -0600
+
+
+Started GET "/login" for ::1 at 2018-11-09 19:19:18 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (11.5ms)
+Completed 200 OK in 60ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for ::1 at 2018-11-09 19:19:24 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/c3DOTqgsB4BGos4FOvwx417U4Mt8YKMdh3kKN0qWrBD1ulgbXe5TFDyzfE/PRo8+J0o3+KPCgyF7Z1zWmcNuQ==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "evan"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "evan"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 109ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for ::1 at 2018-11-09 19:19:24 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (19.3ms)
+Completed 200 OK in 42ms (Views: 30.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 19:19:29 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 19:19:45 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fp5VulWidBF6BWscSrKKCXXPo4O8+dVdz3H7LadRD4+ohX/jAnV9QyvtLdVhZGDyACnY33OHXd08gYJ2IBxYhg==", "searches"=>{"search_term"=>"Evan Meyer"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "Evan Meyer"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "4"], ["created_at", "2018-11-10 01:19:45.266792"], ["updated_at", "2018-11-10 01:19:45.266792"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "2"], ["updated_at", "2018-11-10 01:19:45.270824"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=4&search_term=Evan+Meyer&to_date=2018-11-09&user_id=2
+Completed 302 Found in 231ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=4&search_term=Evan+Meyer&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 19:19:45 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"4", "search_term"=>"Evan Meyer", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.8ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered searches/display.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 41ms (Views: 37.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/searches_save_topic" for ::1 at 2018-11-09 19:19:51 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sBPQVHedktuyE5peqcw5jsJKkeOKSCOkRc+sRzCChN4OCPoNIEqbieP73JeCGtN1t6zqv0U2qyS2P9Uct8/T1w==", "commit"=>"Save Topic"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "searches" SET "saved" = ?, "updated_at" = ? WHERE "searches"."id" = ?[0m  [["saved", "t"], ["updated_at", "2018-11-10 01:19:51.875631"], ["id", 2]]
+  [1m[35m (2.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 9ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 19:19:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (18.4ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 19:19:53 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 19:20:00 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d5eWjngBi1mfGhbDow6U3q/KdOeryjK3SVEoyc/d/dbJjLzXL9aCC87yUAqI2H4l2iwPu2S0uje6oVGSSJCq3w==", "searches"=>{"search_term"=>"Evan Meyer"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "Evan Meyer"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "4"], ["created_at", "2018-11-10 01:20:00.982611"], ["updated_at", "2018-11-10 01:20:00.982611"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "3"], ["updated_at", "2018-11-10 01:20:00.987072"], ["id", 2]]
+  [1m[35m (5.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=4&search_term=Evan+Meyer&to_date=2018-11-09&user_id=2
+Completed 302 Found in 239ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=4&search_term=Evan+Meyer&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 19:20:00 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"4", "search_term"=>"Evan Meyer", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 19:20:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 19:20:04 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:23:55 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oiopZtKo2hYyDFA1v/SqHQBBVAvGO5jpxioyublHcWYcMQM/hX/TRGPkFvyUIkDmdacvVwlFEGk12kviPgombw==", "searches"=>{"search_term"=>"Evan Meyer"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed   in 36949ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:25:06 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (16.4ms)
+Completed 200 OK in 349ms (Views: 314.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:25:13 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dRVlzgEyGt1W6JDkAl8cjDLwWXDuuHMJvRlbifgDah7LDk+XVuUTjwcA1i0pifZ3RxYiLCHG+4lO6SLSf049Fw==", "searches"=>{"search_term"=>"Kanye"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed   in 445391ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:34:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (17.2ms)
+Completed 200 OK in 375ms (Views: 332.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:35:00 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E4XsPszQdycapEBPfOwOm/QIIg29HJ8PxjxfQljrH0StnsZnmwd+dUtMBoZXOuRgge5ZUXJiF481zCYZ36ZITQ==", "searches"=>{"search_term"=>"NBC"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed   in 156773ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:40:58 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (18.4ms)
+Completed 200 OK in 367ms (Views: 334.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:41:11 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YiqO9vjSBeGIFUrp+jhxgOSuvFfzRKrqu4ytZFl1Su/cMaSvrwUMs9n9DCDR7pt7kUjHCzw6ImpIfNQ/3jgd5g==", "searches"=>{"search_term"=>"Kyle"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed   in 30483ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:44:26 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (17.3ms)
+Completed 200 OK in 343ms (Views: 308.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:44:35 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OfUPHblN43WHMPaBKmB0FBPcU0m1628qBnLdethTS2WH7iVE7prqJ9bYsEgBtp7vZjooFXqV56r1gqQhXx4cbA==", "searches"=>{"search_term"=>"MSNBC"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "MSNBC"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "15"], ["created_at", "2018-11-10 02:44:36.134019"], ["updated_at", "2018-11-10 02:44:36.134019"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "4"], ["updated_at", "2018-11-10 02:44:36.138994"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=MSNBC&to_date=2018-11-09&user_id=2
+Completed 302 Found in 593ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=MSNBC&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 20:44:36 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"15", "search_term"=>"MSNBC", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered searches/display.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 29ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:45:33 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 34ms (Views: 23.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:45:38 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GOk6ODCJ6byn4ENExVy58jQaH/lvz+p+KCdvr6l4q8ym8hBhZ17g7vYIBY3uilMJQfxkpaCxYv7b1xb0LjX8xQ==", "searches"=>{"search_term"=>"Kobe"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "Kobe"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "15"], ["created_at", "2018-11-10 02:45:38.667506"], ["updated_at", "2018-11-10 02:45:38.667506"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "5"], ["updated_at", "2018-11-10 02:45:38.672282"], ["id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=Kobe&to_date=2018-11-09&user_id=2
+Completed 302 Found in 559ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=Kobe&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 20:45:38 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"15", "search_term"=>"Kobe", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered searches/display.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:48:43 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 43ms (Views: 28.5ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:48:50 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wit2tjDYq38y05KuOB19NXU2dstoDH+Uiu3OFaX5i5F8MFzvZw+iLWM71GcTy5fOANANl6dy9xR5HbdOIrTcmA==", "searches"=>{"search_term"=>"LeBron"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed 500 Internal Server Error in 764ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `[]' for 2018-11-08 23:59:58 UTC:Time):
+  app/models/searches.rb:39:in `block in gather_tweets'
+  app/models/searches.rb:37:in `collect'
+  app/models/searches.rb:37:in `each'
+  app/models/searches.rb:37:in `gather_tweets'
+  app/controllers/searches_controller.rb:43:in `create'
+
+
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.1ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (104.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (226.6ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:49:50 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 37ms (Views: 26.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:49:59 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P9MG35irY0YTpKt1dG/SOxmKuzGT9VSpY1WvhcgSwb2ByCyGz3xqFEJM7bxfuTjAbGzAbVyL3CmQpdbeT1+WtA==", "searches"=>{"search_term"=>"Bees"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed 500 Internal Server Error in 463ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/models/searches.rb:41:in `block in gather_tweets'
+  app/models/searches.rb:37:in `collect'
+  app/models/searches.rb:37:in `each'
+  app/models/searches.rb:37:in `gather_tweets'
+  app/controllers/searches_controller.rb:43:in `create'
+
+
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.9ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (93.2ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (201.3ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:53:13 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (7.1ms)
+Completed 200 OK in 42ms (Views: 30.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:53:18 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ns2x3B1bQvav++9nvaH2q9mLzQ0j5zYwO3rXvB7Y8O8g1puFSoxLpP4Tqa6WdxxQrG22UeyZvrDIiq7nmZWn5g==", "searches"=>{"search_term"=>"Gator"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed 500 Internal Server Error in 480ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/models/searches.rb:42:in `block in gather_tweets'
+  app/models/searches.rb:37:in `collect'
+  app/models/searches.rb:37:in `each'
+  app/models/searches.rb:37:in `gather_tweets'
+  app/controllers/searches_controller.rb:43:in `create'
+
+
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (105.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (85.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (196.8ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 20:53:44 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (6.8ms)
+Completed 200 OK in 44ms (Views: 30.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 20:53:50 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jyM2eGHEQkJYKoatd62JGwXiHuhBoubP0uNl5HAm/hgxOBwhNhNLEAnCwGRce2PgcARltI7cbk8hExy/92upEQ==", "searches"=>{"search_term"=>"Swamp"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "Swamp"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "15"], ["created_at", "2018-11-10 02:53:50.530963"], ["updated_at", "2018-11-10 02:53:50.530963"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "6"], ["updated_at", "2018-11-10 02:53:50.535470"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=Swamp&to_date=2018-11-09&user_id=2
+Completed 302 Found in 521ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=Swamp&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 20:53:50 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"15", "search_term"=>"Swamp", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 21:04:06 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:04:10 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzWSvbzMANcmnPgi/Ulm4PpN21e/ru9QzAinjWfSqlPZLrjk6xsJhXd0vuvWn4wbj6ugC3DQZ9A/+N7W4J/9Wg==", "searches"=>{"search_term"=>"Evan Meyer"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "Evan Meyer"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "4"], ["created_at", "2018-11-10 03:04:11.189336"], ["updated_at", "2018-11-10 03:04:11.189336"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "7"], ["updated_at", "2018-11-10 03:04:11.194174"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=4&search_term=Evan+Meyer&to_date=2018-11-09&user_id=2
+Completed 302 Found in 234ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=4&search_term=Evan+Meyer&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:04:11 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"4", "search_term"=>"Evan Meyer", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered searches/display.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:14:55 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (13.3ms)
+Completed 200 OK in 37ms (Views: 25.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:14:56 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:15:04 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k30Y/GLVwJLyMzuQKyOXvOI49e1TNVsNIhzoJRpuISstZjKlNQLJwKPbfVkA9X1Hl96OsZxL043R7JF+nSN2Ig==", "searches"=>{"search_term"=>"Bulls"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "Bulls"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "15"], ["created_at", "2018-11-10 03:15:05.136083"], ["updated_at", "2018-11-10 03:15:05.136083"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "8"], ["updated_at", "2018-11-10 03:15:05.140516"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=Bulls&to_date=2018-11-09&user_id=2
+Completed 302 Found in 671ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=15&search_term=Bulls&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:15:05 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"15", "search_term"=>"Bulls", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:15:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 31ms (Views: 18.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:15:48 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:15:52 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HDvlspB5yzM717y13uh8n+KfXVyaWbXfnj+cBzC1gMCiIM/rx67CYWo/+nz1PpZkl3kmAFUnPV9tz+Vct/jXyQ==", "searches"=>{"search_term"=>"Levy"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "Levy"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "40"], ["created_at", "2018-11-10 03:15:53.331858"], ["updated_at", "2018-11-10 03:15:53.331858"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "9"], ["updated_at", "2018-11-10 03:15:53.336508"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=40&search_term=Levy&to_date=2018-11-09&user_id=2
+Completed 302 Found in 752ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=40&search_term=Levy&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:15:53 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"40", "search_term"=>"Levy", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 9]]
+  Rendered searches/display.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:18:45 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 30ms (Views: 19.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:18:46 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (7.5ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:18:54 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LfTkpYv4d6CDlqKOWVEDq0thkg75Ri+PhrJFd+aH2iKT78783C9+8tJ+5Edyh+lQPofpUjY4pw91QjwsYcqNKw==", "searches"=>{"search_term"=>"Beethoven"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+Completed 500 Internal Server Error in 543ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `pust' for #<Class:0x00007fa666f7b8e0>
+Did you mean?  puts):
+  app/models/searches.rb:39:in `block in gather_tweets'
+  app/models/searches.rb:37:in `collect'
+  app/models/searches.rb:37:in `each'
+  app/models/searches.rb:37:in `gather_tweets'
+  app/controllers/searches_controller.rb:43:in `create'
+
+
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (96.7ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (85.7ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (193.5ms)
+
+
+Started GET "/" for ::1 at 2018-11-09 21:19:08 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (6.1ms)
+Completed 200 OK in 37ms (Views: 26.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:19:13 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BICeR4rR6RdiS4tQBnDKQWymuRrRUqq7Q7xSAG1woWO6m7Qe3QbgRTOjzZktpiC6GUDCRh4sIjuwTCtb6j32ag==", "searches"=>{"search_term"=>"Beethoven"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "Beethoven"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "40"], ["created_at", "2018-11-10 03:19:14.527445"], ["updated_at", "2018-11-10 03:19:14.527445"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "10"], ["updated_at", "2018-11-10 03:19:14.531850"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=40&search_term=Beethoven&to_date=2018-11-09&user_id=2
+Completed 302 Found in 804ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=40&search_term=Beethoven&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:19:14 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"40", "search_term"=>"Beethoven", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered searches/display.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:20:37 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (10.1ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:20:39 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:21:04 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pU5+22ugUIrC7coPNgTAtPIFMgCA5+L1JtJX7ZP58OcbVVSCPHdZ2JMFjMYd0ipPh+NJXE+ZanXVIi62FLSn7g==", "searches"=>{"search_term"=>"hot dogs"}, "time"=>"7", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "hot dogs"], ["from_date", "2018-11-02"], ["to_date", "2018-11-09"], ["number_of_tweets", "40"], ["created_at", "2018-11-10 03:21:04.682861"], ["updated_at", "2018-11-10 03:21:04.682861"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "11"], ["updated_at", "2018-11-10 03:21:04.686882"], ["id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-02&number_of_tweets=40&search_term=hot+dogs&to_date=2018-11-09&user_id=2
+Completed 302 Found in 501ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/searches_display?from_date=2018-11-02&number_of_tweets=40&search_term=hot+dogs&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:21:04 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-02", "number_of_tweets"=>"40", "search_term"=>"hot dogs", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered searches/display.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:21:40 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (8.6ms)
+Completed 200 OK in 30ms (Views: 19.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:21:41 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (8.7ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:21:47 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9U1gc6DuyTg7Ql8rw0ZSRgu8nRtnJub47DRA6+cv4U1zh/YmVSydrEFT7WE2/OybciJKKLiExsQQKhYKNHojA==", "searches"=>{"search_term"=>"catdog"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "catdog"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "100"], ["created_at", "2018-11-10 03:21:48.298550"], ["updated_at", "2018-11-10 03:21:48.298550"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "12"], ["updated_at", "2018-11-10 03:21:48.303260"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=100&search_term=catdog&to_date=2018-11-09&user_id=2
+Completed 302 Found in 921ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=100&search_term=catdog&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:21:48 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"100", "search_term"=>"catdog", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:22:05 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:22:07 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:22:15 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VodDYFUvWAsOSFb3Kc2yx1zXI0kZ0wHMqfxVbK9VbPfonGk5AvhRWV+gED4CG1g8KTFYFdatiUxaDCw3KBg7/g==", "searches"=>{"search_term"=>"stimpy"}, "time"=>"7", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "stimpy"], ["from_date", "2018-11-02"], ["to_date", "2018-11-09"], ["number_of_tweets", "92"], ["created_at", "2018-11-10 03:22:16.312370"], ["updated_at", "2018-11-10 03:22:16.312370"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "13"], ["updated_at", "2018-11-10 03:22:16.316565"], ["id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-02&number_of_tweets=92&search_term=stimpy&to_date=2018-11-09&user_id=2
+Completed 302 Found in 472ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/searches_display?from_date=2018-11-02&number_of_tweets=92&search_term=stimpy&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:22:16 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-02", "number_of_tweets"=>"92", "search_term"=>"stimpy", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:24:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:24:52 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:24:56 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ujcQ2/82i5evYJs1NMBUfZthnCJfT4vgxNfbsrAJgRkELDqCqOGCxf6I3fwfFr6G7ofnfpAxA2A3J6LpN0TWEA==", "searches"=>{"search_term"=>"woodpecker"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "woodpecker"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "100"], ["created_at", "2018-11-10 03:24:56.612079"], ["updated_at", "2018-11-10 03:24:56.612079"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "14"], ["updated_at", "2018-11-10 03:24:56.616440"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=100&search_term=woodpecker&to_date=2018-11-09&user_id=2
+Completed 302 Found in 488ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=100&search_term=woodpecker&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:24:56 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"100", "search_term"=>"woodpecker", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 14]]
+  Rendered searches/display.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:25:13 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (12.2ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:25:15 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:25:38 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ATb3haaUgVPwRkFG4NyFTcs9TMreZUuXIG2GJqXDVfa/Ld3c8UOIAaGuB4/LCm+2vts3lhEbwxfTnf99Io4C/w==", "searches"=>{"search_term"=>"stimpy"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "stimpy"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "92"], ["created_at", "2018-11-10 03:25:39.298397"], ["updated_at", "2018-11-10 03:25:39.298397"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "15"], ["updated_at", "2018-11-10 03:25:39.302958"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=92&search_term=stimpy&to_date=2018-11-09&user_id=2
+Completed 302 Found in 472ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=92&search_term=stimpy&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:25:39 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"92", "search_term"=>"stimpy", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:26:58 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:26:59 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:27:02 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vuc10bkpWG1nGKXVP94T35N8dxKkWlnl8UjcgLMqPZXo/B+I7v5RPzbw4xwUCPkk5poMTmsk0WUCuKXbNGdqnA==", "searches"=>{"search_term"=>"CNN"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "CNN"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "1000"], ["created_at", "2018-11-10 03:27:09.250241"], ["updated_at", "2018-11-10 03:27:09.250241"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "16"], ["updated_at", "2018-11-10 03:27:09.254971"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=1000&search_term=CNN&to_date=2018-11-09&user_id=2
+Completed 302 Found in 6684ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=1000&search_term=CNN&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:27:09 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"1000", "search_term"=>"CNN", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered searches/display.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2018-11-09 21:29:08 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  Rendered users/show.html.haml within layouts/application (12.9ms)
+Completed 200 OK in 40ms (Views: 25.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/searches" for ::1 at 2018-11-09 21:29:09 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for ::1 at 2018-11-09 21:29:22 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LxpScWPt72gQOwO3awIuS5oulUnahDLOTJjn7gyvG5SRAXgoNDrmOkHTRX5A1MSw78juFRX6uk6/aJ61i+JMnQ==", "searches"=>{"search_term"=>"Shrek"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["search_term", "Shrek"], ["from_date", "2018-11-08"], ["to_date", "2018-11-09"], ["number_of_tweets", "1000"], ["created_at", "2018-11-10 03:29:27.979794"], ["updated_at", "2018-11-10 03:29:27.979794"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "17"], ["updated_at", "2018-11-10 03:29:27.989043"], ["id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?from_date=2018-11-08&number_of_tweets=1000&search_term=Shrek&to_date=2018-11-09&user_id=2
+Completed 302 Found in 5439ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/searches_display?from_date=2018-11-08&number_of_tweets=1000&search_term=Shrek&to_date=2018-11-09&user_id=2" for ::1 at 2018-11-09 21:29:27 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"from_date"=>"2018-11-08", "number_of_tweets"=>"1000", "search_term"=>"Shrek", "to_date"=>"2018-11-09", "user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "upd7Az44n4I6w2ZO+oBg5A=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 17]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms)
