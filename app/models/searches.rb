@@ -46,7 +46,7 @@ class Searches < ActiveRecord::Base
 
     puts date_hash
 
-    return count
+    return count, date_hash
   end
 
   def self.tweets_for_graph(query, from, to)
