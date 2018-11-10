@@ -54,7 +54,7 @@ class SearchesController < ApplicationController
 
         @current_user.current_search=new_search.id #Set users current search to the search they just made
         @current_user.save
-        redirect_to searches_display_path(search_hash)
+        redirect_to searches_display_path(:search_hash => search_hash)
       else
         flash[:notice] = "Nah homie, gotta make an account first."
         redirect_to root_path
@@ -66,6 +66,8 @@ class SearchesController < ApplicationController
   end
 
   def display
+    @search_info = params[:search_hash]
+
     if !@current_user.current_search.nil?
     @curr_view_search = Searches.find_by_id(@current_user.current_search)
     else
