@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20181105223550) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "saved"
+    t.string   "country"
   end
 
   create_table "users", force: :cascade do |t|

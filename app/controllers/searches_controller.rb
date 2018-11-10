@@ -47,6 +47,7 @@ class SearchesController < ApplicationController
         search_hash[:from_date] = from_date
         search_hash[:to_date] = now
         search_hash[:number_of_tweets] = @count
+        search_hash[:country] = @current_user.country
        # search_hash[:saved] = false
 
         new_search = Searches.create_search!(search_hash)

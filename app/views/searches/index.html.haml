@@ -36,7 +36,7 @@
 
 
 
-%h1 Popular search terms
+%h1 Popular search terms in your country
 
 %table#popular
   %thead
@@ -46,6 +46,14 @@
       %th Search Date
       %th Additional Details
   %tbody
+    - if !@current_user.nil?
+      - @user_searches.each do |search|
+        - if search.country == @current_user.country
+          %tr
+            %td= search.search_term
+            %td= search.country
+            %td= search.to_date
+            %td= search.number_of_tweets
 
 
 
