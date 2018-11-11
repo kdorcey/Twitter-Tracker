@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
     puts @user_saved_topics.nil?
+    @user_saved_topics = nil
   end
 
   def index
