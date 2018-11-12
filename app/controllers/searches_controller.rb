@@ -52,6 +52,8 @@ class SearchesController < ApplicationController
 
         new_search = Searches.create_search!(search_hash)
 
+        search_hash[:graph_data] = @date_hash.to_json
+
         @current_user.current_search=new_search.id #Set users current search to the search they just made
         @current_user.save
         redirect_to searches_display_path(:search_hash => search_hash)
@@ -67,7 +69,7 @@ class SearchesController < ApplicationController
 
   def display
     @search_info = params[:search_hash]
-
+    @graph_data = @search_info[:graph_data]
     if !@current_user.current_search.nil?
     @curr_view_search = Searches.find_by_id(@current_user.current_search)
     else
