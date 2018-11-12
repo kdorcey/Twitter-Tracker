@@ -40,13 +40,13 @@ class SearchesController < ApplicationController
       if @current_user != nil
         now = Date.today
         from_date = now - params[:time].to_i
-        @count, @date_hash = Searches.gather_tweets(searches_params[:search_term].to_s, from_date.to_s, now.to_s)
+        @date_hash = Searches.gather_tweets(searches_params[:search_term].to_s, from_date.to_s, now.to_s)
         search_hash = {}
         search_hash[:user_id] = @current_user.id
         search_hash[:search_term] = searches_params[:search_term].to_s
         search_hash[:from_date] = from_date
         search_hash[:to_date] = now
-        search_hash[:number_of_tweets] = @count
+        search_hash[:number_of_tweets] = 0
         search_hash[:country] = @current_user.country
        # search_hash[:saved] = false
 
