@@ -15,12 +15,12 @@
         %td= @curr_view_search.from_date
         %td= @curr_view_search.to_date
         %td= @curr_view_search.number_of_tweets
-        %td= @graph_data
-#graph{:style => "width:600px;height:250px;"}
+  %br
+  #graph{:style => "width:600px;height:250px;"}
 
   =submit_tag 'Save Topic', :method => :save_topic
 
-  = content_tag 'div', '', id: 'data', data: {key1: @graph_data, key2: 'val2'}
+  = content_tag 'div', '', id: 'data', data: {key1: @graph_data }
 
 
 :javascript

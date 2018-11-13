@@ -23,7 +23,7 @@ class Searches < ActiveRecord::Base
     from_int = from[-2,2].to_i
     to_int = to[-2,2].to_i
     date_vals = {}
-
+    total_count = 0
     #I'm dumb and got my prefixes and suffixes confused. Just flip them (ie: prefixes are at the end)
     # Initialize the hash
     for i in from_int..to_int do
@@ -31,7 +31,6 @@ class Searches < ActiveRecord::Base
       if prefix.size != 2
         prefix = "0"+prefix
       end
-      temp = date_suffix + prefix
 
       date_vals[date_suffix+prefix] = 0
     end
@@ -41,6 +40,7 @@ class Searches < ActiveRecord::Base
       tweet_date = tweet.created_at.to_s[0,10]
       #makes sure the date is within the desired range
       if date_vals.key?(tweet_date)
+        total_count += 1
         date_vals[tweet_date] += 1
       end
     end
@@ -52,7 +52,7 @@ class Searches < ActiveRecord::Base
       to_return<<{"date"=> date, "value"=>count}
     end
 
-    return to_return
+    return total_count, to_return
   end
 
   def self.tweets_for_graph(query, from, to)
