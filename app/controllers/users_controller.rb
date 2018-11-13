@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
-    puts @user_saved_topics.nil?
-    @user_saved_topics = nil
+    #array of search hashes.
+    @graph_data = User.get_history(@current_user.id)
   end
 
   def index
