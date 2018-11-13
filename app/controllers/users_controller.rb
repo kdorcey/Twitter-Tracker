@@ -8,10 +8,14 @@ class UsersController < ApplicationController
   end
 
   def show
-#test
-
+    @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+    #array of search hashes.
+    @graph_data = User.get_history(@current_user.id)
   end
 
+  def index
+
+  end
 
   def new
     #this just renders the sign up page.

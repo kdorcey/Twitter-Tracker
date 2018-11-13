@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-    match 'users/show', to: 'users#show', via: :show
+  match 'users/show', to: 'users#show', via: :show
 
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post
@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
   resources :searches
 
-    match '/searches_create', to: 'searches#create', via: :post
-    match '/searches', to: 'searches#index', via: :get
+  match '/searches_create', to: 'searches#create', via: :post
+  match '/searches', to: 'searches#index', via: :get
+  match '/searches_save_topic', to: 'searches#save_topic', via: :post
+  match '/searches_display', to: 'searches#display', via: :get
 
   #post 'users/home', to: 'users#home'
   # match 'users/home', to: 'users#home', via: :show

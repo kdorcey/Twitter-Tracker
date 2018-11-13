@@ -48,6 +48,23 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
+
+table#saved_searches {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#saved_searches th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: green;
+}
+table#saved_searches th, table#saved_searches td {
+  padding: 4px;
+  text-align: left;
+}
+
 table#history {
   margin: 10px;
   border-collapse: collapse;

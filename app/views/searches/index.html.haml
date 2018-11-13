@@ -1,4 +1,3 @@
-
 %body
   %h1.title Welcome to the main page of The Emotions of Twitter! Enjoy!
 
@@ -13,41 +12,71 @@
 
   = submit_tag 'Search'
 
-%h1 Past Searches
-
-%table
-  %thead
-    %tr
-      %th Search Term
-      %th From
-      %th To
-      %th Number of Associated Tweets
-  %tbody
-    - if !@user_searches.nil?
-      - @user_searches.each do |search|
+%section#searches
+  #past_search
+    %h1 Past Searches
+    %table
+      %thead
         %tr
-          %td= search.search_term
-          %td= search.from_date
-          %td= search.to_date
-          %td= search.number_of_tweets
+          %th Search Term
+          %th From
+          %th To
+          %th Number of Associated Tweets
+      %tbody
+        -# this should also be handled by the controller but since
+        -# this is just a place holder for the graphs it's aight
+        - if !@user_searches.nil? && !@current_user.nil?
+          - @user_searches.each do |search|
+            - if search.user_id == @current_user.id
+              %tr
+                %td= search.search_term
+                %td= search.from_date
+                %td= search.to_date
+                %td= search.number_of_tweets
+  #popular_search
+    %h1 Popular search terms in your country
+    %table#popular
+      %thead
+        %tr
+          %th Search Term
+          %th Geographical Restriction
+          %th Search Date
+          %th Additional Details
+      %tbody
+        - if !@current_user.nil?
+          - @user_searches.each do |search|
+            - if search.country == @current_user.country
+              %tr
+                %td= search.search_term
+                %td= search.country
+                %td= search.to_date
+                %td= search.number_of_tweets
 
-%h1 Popular search terms
-
-%table#popular
-  %thead
-    %tr
-      %th Search Term
-      %th Geographical Restriction
-      %th Search Date
-      %th Additional Details
-  %tbody
 
 
+#main
+  - if flash[:notice]
+    #notice.flashMessage= flash[:notice]
+  - elsif flash[:warning]
+    #warning.message= flash[:warning]
 
-    #main
-      - if flash[:notice]
-        #notice.flashMessage= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
+  = yield
 
-      = yield
+:css
+  #searches {
+      width: 100%;
+      margin: auto;
+      padding: 10px;
+  }
+  #past_search {
+      width: 50%;
+      float: left;
+      border-right-style: solid;
+      border-width: 0 .5px 0 0;
+  }
+  #popular_search {
+      margin-left: 50%;
+      border-left-style: solid;
+      border-width: 0 0 0 .5px;
+  }
+
