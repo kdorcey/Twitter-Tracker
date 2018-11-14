@@ -54,7 +54,8 @@ class User < ActiveRecord::Base
 
   def self.get_history(user_id)
     user_history = Searches.where(user_id: user_id)
-
+    
+    if !user_history.empty?
     test1 = user_history[0]
 
     test_to = test1.from_date
@@ -66,6 +67,10 @@ class User < ActiveRecord::Base
 
     final_hash = [ [{"date"=>test_from, "value"=>fake_from_data}, {"date"=>test_to, "value"=>fake_to_data}], [{"date"=>"2018-11-11", "value"=>1} ,{"date"=>"2018-11-12", "value"=>2}] ]
     return final_hash
+    else
+      return nil
+    end
+
 
   end
 

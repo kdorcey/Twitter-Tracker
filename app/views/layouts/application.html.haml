@@ -8,17 +8,25 @@
     = csrf_meta_tags
 
   %body
-    %h1.title The Emotions of Twitter!
-    - if !@current_user
-      = button_to 'Sign up/Login', login_path, :method => :get, :id => 'signupLogin'
-    - else
-      = button_to 'Logout', logout_path, :method => :delete, :id => 'logout'
-      = link_to 'Return to Homepage', user_path(@current_user.id)
+    %header
+      #navContainer
+        %h1.title The Emotions of Twitter!
+        %nav
+          %ul#navBarList
+            %li
+              = link_to 'Main Page', root_path
+            - if !@current_user
+              %li
+                = link_to 'Sign up/Login', login_path, :method => :get, :id => 'userLogging'
+            - else
+              %li
+                - profile_string = @current_user.user_name + "'s Profile"
+                = link_to profile_string, user_path(@current_user.id)
+              %li
+                = link_to 'Logout', logout_path, :method => :delete, :id => 'userLogging'
+
+
+
 
     #main
-      - if flash[:notice]
-        #notice.flashMessage= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-
       = yield

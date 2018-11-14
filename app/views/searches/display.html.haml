@@ -33,7 +33,7 @@
     var y_vals = new Array();
 
     //Array of all traces
-    var data_arr = new Array();
+
 
     //Iterate over the JSON and push the elements into appropriate arrays
     var i;
@@ -48,7 +48,7 @@
     y: y_vals,
     mode: 'lines+markers'};
 
-
+      var data_arr = new Array();
      data_arr.push(trace);
 
     Plotly.plot(graph, data_arr);

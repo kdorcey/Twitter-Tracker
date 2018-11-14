@@ -902,3 +902,2760 @@ Processing by SearchesController#display as HTML
   [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 18]]
   Rendered searches/display.html.haml within layouts/application (0.5ms)
 Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 11:51:48 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (11.3ms)
+Completed 200 OK in 298ms (Views: 282.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-13 11:51:58 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-13 11:52:07 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vnDrNq5IxNgFZ+/w8XpMA1m4Y9AMROOZwXtxPCqA9IOGP4ocLlbAJ4M/lIUBMHlHT38//wziiuIuzbZsnptSUg==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "kyle"]]
+  [1m[36m (0.8ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 103ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-13 11:52:07 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (12.4ms)
+Completed 200 OK in 34ms (Views: 20.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-13 11:52:13 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (21.1ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:01:24 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (13.1ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:01:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:48 -0600
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:01:49 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:49 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:49 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:49 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:01:49 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (10.8ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:48 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:49 -0600
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:03:49 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:49 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:49 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:49 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:03:50 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (9.8ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:48 -0600
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:04:49 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:49 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:49 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:49 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:04:49 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:33 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:34 -0600
+
+
+Started GET "/assets/application.self-a69a6c67568fbeaf83611c15b6bf88ce895c8b34517822e67e23952164c6e98b.css?body=1" for 127.0.0.1 at 2018-11-13 12:07:34 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:34 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:34 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:34 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:34 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:07:35 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 12:08:18 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.6ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 12:08:20 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 12:08:22 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:08:25 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (13.7ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (21.4ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:52 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:53 -0600
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-13 12:08:53 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:53 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:53 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:53 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:53 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:08:54 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  Rendered users/show.html.haml within layouts/application (13.6ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:00 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:01 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:01 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:01 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:01 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:01 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-13 12:14:01 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:47:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (9.8ms)
+Completed 200 OK in 266ms (Views: 255.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:47:54 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:47:54 -0600
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-14 09:48:07 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/J/7LTCJInlB9UQo+bs01MEFJM7mgcCZ26NcT8fFpbvRlcmZ4TpR5RqV4BrrWrL/cTe0d1QFr1Kj0etPzJagNg==", "searches"=>{"search_term"=>"dogs"}, "time"=>"3", "commit"=>"Search"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:48:07 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 09:48:10 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-11-14 09:48:13 -0600
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"o5T2HRsapZuynwSiUTmkHE2wyW3C5YgM2iE+v4SM9TKOnsSpyqnWB+n/oJBD2CI3/YJZ1HBh58eiU4m/j9/wvw=="}
+  Rendered users/new.html.haml within layouts/application (12.2ms)
+Completed 200 OK in 32ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-14 09:48:19 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z2oPGpm/uh7J/2bTa70gRs1hJKPsOQk6HOGNbH6+Es1KYD2uSAzJgpKfwuF5XKZtfVO0Gl69ZvFkkzpsde0XQA==", "user"=>{"user_name"=>"kyle", "email"=>"kyle@gg.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 40ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-11-14 09:48:19 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 09:48:22 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 09:48:25 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZdlVrZTdgyK+W0c0D925wyReB7wzHytoRsslBu3+7rlI02cZRW7wvuU74wYdPD/olGyXBYGbRKM+uZIG5q3rNA==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kyle"]]
+  [1m[35m (0.2ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 76ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 09:48:25 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.1ms)
+Completed 200 OK in 35ms (Views: 18.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-14 09:48:35 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-14 09:48:39 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5LIgptAQ13hWCZR5yTg7gyhMxUOCgv7pH0oL/0+zx5vJuBISAaOk5A1pMEvb2b2omH5V+jAGkSJnOLz/RODCFg==", "searches"=>{"search_term"=>"dogs "}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 3], ["search_term", "dogs "], ["from_date", "2018-11-13"], ["to_date", "2018-11-14"], ["number_of_tweets", "0"], ["country", "Canada"], ["created_at", "2018-11-14 15:48:39.577280"], ["updated_at", "2018-11-14 15:48:39.577280"]]
+  [1m[36m (13.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "24"], ["updated_at", "2018-11-14 15:48:39.594271"], ["id", 3]]
+  [1m[35m (19.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=dogs+&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3
+Completed 302 Found in 216ms (ActiveRecord: 33.6ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=dogs+&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:48:39 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-13", "graph_data"=>"[{\"date\":\"2018-11-13\",\"value\":0},{\"date\":\"2018-11-14\",\"value\":0}]", "number_of_tweets"=>"0", "search_term"=>"dogs ", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 24]]
+  Rendered searches/display.html.haml within layouts/application (10.8ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=dogs+&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-13", "graph_data"=>"[{\"date\":\"2018-11-13\",\"value\":0},{\"date\":\"2018-11-14\",\"value\":0}]", "number_of_tweets"=>"0", "search_term"=>"dogs ", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.0ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 24]]
+  Rendered searches/display.html.haml within layouts/application (6.8ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:04 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:05 -0600
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=dogs+&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-13", "graph_data"=>"[{\"date\":\"2018-11-13\",\"value\":0},{\"date\":\"2018-11-14\",\"value\":0}]", "number_of_tweets"=>"0", "search_term"=>"dogs ", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 24]]
+  Rendered searches/display.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:43 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:49:44 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:49:45 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.2ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-11-14 09:49:52 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-14 09:49:57 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pAhTbEOMHAOQGXD1i49GO+zMsAINzWW0PXD6/K/59VqJAmHYkj9vn8t51MeZbsAQXP4gu79JCn9FAk38pKrw1w==", "searches"=>{"search_term"=>"dogs"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 3], ["search_term", "dogs"], ["from_date", "2018-11-13"], ["to_date", "2018-11-14"], ["number_of_tweets", "0"], ["country", "Canada"], ["created_at", "2018-11-14 15:49:57.270261"], ["updated_at", "2018-11-14 15:49:57.270261"]]
+  [1m[36m (15.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "25"], ["updated_at", "2018-11-14 15:49:57.289501"], ["id", 3]]
+  [1m[35m (12.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=dogs&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3
+Completed 302 Found in 188ms (ActiveRecord: 28.8ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=dogs&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:49:57 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-13", "graph_data"=>"[{\"date\":\"2018-11-13\",\"value\":0},{\"date\":\"2018-11-14\",\"value\":0}]", "number_of_tweets"=>"0", "search_term"=>"dogs", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.0ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 25]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-14 09:50:04 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pAhTbEOMHAOQGXD1i49GO+zMsAINzWW0PXD6/K/59VqJAmHYkj9vn8t51MeZbsAQXP4gu79JCn9FAk38pKrw1w==", "searches"=>{"search_term"=>"dogs"}, "time"=>"3", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["search_term", "dogs"], ["from_date", "2018-11-11"], ["to_date", "2018-11-14"], ["number_of_tweets", "4"], ["country", "Canada"], ["created_at", "2018-11-14 15:50:04.200568"], ["updated_at", "2018-11-14 15:50:04.200568"]]
+  [1m[35m (21.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "26"], ["updated_at", "2018-11-14 15:50:04.226312"], ["id", 3]]
+  [1m[36m (13.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-11&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-11%22%2C%22value%22%3A2%7D%2C%7B%22date%22%3A%222018-11-12%22%2C%22value%22%3A2%7D%2C%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=4&search_hash%5Bsearch_term%5D=dogs&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3
+Completed 302 Found in 235ms (ActiveRecord: 35.7ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-11&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-11%22%2C%22value%22%3A2%7D%2C%7B%22date%22%3A%222018-11-12%22%2C%22value%22%3A2%7D%2C%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=4&search_hash%5Bsearch_term%5D=dogs&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:50:04 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-11", "graph_data"=>"[{\"date\":\"2018-11-11\",\"value\":2},{\"date\":\"2018-11-12\",\"value\":2},{\"date\":\"2018-11-13\",\"value\":0},{\"date\":\"2018-11-14\",\"value\":0}]", "number_of_tweets"=>"4", "search_term"=>"dogs", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.0ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 26]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:50:11 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-14 09:50:23 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AXJk45Zw0P/DqaLDbIQb5XJB7Jk5DknRkFj56Hgx2MEseFZXR8OjY5jJBvF+ZZ3OwnN8IIuKJhroKk7oc2LdTA==", "searches"=>{"search_term"=>"cat"}, "time"=>"1", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 3], ["search_term", "cat"], ["from_date", "2018-11-13"], ["to_date", "2018-11-14"], ["number_of_tweets", "135"], ["country", "Canada"], ["created_at", "2018-11-14 15:50:24.023448"], ["updated_at", "2018-11-14 15:50:24.023448"]]
+  [1m[36m (9.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "27"], ["updated_at", "2018-11-14 15:50:24.034758"], ["id", 3]]
+  [1m[35m (13.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A55%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A80%7D%5D&search_hash%5Bnumber_of_tweets%5D=135&search_hash%5Bsearch_term%5D=cat&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3
+Completed 302 Found in 1044ms (ActiveRecord: 23.1ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-13&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A55%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A80%7D%5D&search_hash%5Bnumber_of_tweets%5D=135&search_hash%5Bsearch_term%5D=cat&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:50:24 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-13", "graph_data"=>"[{\"date\":\"2018-11-13\",\"value\":55},{\"date\":\"2018-11-14\",\"value\":80}]", "number_of_tweets"=>"135", "search_term"=>"cat", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.0ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 27]]
+  Rendered searches/display.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:50:29 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-14 09:50:38 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/fr6e3Za5KeDbZo+jI4RxSnwvO7qOSbmUZQS7B/IGw/Q8MjPp+mXO9gNPgyeb5fumcIsV1i9SS0p5qXsFJsegg==", "searches"=>{"search_term"=>"cat"}, "time"=>"6", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["search_term", "cat"], ["from_date", "2018-11-08"], ["to_date", "2018-11-14"], ["number_of_tweets", "194"], ["country", "Canada"], ["created_at", "2018-11-14 15:50:40.060456"], ["updated_at", "2018-11-14 15:50:40.060456"]]
+  [1m[35m (9.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "28"], ["updated_at", "2018-11-14 15:50:40.071750"], ["id", 3]]
+  [1m[36m (12.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-08&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-08%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-09%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-10%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-11%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-12%22%2C%22value%22%3A59%7D%2C%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A55%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A80%7D%5D&search_hash%5Bnumber_of_tweets%5D=194&search_hash%5Bsearch_term%5D=cat&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3
+Completed 302 Found in 1167ms (ActiveRecord: 22.8ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-08&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-08%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-09%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-10%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-11%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-12%22%2C%22value%22%3A59%7D%2C%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A55%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A80%7D%5D&search_hash%5Bnumber_of_tweets%5D=194&search_hash%5Bsearch_term%5D=cat&search_hash%5Bto_date%5D=2018-11-14&search_hash%5Buser_id%5D=3" for 127.0.0.1 at 2018-11-14 09:50:40 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-08", "graph_data"=>"[{\"date\":\"2018-11-08\",\"value\":0},{\"date\":\"2018-11-09\",\"value\":0},{\"date\":\"2018-11-10\",\"value\":0},{\"date\":\"2018-11-11\",\"value\":0},{\"date\":\"2018-11-12\",\"value\":59},{\"date\":\"2018-11-13\",\"value\":55},{\"date\":\"2018-11-14\",\"value\":80}]", "number_of_tweets"=>"194", "search_term"=>"cat", "to_date"=>"2018-11-14", "user_id"=>"3"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.0ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 28]]
+  Rendered searches/display.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-14 09:50:59 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UA87JBdfQMzvzUGsgN3G/eRxfRixBMR9atkfRgWiaZl9BQmQxuwzULSt5Z6SPEDWVEPtoQOAq7YSq6hGDvFsFA==", "commit"=>"Save Topic"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "searches" SET "saved" = ?, "updated_at" = ? WHERE "searches"."id" = ?[0m  [["saved", "t"], ["updated_at", "2018-11-14 15:50:59.010483"], ["id", 28]]
+  [1m[35m (20.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 25ms (ActiveRecord: 21.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:50:59 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (7.5ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:38 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:54 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:53:55 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:54:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:54:01 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (13.7ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:54:03 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:54:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (16.5ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:54:06 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.4ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:54:08 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (28.1ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.2ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:50 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:54:51 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:55:19 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.6ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:27 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:56:28 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:56:29 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 09:56:31 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (16.3ms)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:56:32 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:58:30 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 09:58:30 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 09:58:30 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 09:58:30 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:58:30 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 09:58:31 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 09:58:31 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 09:58:31 -0600
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 09:59:43 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WFn1vXe1OyFo3+ZZBzQwFnD0yEdynQ118Ag6tMYykq91U8cJpgZIvTO/QmsV1bY9wMZY/sAZYr6Ieo20zWGXIg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:59:43 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    16:             %li
+    17:               = link_to 'Main Page', root_path
+    18:             %li
+    19:               = link_to 'Profile', user_path(@current_user.id)
+    20:             %li
+    21:               - if !@current_user
+    22:                 = button_to 'Sign up/Login', login_path, :method => :get, :id => 'userLogging'
+  app/views/layouts/application.html.haml:19:in `_app_views_layouts_application_html_haml__4441073189461309121_69971538117940'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.5ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 09:59:49 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WFn1vXe1OyFo3+ZZBzQwFnD0yEdynQ118Ag6tMYykq91U8cJpgZIvTO/QmsV1bY9wMZY/sAZYr6Ieo20zWGXIg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 09:59:49 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    16:             %li
+    17:               = link_to 'Main Page', root_path
+    18:             %li
+    19:               = link_to 'Profile', user_path(@current_user.id)
+    20:             %li
+    21:               - if !@current_user
+    22:                 = button_to 'Sign up/Login', login_path, :method => :get, :id => 'userLogging'
+  app/views/layouts/application.html.haml:19:in `_app_views_layouts_application_html_haml__4441073189461309121_69971538117940'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:00:06 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    16:             %li
+    17:               = link_to 'Main Page', root_path
+    18:             %li
+    19:               = link_to 'Profile', user_path(@current_user.id)
+    20:             %li
+    21:               - if !@current_user
+    22:                 = button_to 'Sign up/Login', login_path, :method => :get, :id => 'userLogging'
+  app/views/layouts/application.html.haml:19:in `_app_views_layouts_application_html_haml__4441073189461309121_69971538117940'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:00 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:03 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:04 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 10:02:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 10:02:11 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nrm8p9SGFGqloHSd5g871qHN/w41nRxxyrChnR87tAwbs44TBTVn9v7A0K/07r39Ef9vt4cZc7qywhadFGixgQ==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "kyle"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 68ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:02:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:13 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.4ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:02:15 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.7ms)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:26 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:27 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-1489976984ed4461fb8ec7d2596137722a66fbd4cf80bdfe84dc0276613c218c.css?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:43 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:02:44 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:45 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.4ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:02:46 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (24.6ms)
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:02:47 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ao6H8Wr0x+Ut1aNLsatc3S3L7SF/RD14ovWLwXiVfkdHhLVFu0e0eXa1B3mjStr2nfl9mM3AUrPahzzBc8Z7yg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:47 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:02:49 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/assets/application.self-6bfab50bf8fe61c759b390311e93e6750f19ad1eb58050a06c183617b987ecee.css?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:05:20 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:05:26 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 10:05:27 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 10:08:37 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IpvRdiGhiiI5j4M0JTlr77LHCbVyjqJw9VBACBH0MvsPkePC8BL5vmLvJwY32O3EAvWZDMAKzbuNIvcIGqc3dg==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kyle"]]
+  [1m[35m (0.0ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 67ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:08:37 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (8.7ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (13.6ms)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-6bfab50bf8fe61c759b390311e93e6750f19ad1eb58050a06c183617b987ecee.css?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:51 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:52 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:52 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:52 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:09:52 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:10:07 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:10:12 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-a36afc752280a9b02c39db18af5c1418dd2e6c086271ade25f66c34fe9eabe41.css?body=1" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:02 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:03 -0600
+
+
+Started GET "/assets/application.self-a36afc752280a9b02c39db18af5c1418dd2e6c086271ade25f66c34fe9eabe41.css?body=1" for 127.0.0.1 at 2018-11-14 10:12:03 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:03 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:03 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:03 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:03 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:12:04 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.4ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-ecc7e70bf581283f22ca72c8124bbed7c22db2b214edaa87d4a8a8c6a13bdd8f.css?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:01 -0600
+
+
+Started GET "/assets/application.self-ecc7e70bf581283f22ca72c8124bbed7c22db2b214edaa87d4a8a8c6a13bdd8f.css?body=1" for 127.0.0.1 at 2018-11-14 10:14:02 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:02 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:02 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:02 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:02 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:02 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-a36afc752280a9b02c39db18af5c1418dd2e6c086271ade25f66c34fe9eabe41.css?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:31 -0600
+
+
+Started GET "/assets/application.self-a36afc752280a9b02c39db18af5c1418dd2e6c086271ade25f66c34fe9eabe41.css?body=1" for 127.0.0.1 at 2018-11-14 10:14:32 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:32 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:32 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:32 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:32 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:14:32 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.1ms)
+Completed 200 OK in 33ms (Views: 29.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-a36afc752280a9b02c39db18af5c1418dd2e6c086271ade25f66c34fe9eabe41.css?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:49 -0600
+
+
+Started GET "/assets/application.self-a36afc752280a9b02c39db18af5c1418dd2e6c086271ade25f66c34fe9eabe41.css?body=1" for 127.0.0.1 at 2018-11-14 10:17:50 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:50 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:50 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:50 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:50 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:17:50 -0600
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.4ms)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:08 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:09 -0600
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:18:20 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fjf928hntPqfSkoyZVajAto+3LLSo0JdaCP3GFaMcKlTPc9vGdTHZsQq7gB3tyUpagxMC2AnLZYQUUAYXd91JA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:18:20 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fjf928hntPqfSkoyZVajAto+3LLSo0JdaCP3GFaMcKlTPc9vGdTHZsQq7gB3tyUpagxMC2AnLZYQUUAYXd91JA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:18:20 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:18:22 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 10:18:23 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"y9wsrAyb2hUsqytXsCTlFehDGUit52LwZt4UFDKfGCnm1h4Y3SipiXfLj2WixWM+WHGJ8R9jDTserKMUOcwdpA=="}
+  Rendered sessions/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 10:18:32 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0UXRubVb1dKTKAAd1B7IzSaQfXvwlBxBZ+0LGlp9W7z8T+MNZOimTshIpC/G/07mlqLtwkIQc4ofn7waUS5eMQ==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kyle"]]
+  [1m[35m (0.1ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 68ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:18:32 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:18:58 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:00 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:19:01 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (8.6ms)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:19:02 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LLs8zd7TX175atKH8n3Fz4PDLFDab+SmZYvn7OIg5isBsQ55D2AswqIKdrXgnEPkM/G86Wjri20d+VDs6XPjpg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:02 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:05 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 22ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:12 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:13 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:24 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:27 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:33 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:34 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:49 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:56 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:19:57 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:21:07 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 10:21:18 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"e8RPrMhX8UW8o/8J624sbYY97q9gnOEwUESrBYwSBURWzn0YGeSC2efDWzv5j6pGNg9+FtIYjvsoNhwFh0EAyQ=="}
+  Rendered sessions/new.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:21:22 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 10:21:23 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"ZxS6+LE99ZMpkHlv0BTZoSGoNnuTf+aGr4SFcP6/hwxKHohMYI6GD3Lw3V3C9V+KkZqmwiH7iU3X9jJw9eyCgQ=="}
+  Rendered sessions/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 10:21:28 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JNDX1sXvJPmalD9/yV0OVnaJIzXSXSEtlrfPYY64iyYJ2uViFFxXZcH0m03bvIh9xruzjGDZTubuxXhhheuOqw==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "kyle"]]
+  [1m[36m (0.0ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 67ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:21:28 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (9.1ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:22:28 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  Rendered users/show.html.haml within layouts/application (41.9ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `username' for #<User:0x00007f4709326de0>
+Did you mean?  user_name
+               user_name?
+               user_name=):
+     7:     = csrf_meta_tags
+     8: 
+     9:   %body
+    10:     %h1.title Welcome to your homepage, #{@current_user.username}
+    11: 
+    12: %h1 Options
+    13: 
+  app/views/users/show.html.haml:10:in `_app_views_users_show_html_haml__2916842709290167533_69971536759180'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.2ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:52 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:22:53 -0600
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (10.8ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:54 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:55 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:55 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:23:55 -0600
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.1ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:00 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:01 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:01 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:01 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:01 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:24:01 -0600
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (8.5ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:04 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:05 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:27:11 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.4ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:27:45 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-6d69e8102dc05606281a6b5c83ce2de494485d40490f5746a9aedf4d22ff5533.css?body=1" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-14 10:28:16 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-14 10:28:17 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:28:46 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:28:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:60:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:29:04 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:29:05 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:60:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:29:10 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:29:11 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6MQc0jE7m7LfFqcZm01mRWKSC6si68GYW5jkvsWCZobFzi5m4IjoLoR2AyuJrOBu0qCbEpBvrlMj6lO+ztFjCw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:29:11 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6MQc0jE7m7LfFqcZm01mRWKSC6si68GYW5jkvsWCZobFzi5m4IjoLoR2AyuJrOBu0qCbEpBvrlMj6lO+ztFjCw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-14 10:29:11 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6MQc0jE7m7LfFqcZm01mRWKSC6si68GYW5jkvsWCZobFzi5m4IjoLoR2AyuJrOBu0qCbEpBvrlMj6lO+ztFjCw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:29:11 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:29:14 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-14 10:29:15 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"w/q0crufdpEocJJPf4bdWGuR0ZdPRuPcnvDrRYNQJG7u8IbGaiwFDXMQNn1tZ1tz26NBLv3CjBfmglxFiAMh4w=="}
+  Rendered sessions/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 10:29:19 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FDH3jrxSLAKYEWL9JbCNlP/X/ahGo9AzBfFYABCT0+s5O8U6beFfnsNxxs83UQu/T+VtEfQnv/h9g+8AG8DWZg==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kyle"]]
+  [1m[35m (0.1ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 67ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:29:19 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.0ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:60:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.9ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-14 10:29:52 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FDH3jrxSLAKYEWL9JbCNlP/X/ahGo9AzBfFYABCT0+s5O8U6beFfnsNxxs83UQu/T+VtEfQnv/h9g+8AG8DWZg==", "user"=>{"user_name"=>"kyle", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "kyle"]]
+  [1m[35m (0.1ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "kyle"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 68ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-14 10:29:52 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.0ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:60:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:29:58 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:30:07 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:30:16 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:60:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:30:20 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:30:41 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:60:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:33:46 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:61:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:33:48 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:33:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:61:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.5ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:34:58 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:64:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.8ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.7ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:36:13 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 51ms (Views: 28.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:36:15 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `from_date' for nil:NilClass):
+  app/models/user.rb:67:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.6ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/kylelevy/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:36:35 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 30.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:36:37 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (34.6ms)
+Completed 200 OK in 58ms (Views: 52.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:36:38 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-14 10:36:39 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 3], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (33.1ms)
+Completed 200 OK in 47ms (Views: 40.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-14 10:36:42 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "ow0vSeqjk52+dtFHdi6UtA=="]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches"
+  Rendered searches/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.4ms)
