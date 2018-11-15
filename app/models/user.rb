@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'json'
 
 class User < ActiveRecord::Base
 
@@ -54,26 +55,20 @@ class User < ActiveRecord::Base
 
   def self.get_history(user_id)
     user_history = Searches.where(user_id: user_id)
-    
+    final_hash = Array.new
+
     if !user_history.empty?
-    test1 = user_history[0]
 
-    test_to = test1.from_date
-    test_from = test1.to_date
+    user_history.each do |user_search|
 
-    #Todo:: make this thing actually do the real stuffs
-    fake_to_data = 6
-    fake_from_data = 8
+      curr_graph = user_search.graph_data
+      curr_graph_as_array_of_hash = eval(curr_graph)
+      final_hash.push(curr_graph_as_array_of_hash)
 
-    final_hash = [ [{"date"=>test_from, "value"=>fake_from_data}, {"date"=>test_to, "value"=>fake_to_data}], [{"date"=>"2018-11-11", "value"=>1} ,{"date"=>"2018-11-12", "value"=>2}] ]
-    return final_hash
-    else
-      return nil
     end
 
-
+    end
+    return final_hash
   end
-
-
 
 end

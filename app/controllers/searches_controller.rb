@@ -32,7 +32,6 @@ class SearchesController < ApplicationController
   def create
     # Not Finished - Need to implement month end cases
 
-    puts searches_params[:search_term].to_s.blank?
     if searches_params[:search_term].to_s.blank?
       flash[:notice] = "please enter search term"
       redirect_to searches_path
@@ -50,8 +49,10 @@ class SearchesController < ApplicationController
         search_hash[:country] = @current_user.country
        # search_hash[:saved] = false
 
-        search_hash[:graph_data] = graph_data.to_json
+        search_hash[:graph_data] = graph_data
         new_search = Searches.create_search!(search_hash)
+
+        search_hash[:graph_data] = graph_data.to_json
 
         @current_user.current_search=new_search.id #Set users current search to the search they just made
         @current_user.save
