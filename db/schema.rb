@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20181105223550) do
     t.string   "from_date"
     t.string   "to_date"
     t.string   "number_of_tweets"
+    t.string   "graph_data"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "saved"

@@ -50,12 +50,12 @@ class SearchesController < ApplicationController
         search_hash[:country] = @current_user.country
        # search_hash[:saved] = false
 
-        new_search = Searches.create_search!(search_hash)
-
         search_hash[:graph_data] = graph_data.to_json
+        new_search = Searches.create_search!(search_hash)
 
         @current_user.current_search=new_search.id #Set users current search to the search they just made
         @current_user.save
+
         redirect_to searches_display_path(:search_hash => search_hash)
       else
         flash[:notice] = "Nah homie, gotta make an account first."

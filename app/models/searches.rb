@@ -25,6 +25,8 @@ class Searches < ActiveRecord::Base
     date_vals = {}
     total_count = 0
     #I'm dumb and got my prefixes and suffixes confused. Just flip them (ie: prefixes are at the end)
+    # Stop being dumb.
+    #   Love, Markus.
     # Initialize the hash
     for i in from_int..to_int do
       prefix = i.to_s
