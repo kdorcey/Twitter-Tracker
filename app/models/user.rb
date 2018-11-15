@@ -57,12 +57,12 @@ class User < ActiveRecord::Base
     user_history = Searches.where(user_id: user_id)
     final_hash = Array.new
 
-    if !user_history.empty?
+    if !user_history.empty? #if user has searches
 
     user_history.each do |user_search|
 
-      curr_graph = user_search.graph_data
-      curr_graph_as_array_of_hash = eval(curr_graph)
+      curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
+      curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
       final_hash.push(curr_graph_as_array_of_hash)
 
     end
