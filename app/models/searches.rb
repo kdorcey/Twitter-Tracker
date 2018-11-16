@@ -24,13 +24,8 @@ class Searches < ActiveRecord::Base
     date_vals = format_date_holder(from, now, formatter)
 
 
-
-    puts date_vals
-
-
     client.search("to:#{search_user} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
-
 
       if formatter == 1 || formatter == 2
         tweet_date = tweet_date.to_s[0,13]
