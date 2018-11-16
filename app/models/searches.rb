@@ -16,10 +16,10 @@ class Searches < ActiveRecord::Base
     client.update("I'm tweeting with ABC!")
   end
 
-  def self.gather_tweets(query, search_user, from, to)
+  def self.gather_tweets(query, search_user, from, to, fromatter)
     client = Searches.authenticate
 
-    date_suffix = from[0,8]
+    date_prefix = from[0,8]
     from_int = from[-2,2].to_i
     to_int = to[-2,2].to_i
     date_vals = {}
@@ -29,13 +29,14 @@ class Searches < ActiveRecord::Base
     # Stop being dumb.
     #   Love, Markus.
     # Initialize the hash
+
     for i in from_int..to_int do
-      prefix = i.to_s
-      if prefix.size != 2
-        prefix = "0"+prefix
+      suffix = i.to_s
+      if suffix.size != 2
+        suffix = "0"+suffix
       end
 
-      date_vals[date_suffix+prefix] = 0
+      date_vals[date_prefix+suffix] = 0
     end
 
     #counts tweets
@@ -60,6 +61,7 @@ class Searches < ActiveRecord::Base
     return total_count, to_return
   end
 
+  
 
   def self.update_table()
     table_hash = {}
