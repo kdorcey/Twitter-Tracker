@@ -21,7 +21,9 @@ class SearchesController < ApplicationController
     @user_searches = {}
     @top_searches = {}
     @user_searches = Searches.update_table
-    @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
+    if !@current_user.nil?
+      @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
+    end
   end
 
   def save_topic

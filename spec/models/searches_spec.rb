@@ -25,6 +25,13 @@ describe Searches do
       expect(Searches.format_date_holder("2018-10-12","2018-10-12",1)).
         to eq(ret)
     end
+  end
+
+  describe 'Searching tweets' do
+    it 'should return a properly formatted json string' do
+      ret = [{"Date"=>"2018-10-12"}]
+
+    end
 
   end
 
