@@ -22,7 +22,9 @@ class SearchesController < ApplicationController
       to_save.update(saved: true)
       Searches.update_table
 
-      redirect_to user_path(@current_user.id)
+      redirect_to root_path #Todo:: change this back to user path whene the JS is working properly.
+
+     # redirect_to user_path(@current_user.id)
     else
       flash[:notice] = "You are not logged in"
       redirect_to searches_path
