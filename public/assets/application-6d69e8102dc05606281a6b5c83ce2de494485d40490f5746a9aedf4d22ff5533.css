@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: gray;
+  color: DarkSlateGrey;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 10pt;
+}
+
+div#main {
+  margin: 0;
+  padding: 0 20px 20px;
+}
+
+a {
+  background: transparent;
+  color: skyblue;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+h1 {
+  color: skyblue;
+  font-size: 150%;
+  font-style: italic;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid DarkSlateGrey;
+}
+
+h1.title {
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: lightblue;
+  color: darkmagenta;
+  border-bottom: 4px solid blueviolet;
+  font-size: 2em;
+  font-style: normal;
+}
+
+table#saved_searches {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+table#saved_searches th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: green;
+}
+
+table#saved_searches th, table#saved_searches td {
+  padding: 4px;
+  text-align: left;
+}
+
+table#history {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+table#history th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+
+table#history th, table#history td {
+  padding: 4px;
+  text-align: left;
+}
+
+#notice #warning {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+
+form label {
+  display: block;
+  line-height: 25px;
+  font-weight: bold;
+  color: skyblue;
+}
+
+#navContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background: #bdf1ed;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 35px;
+  padding-top: 25px;
+
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
