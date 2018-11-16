@@ -44,13 +44,12 @@
           %th Additional Details
       %tbody
         - if !@current_user.nil?
-          - @user_searches.each do |search|
-            - if search.country == @current_user.country
-              %tr
-                %td= search.search_term
-                %td= search.country
-                %td= search.to_date
-                %td= search.number_of_tweets
+          - @top_searches.each do |search|
+            %tr
+              %td= search.search_term
+              %td= search.country
+              %td= search.to_date
+              %td= search.number_of_tweets
 
 :css
   #searches {
