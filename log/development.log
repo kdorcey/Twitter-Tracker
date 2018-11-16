@@ -5951,3 +5951,336 @@ Processing by SearchesController#display as HTML
   [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 28]]
   Rendered searches/display.html.haml within layouts/application (0.6ms)
 Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 19:40:20 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "7UlyNQGg5PfIObuGQaPkBw=="]]
+  Rendered searches/index.html.haml within layouts/application (16.1ms)
+Completed 200 OK in 367ms (Views: 337.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-15 19:40:24 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"YQHzneMd8e7zIleNLw4dww1xswHd4dwFaKrpYqRIl6K38MfAeTwPBPg8eZb5dEM3kqQufxncv47ivB1/P1DZ2g=="}
+  Rendered sessions/new.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-15 19:40:29 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ThamsQ5mFlKbM55tT/1RsaI9hMSCKhe2bszjA1wrdN+Y55LslEfouJAtsHaZhw9FPegZukYXdD3k2hcexzM6pw==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "evan"]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 28ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-15 19:40:29 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-11-15 19:40:32 -0600
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"pY7l7WBoktBlAAUA8+SBx7Y2CfJjl1RuLLS3cgLE9CZzf9Gw+klsOm4eKxslnt8zKeOUjKeqN+WmokNvmdy6Xg=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "7UlyNQGg5PfIObuGQaPkBw=="]]
+  Rendered users/new.html.haml within layouts/application (16.3ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-15 19:40:40 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BFhMNlnpZHoteHbpM30CWMuqZ7M9vNWqUpSpHzYp7ovSqXhrw8iakCZmWPLlB1ysVH/6zfmBtiHYgl0CrTGg8w==", "user"=>{"user_name"=>"evan", "email"=>"evan@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "7UlyNQGg5PfIObuGQaPkBw=="]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "evan"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "evan@gmail.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_name", "evan"], ["email", "evan@gmail.com"], ["password", "$2a$10$FcoDO4hfHmVqtidMIOYfd.mTN48AZJ6kifNFCMQwjKNMzw8RiKbUy"], ["country", "Canada"], ["session_token", "Ajm17/LdjMQR+s23L4dQDA=="], ["created_at", "2018-11-16 01:40:40.814111"], ["updated_at", "2018-11-16 01:40:40.814111"]]
+  [1m[35m (7.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/login
+Completed 302 Found in 96ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-15 19:40:40 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-15 19:40:43 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJRoeZQ/pPjgM1iVJED94o84oFNETWvnCURZ3jzN6nPWZVwkDh5aEustdo7yOqMWEO09LYBwCGyDUq3Dp9WkCw==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "evan"]]
+  [1m[35m (0.2ms)[0m  SELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?  [["user_name", "evan"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 74ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-15 19:40:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "Ajm17/LdjMQR+s23L4dQDA=="]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::ConfigurationError (Association named 'graph_data' was not found on Searches; perhaps you misspelled it?):
+  app/models/user.rb:62:in `puts'
+  app/models/user.rb:62:in `puts'
+  app/models/user.rb:62:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.0ms)
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (9.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20181023134801)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/markus/RubymineProjects/selt18project-g005/db/migrate/20181023134801_create_users.rb:14)
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "email" varchar, "password" varchar, "country" varchar, "session_token" varchar, "current_search" varchar, "created_at" datetime, "updated_at" datetime) 
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/markus/RubymineProjects/selt18project-g005/db/migrate/20181023134801_create_users.rb:25)
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "searches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "search_term" varchar, "from_date" varchar, "to_date" varchar, "number_of_tweets" varchar, "graph_data" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181023134801"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSearches (20181103172647)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181103172647"]]
+  [1m[35m (9.0ms)[0m  commit transaction
+Migrating to AddSavedTopics (20181105223550)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "searches" ADD "saved" boolean
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "searches" ADD "country" varchar[0m
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181105223550"]]
+  [1m[35m (10.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (10.2ms)[0m  [1mDROP TABLE "searches"[0m
+  [1m[35m (7.9ms)[0m  CREATE TABLE "searches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "search_term" varchar, "from_date" varchar, "to_date" varchar, "number_of_tweets" varchar, "graph_data" varchar, "created_at" datetime, "updated_at" datetime, "saved" boolean, "country" varchar) 
+  [1m[36m (7.6ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "email" varchar, "password" varchar, "country" varchar, "session_token" varchar, "current_search" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.9ms)[0m  CREATE TABLE "searches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "search_term" varchar, "from_date" varchar, "to_date" varchar, "number_of_tweets" varchar, "graph_data" varchar, "created_at" datetime, "updated_at" datetime, "saved" boolean, "country" varchar) 
+  [1m[36m (8.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "email" varchar, "password" varchar, "country" varchar, "session_token" varchar, "current_search" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (9.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181105223550')
+  [1m[36m (10.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181103172647')[0m
+  [1m[35m (7.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181023134801')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_name", "Kyle"], ["email", "kylekyle@gmail.com"], ["password", "lol"], ["country", "United States"], ["created_at", "2018-11-16 01:43:24.980285"], ["updated_at", "2018-11-16 01:43:24.980285"]]
+  [1m[35m (8.4ms)[0m  commit transaction
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-15 19:44:17 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "Ajm17/LdjMQR+s23L4dQDA=="]]
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/users_controller.rb:11:in `show'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (40.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-15 19:44:24 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"AJRoeZQ/pPjgM1iVJED94o84oFNETWvnCURZ3jzN6nPWZVwkDh5aEustdo7yOqMWEO09LYBwCGyDUq3Dp9WkCw=="}
+  Rendered sessions/new.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 284ms (Views: 283.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-11-15 19:44:27 -0600
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"fWbT2DfYI7gVRujdU1KN1pDjexaXtQKt91auppS+s6url+eFrfndUh5YxsaFKNMiDzbmaFOIYSZ9QFq7D6b90w=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "Ajm17/LdjMQR+s23L4dQDA=="]]
+  Rendered users/new.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-15 19:44:35 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ri9mm/1/r4IZDUa5CkDH59Vay8WtqwUoTxVYegxvuYWQ3lLGZ15RaBITaKLcOpkTSo9Wu2mWZqPFA6xnl3f3/Q==", "user"=>{"user_name"=>"evan", "email"=>"evan@gmail.com", "password"=>"[FILTERED]"}, "verify_password"=>"[FILTERED]", "country"=>"Canada", "commit"=>"Create my account"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "Ajm17/LdjMQR+s23L4dQDA=="]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "evan"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "evan@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("user_name", "email", "password", "country", "session_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_name", "evan"], ["email", "evan@gmail.com"], ["password", "$2a$10$MgGmDY1aDcDOtlUN1NHwlO4fBBujz.5aSbJGyw4p6tDa6FHSi7PC."], ["country", "Canada"], ["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="], ["created_at", "2018-11-16 01:44:35.532141"], ["updated_at", "2018-11-16 01:44:35.532141"]]
+  [1m[36m (8.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 101ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-15 19:44:35 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-15 19:44:39 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ff/7TrpoEE9Xd4DUYWp290oKUmiXMIsrosx72TvnOCfDDs8TIEnupVxprs+3ECgD1d/PFlMN6KAo2o/EoP92Xw==", "user"=>{"user_name"=>"evan", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "evan"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "evan"]]
+Redirected to http://localhost:3000/users/show
+Completed 302 Found in 80ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2018-11-15 19:44:39 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::ConfigurationError (Association named 'graph_data' was not found on Searches; perhaps you misspelled it?):
+  app/models/user.rb:62:in `puts'
+  app/models/user.rb:62:in `puts'
+  app/models/user.rb:62:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-15 19:46:58 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Ff/7TrpoEE9Xd4DUYWp290oKUmiXMIsrosx72TvnOCfDDs8TIEnupVxprs+3ECgD1d/PFlMN6KAo2o/EoP92Xw=="}
+  Rendered sessions/new.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 19:47:03 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches"[0m
+  Rendered searches/index.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 27ms (Views: 16.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-11-15 19:48:33 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qCMKzUYCcAsNkDTh3nxD22RA+HVRx8oW45z3xEK9imN+0j6Q3COO4QaOGvoIBh0v+5VlC5X6qZ1pigPZ2aXEGw==", "searches"=>{"search_term"=>"sad", "search_user"=>"AriannaGrande"}, "time"=>"3", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "country", "graph_data", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["search_term", "sad"], ["from_date", "2018-11-12"], ["to_date", "2018-11-15"], ["number_of_tweets", "0"], ["country", "Canada"], ["graph_data", "[{\"date\"=>\"2018-11-12\", \"value\"=>0}, {\"date\"=>\"2018-11-13\", \"value\"=>0}, {\"date\"=>\"2018-11-14\", \"value\"=>0}, {\"date\"=>\"2018-11-15\", \"value\"=>0}]"], ["created_at", "2018-11-16 01:48:33.880377"], ["updated_at", "2018-11-16 01:48:33.880377"]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "1"], ["updated_at", "2018-11-16 01:48:33.890896"], ["id", 2]]
+  [1m[35m (7.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-12&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-12%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-15%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=sad&search_hash%5Bto_date%5D=2018-11-15&search_hash%5Buser_id%5D=2
+Completed 302 Found in 198ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/searches_display?search_hash%5Bcountry%5D=Canada&search_hash%5Bfrom_date%5D=2018-11-12&search_hash%5Bgraph_data%5D=%5B%7B%22date%22%3A%222018-11-12%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-13%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-14%22%2C%22value%22%3A0%7D%2C%7B%22date%22%3A%222018-11-15%22%2C%22value%22%3A0%7D%5D&search_hash%5Bnumber_of_tweets%5D=0&search_hash%5Bsearch_term%5D=sad&search_hash%5Bto_date%5D=2018-11-15&search_hash%5Buser_id%5D=2" for 127.0.0.1 at 2018-11-15 19:48:33 -0600
+Processing by SearchesController#display as HTML
+  Parameters: {"search_hash"=>{"country"=>"Canada", "from_date"=>"2018-11-12", "graph_data"=>"[{\"date\":\"2018-11-12\",\"value\":0},{\"date\":\"2018-11-13\",\"value\":0},{\"date\":\"2018-11-14\",\"value\":0},{\"date\":\"2018-11-15\",\"value\":0}]", "number_of_tweets"=>"0", "search_term"=>"sad", "to_date"=>"2018-11-15", "user_id"=>"2"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[35mSearches Load (0.6ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered searches/display.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-15 19:48:47 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h80egnd5N3kggYZkxKtoq2BzRCTyLR35vCtYO7ypaDxRPCrf7VjJkyufqH8S0TZf/6bZWjYQfnI2PawmJ7EmRA==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "searches" SET "saved" = ?, "updated_at" = ? WHERE "searches"."id" = ?  [["saved", "t"], ["updated_at", "2018-11-16 01:48:47.128532"], ["id", 1]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 14ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-15 19:48:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::ConfigurationError (Association named 'graph_data' was not found on Searches; perhaps you misspelled it?):
+  app/models/user.rb:62:in `puts'
+  app/models/user.rb:62:in `puts'
+  app/models/user.rb:62:in `get_history'
+  app/controllers/users_controller.rb:13:in `show'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.8ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-11-15 19:49:32 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h80egnd5N3kggYZkxKtoq2BzRCTyLR35vCtYO7ypaDxRPCrf7VjJkyufqH8S0TZf/6bZWjYQfnI2PawmJ7EmRA==", "commit"=>"Save Topic"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches"  ORDER BY "searches"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-15 19:49:32 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "oS3AM+6CHp5YH74EH6xTiQ=="]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.9ms)
+Completed 200 OK in 26ms (Views: 21.3ms | ActiveRecord: 0.7ms)

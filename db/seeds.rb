@@ -10,7 +10,7 @@
 ### USER SEEDS
 #
 users = [
-  {:user_name => 'Kyle', :email => 'kylekyle@gmail.com', :password => 'lmaopasswordsaredumb', :country => 'United States', :search_inputs => []},
+  {:user_name => 'Kyle', :email => 'kylekyle@gmail.com', :password => 'lol', :country => 'United States'},
 ]
 
 users.each do |user|
