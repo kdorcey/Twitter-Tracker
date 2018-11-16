@@ -28,7 +28,7 @@ class Searches < ActiveRecord::Base
     puts date_vals
 
 
-    client.search("now:#{search_user} #{query}", since: from).each do |tweet|
+    client.search("to:#{search_user} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
 
 
