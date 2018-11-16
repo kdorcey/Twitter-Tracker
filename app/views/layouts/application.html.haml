@@ -17,11 +17,11 @@
               = link_to 'Main Page', root_path
             - if !@current_user
               %li
-                = link_to 'Sign up/Login', login_path, :method => :get, :id => 'userLogging'
+                = link_to 'Login/Sign up', login_path, :method => :get, :id => 'userLogging'
             - else
               %li
                 - profile_string = @current_user.user_name + "'s Profile"
-                = link_to profile_string, user_path(@current_user.id)
+                = link_to profile_string, user_path(@current_user.id), :id => 'profile_link'
               %li
                 = link_to 'Logout', logout_path, :method => :delete, :id => 'userLogging'
 
