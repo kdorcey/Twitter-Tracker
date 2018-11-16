@@ -21,6 +21,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string 'from_date'
       t.string 'to_date'
       t.string 'number_of_tweets'
+      t.string 'graph_data'
+
       t.timestamps
     end
   end

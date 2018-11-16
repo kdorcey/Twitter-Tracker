@@ -16,7 +16,7 @@ class Searches < ActiveRecord::Base
     client.update("I'm tweeting with ABC!")
   end
 
-  def self.gather_tweets(query, from, to)
+  def self.gather_tweets(query, search_user, from, to)
     client = Searches.authenticate
 
     date_suffix = from[0,8]
@@ -24,7 +24,10 @@ class Searches < ActiveRecord::Base
     to_int = to[-2,2].to_i
     date_vals = {}
     total_count = 0
+
     #I'm dumb and got my prefixes and suffixes confused. Just flip them (ie: prefixes are at the end)
+    # Stop being dumb.
+    #   Love, Markus.
     # Initialize the hash
     for i in from_int..to_int do
       prefix = i.to_s
@@ -36,14 +39,16 @@ class Searches < ActiveRecord::Base
     end
 
     #counts tweets
-    client.search("to:#{query}", result_type: "recent", since: from).each do |tweet|
-      tweet_date = tweet.created_at.to_s[0,10]
+    client.search("to:#{search_user} #{query}", since: from).each do |tweet|
+      tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)').to_s[0,10]
+      puts tweet_date
       #makes sure the date is within the desired range
       if date_vals.key?(tweet_date)
         total_count += 1
         date_vals[tweet_date] += 1
       end
     end
+    puts date_vals
 
     #[{"date" => "yyyy-mm-dd", "value" => y_value}, ...]
     #formatting for levy
@@ -55,29 +60,6 @@ class Searches < ActiveRecord::Base
     return total_count, to_return
   end
 
-  def self.tweets_for_graph(query, from, to)
-    client = Searches.authenticate
-    tweets = client.search("#{query} since:#{from} until:#{to}", :lang => 'en').take(40).collect
-    date_hash = {}
-
-    from_day = from[-2] + from[-1]
-    to_day = to[-2] + to[-1]
-    from_day_int = from_day.to_i
-    to_day_int = to_day.to_i
-    day = from_day_int
-    while day != to_day_int
-      date_hash[day] = 0
-      day -= 1
-    end
-    tweets.each do |tweet|
-      asdf = tweet.created_at
-      day = asdf[8] + asdf[9]
-      day2 = day.to_i
-      date_hash[day2] += 1
-    end
-
-    puts date_hash
-  end
 
   def self.update_table()
     table_hash = {}

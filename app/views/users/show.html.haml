@@ -7,10 +7,7 @@
     = csrf_meta_tags
 
   %body
-    %h1.title Welcome to your homepage, User!
-
-%h1 Go to main page
-= button_to 'Main Page', searches_path, :method => :get
+    %h1.title Welcome to your homepage!
 
 %h1 Options
 
@@ -37,11 +34,12 @@
 %h1 Search History
 
 #graph2{:style => "width:700px;height:220px;"}
-  = content_tag 'div', '', id: 'data', data: {key1: @graph_data, key2: 'val2'}
+  = content_tag 'div', '', id: 'data', data: {key1: @graph_data}
 
 :javascript
     graph = document.getElementById('graph2');
     all_data = $('#data').data('key1');
+    console.log(all_data)
     var initial;
     for(initial = 0; initial<all_data.length; initial++)  {
 
