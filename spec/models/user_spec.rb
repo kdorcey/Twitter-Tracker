@@ -29,5 +29,15 @@ describe User do
         User.create_user!(user)
       end
     end
+  describe 'grabbing data for the users history' do
+      it 'should return an empty array if there is no user associated' do
+        results = User.get_history(25723)
+        expect(results).to eq([])
+      end
+      it 'should return an empty array if there are no searches associated with a user' do
+        results = User.get_history(4)
+        expect(results).to eq([])
+      end
+  end
   end
 end

@@ -1,5 +1,4 @@
 require 'bcrypt'
-require 'json'
 
 class User < ActiveRecord::Base
 
@@ -54,11 +53,15 @@ class User < ActiveRecord::Base
   end
 
   def self.get_history(user_id)
-    user_history = Searches.where(user_id: user_id)
     final_hash = Array.new
+    if User.exists?(id: user_id)
+    user_history = Searches.where(user_id: user_id)
+
+   # test = Searches.joins(:graph_data).where(user_id: user_id)
+
+  #  puts test
 
     if !user_history.empty? #if user has searches
-
     user_history.each do |user_search|
 
       curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
@@ -67,6 +70,7 @@ class User < ActiveRecord::Base
 
     end
 
+    end
     end
     return final_hash
   end
