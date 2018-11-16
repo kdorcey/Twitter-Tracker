@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20181105223550) do
     t.string   "password"
     t.string   "country"
     t.string   "session_token"
-    t.string   "search_inputs"
     t.string   "current_search"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   before_filter :set_current_user
 
   def searches_params
-    params.require(:searches).permit(:search_term, :time)
+    params.require(:searches).permit(:search_term, :search_user, :time)
   end
 
   def user_search
@@ -40,6 +40,9 @@ class SearchesController < ApplicationController
   def create
     # Not Finished - Need to implement month end cases
 
+
+
+
     if searches_params[:search_term].to_s.blank?
       flash[:notice] = "please enter search term"
       redirect_to searches_path
@@ -47,7 +50,7 @@ class SearchesController < ApplicationController
       if @current_user != nil
         now = Date.today
         from_date = now - params[:time].to_i
-        total_count, graph_data = Searches.gather_tweets(searches_params[:search_term].to_s, from_date.to_s, now.to_s)
+        total_count, graph_data = Searches.new_gather_tweets(searches_params[:search_term].to_s, searches_params[:search_user], from_date.to_s, now.to_s, params[:time].to_i)
         search_hash = {}
         search_hash[:user_id] = @current_user.id
         search_hash[:search_term] = searches_params[:search_term].to_s
