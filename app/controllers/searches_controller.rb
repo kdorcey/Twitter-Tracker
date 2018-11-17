@@ -17,7 +17,8 @@ class SearchesController < ApplicationController
     @user_searches = Searches.update_table
     if !@current_user.nil?
      # @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
-      @top_searches = Searches.where(country: @current_user.country).group(:search_term).limit(10)
+     # @top_searches = Searches.where(country: @current_user.country).group(:search_term).limit(10)
+      @top_searches = Searches.where(country: @current_user.country).limit(10)
     end
   end
 
