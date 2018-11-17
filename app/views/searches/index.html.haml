@@ -36,24 +36,6 @@
                 %td= search.from_date
                 %td= search.to_date
                 %td= search.number_of_tweets
-  #popular_search
-    %h1 Popular search terms in your country
-    %table#popular
-      %thead
-        %tr
-          %th Search Term
-          %th Geographical Restriction
-          %th Search Date
-          %th Additional Details
-      %tbody
-        - if !@current_user.nil?
-          - if !@top_searches.nil?
-            - @top_searches.each do |search|
-              %tr
-                %td= search.search_term
-                %td= search.country
-                %td= search.to_date
-                %td= search.number_of_tweets
 
 
 :css
