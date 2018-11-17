@@ -26,4 +26,9 @@ describe UsersController do
     end
     end
   end
+  describe 'grabbing users history' do
+    #https://stackoverflow.com/questions/13008922/testing-response-cookie-with-rspec-v-1
+    # Testing for this should be done in capybara and jasmin
+    # results are user-dependant (on the person that is logged on).
+  end
 end

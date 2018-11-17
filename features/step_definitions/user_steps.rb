@@ -44,8 +44,8 @@ When /^I choose to login with the username "(.*?)" and the password "(.*?)"$/ do
 end
 
 Then /^My homepage should welcome me as "(.*?)"$/ do |username|
-  welcome_message = page.find("#notice").text
-  welcome_message.should == "You're logged in as: #{username}"
+  welcome_message = page.find("#profile_link").text
+  welcome_message.should == "#{username}'s Profile"
 end
 
 When /^I have search a term "(.*?)" in the "(.*?)"$/ do |title, time|

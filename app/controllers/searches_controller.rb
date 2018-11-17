@@ -13,7 +13,11 @@ class SearchesController < ApplicationController
   def index
     @user_saved_topics = {}
     @user_searches = {}
+    @top_searches = {}
     @user_searches = Searches.update_table
+    if !@current_user.nil?
+      @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
+    end
   end
 
   def save_topic
@@ -22,7 +26,9 @@ class SearchesController < ApplicationController
       to_save.update(saved: true)
       Searches.update_table
 
-      redirect_to user_path(@current_user.id)
+      redirect_to root_path #Todo:: change this back to user path whene the JS is working properly.
+
+     # redirect_to user_path(@current_user.id)
     else
       flash[:notice] = "You are not logged in"
       redirect_to searches_path
@@ -42,7 +48,7 @@ class SearchesController < ApplicationController
       if @current_user != nil
         now = Date.today
         from_date = now - params[:time].to_i
-        total_count, graph_data = Searches.gather_tweets(searches_params[:search_term].to_s, searches_params[:search_user], from_date.to_s, now.to_s)
+        total_count, graph_data = Searches.gather_tweets(searches_params[:search_term].to_s, searches_params[:search_user], from_date.to_s, now.to_s, params[:time].to_i)
         search_hash = {}
         search_hash[:user_id] = @current_user.id
         search_hash[:search_term] = searches_params[:search_term].to_s

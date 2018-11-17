@@ -7,11 +7,32 @@ describe Searches do
     Searches.test_functionality
   end
 
-  describe 'searching Twitter by keyword' do
-    it 'should call Twitter with hashtag keywords in a time frame' do
-      expect(Searches).to receive(:gather_tweets).with('Ruby', '2018-10-10', '2018-10-25')
-      Searches.gather_tweets('Ruby', '2018-10-10', '2018-10-25')
+  describe 'formatting date holder' do
+    it 'should properly format date_vals for searches larger than 2 days' do
+      ret = {"2018-10-12"=> 0, "2018-10-13"=>0, "2018-10-14"=>0}
+      expect(Searches.format_date_holder("2018-10-12","2018-10-14",3)).
+        to eq(ret)
     end
+    it 'should properly format date_vals for 2 day searches' do
+      ret = {"2018-10-12 00:00:00"=>0, "2018-10-12 12:00:00"=>0,
+             "2018-10-13 00:00:00"=>0, "2018-10-13 12:00:00"=>0}
+      expect(Searches.format_date_holder("2018-10-12","2018-10-13",2)).
+        to eq(ret)
+    end
+    it 'should properly format date_vals for 1 day searches' do
+      ret = {"2018-10-12 00:00:00"=>0, "2018-10-12 12:00:00"=>0,
+             "2018-10-12 18:00:00"=>0, "2018-10-12 23:59:00"=>0}
+      expect(Searches.format_date_holder("2018-10-12","2018-10-12",1)).
+        to eq(ret)
+    end
+  end
+
+  describe 'Searching tweets' do
+    it 'should return a properly formatted json string' do
+      ret = [{"Date"=>"2018-10-12"}]
+
+    end
+
   end
 
   
