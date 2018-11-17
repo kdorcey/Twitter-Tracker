@@ -1,3 +1,8 @@
+- if flash[:notice]
+  #notice.flashMessage= flash[:notice]
+- elsif flash[:warning]
+  #warning.message= flash[:warning]
+
 %h1 User Login
 
 = form_tag login_create_path do
