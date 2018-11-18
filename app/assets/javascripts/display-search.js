@@ -3,6 +3,10 @@ jQuery(document).ready(function() {
 //Grab the graph div and the data from the data div
   graph = document.getElementById('graph');
   data = jQuery('#data').data('key1');
+  search_term = $('#data').data('key2');
+  twitter_handle = $('#data').data('key3');
+
+  graph_title = "'" + search_term + "' tweeted by @" + twitter_handle;
 //Create an array for the x and y values
   var dates = new Array();
   var y_vals = new Array();
@@ -24,8 +28,19 @@ jQuery(document).ready(function() {
     mode: 'lines+markers'
   };
 
+
+  var layout = {
+    title: graph_title,
+    xaxis: {
+      title: 'Dates of Tweets'
+    },
+    yaxis: {
+      title: '# of Tweets'
+    }
+  };
+
   var data_arr = new Array();
   data_arr.push(trace);
 
-  Plotly.plot(graph, data_arr);
+  Plotly.plot(graph, data_arr, layout);
 });

@@ -13,7 +13,7 @@
     - if !@current_user.current_search.nil?
       %tr
         %td= @curr_view_search.search_term
-        %td= @twitter_handle
+        %td= @curr_view_search.twitter_handle
         %td= @curr_view_search.from_date
         %td= @curr_view_search.to_date
         %td= @curr_view_search.number_of_tweets
