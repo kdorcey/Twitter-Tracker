@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 
    # test = Searches.joins(:graph_data).where(user_id: user_id)
 
-  #  puts test
+
 
     if !user_history.empty? #if user has searches
     user_history.each do |user_search|
