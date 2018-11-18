@@ -84,10 +84,12 @@ class Searches < ActiveRecord::Base
     return date_vals
   end
 
-  def self.get_searches
-    table_hash = {}
-    table_hash = Searches.all
-    return table_hash
+  def self.get_searches(id)
+    search_holder = []
+    Searches.where(user_id: id).find_each do |search_history|
+      search_holder<<search_history
+    end
+    return search_holder
   end
 
   private
