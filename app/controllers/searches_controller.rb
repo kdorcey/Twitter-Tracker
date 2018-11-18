@@ -14,19 +14,20 @@ class SearchesController < ApplicationController
     @user_saved_topics = {}
     @user_searches = {}
     @top_searches = {}
-    @user_searches = Searches.update_table
     if !@current_user.nil?
+      @user_searches = Searches.get_searches(@current_user.id)
+    end
      # @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
      # @top_searches = Searches.where(country: @current_user.country).group(:search_term).limit(10)
      # @top_searches = Searches.where(country: @current_user.country).limit(10)
-    end
+
   end
 
   def save_topic
     if !@current_user.nil?
-      to_save = Searches.update_table.last
+      to_save = Searches.get_searches(@current_user.id).last
       to_save.update(saved: true)
-      Searches.update_table
+      Searches.get_searches(@current_user.id)
 
       redirect_to root_path #Todo:: change this back to user path whene the JS is working properly.
 

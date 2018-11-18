@@ -6,16 +6,6 @@ class Searches < ActiveRecord::Base
     search = Searches.create!(hash_of_search)
   end
 
-  #this probably needs some security
-  def self.get_saved
-
-  end
-
-  def self.test_functionality
-    client = Searches.authenticate
-    client.update("I'm tweeting with ABC!")
-  end
-
   def self.gather_tweets(query, search_user, from, now, formatter)
     client = Searches.authenticate
 
@@ -94,15 +84,12 @@ class Searches < ActiveRecord::Base
     return date_vals
   end
 
-
-
-
-
-
-  def self.update_table()
-    table_hash = {}
-    table_hash = Searches.all
-    return table_hash
+  def self.get_searches(id)
+    search_holder = []
+    Searches.where(user_id: id).find_each do |search_history|
+      search_holder<<search_history
+    end
+    return search_holder
   end
 
   private
