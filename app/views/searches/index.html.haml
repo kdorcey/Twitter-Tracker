@@ -1,6 +1,9 @@
 %body
   %h1.title Welcome to the main page of The Emotions of Twitter! Enjoy!
-
+- if flash[:notice]
+  #notice.flashMessage= flash[:notice]
+- elsif flash[:warning]
+  #warning.message= flash[:warning]
 %h1 Search Keyword
 
 = form_tag searches_create_path do

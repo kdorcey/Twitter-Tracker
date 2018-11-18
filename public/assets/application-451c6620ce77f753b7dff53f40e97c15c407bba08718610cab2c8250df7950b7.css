@@ -10,9 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -89,7 +90,7 @@ table#history th, table#history td {
   text-align: left;
 }
 
-#notice, #warning {
+#notice #warning {
   background: rosybrown;
   margin: 1em 0;
   padding: 4px;
@@ -118,7 +119,7 @@ header::after {
 }
 
 nav {
-  float: right;
+  float: left;
 }
 
 nav ul {
