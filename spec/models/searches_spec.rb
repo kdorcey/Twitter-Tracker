@@ -3,11 +3,13 @@ require 'rails_helper'
 
 describe Searches do
 
-  it 'should post a tweet' do
-    Searches.test_functionality
+  describe 'get_searches' do
+    it 'should add new search entries to the correct table' do
+
+    end
   end
 
-  describe 'formatting date holder' do
+  describe 'format_date_holder' do
     it 'should properly format date_vals for searches larger than 2 days' do
       ret = {"2018-10-12"=> 0, "2018-10-13"=>0, "2018-10-14"=>0}
       expect(Searches.format_date_holder("2018-10-12","2018-10-14",3)).
