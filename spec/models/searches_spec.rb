@@ -4,11 +4,19 @@ require 'rails_helper'
 describe Searches do
 
   describe 'get_searches' do
-    it 'should add new search entries to the correct table' do
+    it 'should return an empty array for users with no search history' do
+      expect(Searches.get_searches(3)).to eq([])
+    end
+    it 'should properly retrieve tweets associated to a user' do
+      Searches.create!(:user_id=>2, :search_term =>'overthinking', :from_date=>'2018-11-11',:to_date=>'2018-11-12',
+                       :number_of_tweets=>4)
+      Searches.create!(:user_id=>2, :search_term =>'test', :from_date=>'2018-11-14',:to_date=>'2018-11-18',
+                       :number_of_tweets=>23)
 
+      expect(Searches.get_searches(2)[0].search_term).to eq('overthinking')
+      expect(Searches.get_searches(2)[1].search_term).to eq('test')
     end
   end
-
   describe 'format_date_holder' do
     it 'should properly format date_vals for searches larger than 2 days' do
       ret = {"2018-10-12"=> 0, "2018-10-13"=>0, "2018-10-14"=>0}
