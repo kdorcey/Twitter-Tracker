@@ -23,5 +23,6 @@ describe SessionsController do
       expect(response).to redirect_to login_path
       #response.should redirect_to login_path
     end
+
   end
 end
