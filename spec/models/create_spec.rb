@@ -8,7 +8,7 @@ describe User do
         User.create_user!({:user_name => 'testuser',:password => 'password', :verify_password => 'password', :email => 'email'})
 
         expect(User.create_user!({:user_name => 'testuser',:password => 'password',
-                                  :verify_password => 'password', :email => 'email'})).to be(false)
+                                  :verify_password => 'password', :email => 'email'})).to eq([false, "Invalid Email!"])
 
 
       end
@@ -21,10 +21,9 @@ describe User do
       password = ' '
       email = 'hotdog'
       verify = 'hotdog2'
-
       input = { :user_name => username, :password => password, :email => email, :verify_password => verify}
-
-      expect(User.create_user!(input)).to be(false)
+      ret = [false, "Invalid Username!"]
+      expect(User.create_user!(input)).to eq(ret)
     end
   end
 
