@@ -1,7 +1,6 @@
-jQuery(window).bind("load", function() {
-
-  graph = document.getElementById('graph2');
+  var graph = document.getElementById('graph2');
   var all_data = jQuery('#data').data('key1');
+  all_data = all_data.reverse(); //show latest search history first
   var initial;
   for (initial = 0; initial < all_data.length; initial++) {
 
@@ -30,7 +29,6 @@ jQuery(window).bind("load", function() {
 
     var div = document.createElement('div');
     graph.appendChild(div);
-
     Plotly.plot(div, data_arr);
+   // jQuery('#graph2').load();
   }
-});
