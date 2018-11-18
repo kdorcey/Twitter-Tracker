@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+jQuery(window).bind("load", function() {
 
   graph = document.getElementById('graph2');
   var all_data = jQuery('#data').data('key1');
@@ -29,7 +29,8 @@ jQuery(document).ready(function() {
     data_arr.push(trace);
 
     var div = document.createElement('div');
-    document.getElementById('graph2').appendChild(div);
+    graph.appendChild(div);
+
     Plotly.plot(div, data_arr);
   }
 });
