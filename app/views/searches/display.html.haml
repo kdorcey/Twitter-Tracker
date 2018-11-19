@@ -4,6 +4,7 @@
     %thead
       %tr
       %th Search Term
+      %th Twitter Handle
       %th From
       %th To
       %th Number of Associated Tweets
@@ -12,14 +13,16 @@
     - if !@current_user.current_search.nil?
       %tr
         %td= @curr_view_search.search_term
+        %td= @curr_view_search.twitter_handle
         %td= @curr_view_search.from_date
         %td= @curr_view_search.to_date
         %td= @curr_view_search.number_of_tweets
+
   %br
   #graph{:style => "width:600px;height:250px;"}
 
   =submit_tag 'Save Topic', :method => :save_topic
 
-  = content_tag 'div', '', id: 'data', data: {key1: @graph_data }
+  = content_tag 'div', '', id: 'data', data: {key1: @graph_data, key2: @curr_view_search.search_term, key3: @curr_view_search.twitter_handle }
 
   %script(src='display-search.js' type='text/javascript')

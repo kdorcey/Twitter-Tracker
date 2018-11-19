@@ -55,13 +55,14 @@ class SearchesController < ApplicationController
         search_hash = {}
         search_hash[:user_id] = @current_user.id
         search_hash[:search_term] = searches_params[:search_term].to_s
+        search_hash[:twitter_handle] = searches_params[:search_user].to_s
         search_hash[:from_date] = from_date
         search_hash[:to_date] = now
         search_hash[:number_of_tweets] = total_count
         search_hash[:country] = @current_user.country
        # search_hash[:saved] = false
-
         search_hash[:graph_data] = graph_data
+
         new_search = Searches.create_search!(search_hash)
 
         search_hash[:graph_data] = graph_data.to_json
@@ -81,8 +82,8 @@ class SearchesController < ApplicationController
   end
 
   def display
-    @search_info = params[:search_hash]
-    @graph_data = @search_info[:graph_data]
+    search_info = params[:search_hash]
+    @graph_data = search_info[:graph_data]
     if !@current_user.current_search.nil?
     @curr_view_search = Searches.find_by_id(@current_user.current_search)
     else
