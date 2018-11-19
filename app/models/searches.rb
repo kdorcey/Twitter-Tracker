@@ -55,7 +55,6 @@ class Searches < ActiveRecord::Base
       to_return<<{"date"=> date, "value"=>count}
     end
 
-
     return total_count, to_return
   end
 
