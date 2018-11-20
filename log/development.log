@@ -8026,3 +8026,1014 @@ Processing by SearchesController#index as HTML
   [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
   Rendered searches/index.html.haml within layouts/application (1.7ms)
 Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:36:38 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (24.3ms)
+Completed 200 OK in 421ms (Views: 367.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:36:39 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:36:44 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (31.2ms)
+Completed 200 OK in 64ms (Views: 45.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:36:44 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (45.1ms)
+Completed 200 OK in 55ms (Views: 48.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-404d1622d48376ab3e0b67e7614842bfef0274653c430af758e8941c3593c4da.css?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/plotly-latest.min.self-dd5ec95190a362322d792973b91e8eca1e9a83a19dd83170a6b6799e0523ee9b.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/display-search.self-8fcc790a17d2a9c34a3103567cf480ec50892f8625ec1383324f2f00ae459791.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/show-history.self-591395c529de57f25364aaadfb571648be33c052ce261eee48c78ea1caac2c6b.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-20 16:36:51 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:18 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (10.4ms)
+Completed 200 OK in 284ms (Views: 251.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:21 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:23 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:23 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:23 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:23 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:24 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:24 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:25 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:25 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:26 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:26 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:26 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:26 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:45 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 20.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:40:47 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:47 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:40:51 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:41:28 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:41:28 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 34ms (Views: 22.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:41:44 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:41:44 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 12.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:42:36 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (18.1ms)
+Completed 200 OK in 65ms (Views: 31.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:42:36 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (23.5ms)
+Completed 200 OK in 33ms (Views: 26.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:49:58 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 56ms (Views: 22.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:50:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (16.7ms)
+Completed 200 OK in 38ms (Views: 29.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:00 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (17.4ms)
+Completed 200 OK in 24ms (Views: 19.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:00 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (16.8ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-20 16:50:10 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:10 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (11.3ms)
+Completed 200 OK in 18ms (Views: 13.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-20 16:50:16 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.0ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:16 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (16.8ms)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2018-11-20 16:50:20 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (16.9ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:20 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (16.1ms)
+Completed 200 OK in 23ms (Views: 18.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2389759" for 127.0.0.1 at 2018-11-20 16:50:23 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2389759"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.6ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:23 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (17.9ms)
+Completed 200 OK in 25ms (Views: 19.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-11-20 16:50:27 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:27 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (14.6ms)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:50:30 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.5ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:30 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (15.7ms)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:50:33 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (14.7ms)
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:33 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (17.0ms)
+Completed 200 OK in 29ms (Views: 18.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:50:35 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:50:37 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (27.1ms)
+Completed 200 OK in 37ms (Views: 34.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:37 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (11.7ms)
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:50:39 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-20 16:50:44 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (11.5ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 16:50:44 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (20.5ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:51:00 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 39ms (Views: 20.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:51:02 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:51:02 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:51:33 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 48ms (Views: 24.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:51:36 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:51:36 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:51:51 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 59ms (Views: 30.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:51:52 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:51:52 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:26 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 38ms (Views: 19.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:53:27 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:27 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:53:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:29 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:53:32 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:32 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-20 16:53:34 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZqbHxAjWkk9bzuK0TTgcuVTObjc98wzDHrEjR+fafdzDv8rwbraXlmGDDGfttWY/E+GiSNk47Sd+chZVCnNgOA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:34 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2/" for 127.0.0.1 at 2018-11-20 16:53:36 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/" for 127.0.0.1 at 2018-11-20 16:53:37 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=54707827ee754c8355792db321bcf75a4754861012f6ab27&code=4/mwCTdqCnZ5ckX5SlOaXCs3yOkMVzzWfpu7dviBMV91P5DYkUYNosTP1tRVJE2BIikJ3tgq9HchaUpcV9xmJTxm0&scope=email+profile+https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2018-11-20 16:53:37 -0600
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#createauth as HTML
+  Parameters: {"state"=>"54707827ee754c8355792db321bcf75a4754861012f6ab27", "code"=>"4/mwCTdqCnZ5ckX5SlOaXCs3yOkMVzzWfpu7dviBMV91P5DYkUYNosTP1tRVJE2BIikJ3tgq9HchaUpcV9xmJTxm0", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."session_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "google_oauth2"], ["session_token", "113156058986000886008"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:38 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.0ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:53:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:53:42 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:54:31 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:54:31 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-11-20 16:54:35 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:54:35 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 16:55:18 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 16:55:18 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 15.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 17:05:17 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.5ms)
+Completed 200 OK in 42ms (Views: 20.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 17:05:17 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (18.6ms)
+Completed 200 OK in 25ms (Views: 20.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:05:55 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 61ms (Views: 31.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 17:06:02 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (17.1ms)
+Completed 200 OK in 39ms (Views: 32.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 17:06:02 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (17.8ms)
+Completed 200 OK in 25ms (Views: 19.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 17:06:02 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml (16.9ms)
+Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-11-20 17:10:30 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:10:30 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 24ms (Views: 16.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 17:10:38 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:10:38 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-11-20 17:10:41 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:10:41 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:11:48 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 17:11:49 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:11:49 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:13:16 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 42ms (Views: 22.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 17:13:17 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:13:17 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:13:37 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 46ms (Views: 24.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 17:13:39 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (19.1ms)
+Completed 200 OK in 36ms (Views: 29.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 17:13:39 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:13:39 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (14.9ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-11-20 17:14:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 17:14:03 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.1ms)

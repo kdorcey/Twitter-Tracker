@@ -8,9 +8,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
-    #array of search hashes.
-    @graph_data = User.get_history(@current_user.id)
+
+    if @current_user.nil?
+      flash[:notice] = "can't view that profile page!"
+      redirect_to root_path
+    end
+
+    if params[:id].to_s == @current_user.id.to_s # && not on friends list) #have to do to_s.
+      @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+      #array of search hashes.
+      @graph_data = User.get_history(@current_user.id)
+      else
+        flash[:notice] = "can't view that profile page!"
+        redirect_to root_path
+    end
   end
 
   def index
