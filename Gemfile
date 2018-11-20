@@ -6,6 +6,8 @@ gem 'simplecov', :require => false
 
 gem 'twitter' ##think this is what we need.
 
+gem 'omniauth-google-oauth2'
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'haml'

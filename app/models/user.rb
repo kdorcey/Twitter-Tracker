@@ -25,6 +25,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  #checks our DB if we have the user, updates info as well.
+  def self.find_or_create_from_auth_hash(auth)
+    where(provider: auth.provider, session_token: auth.uid).first_or_initialize.tap do |user|
+        user.provider = auth.provider
+        user.session_token = auth.uid #Todo :: check if this is ok (and change above if not)
+        user.user_name = auth.info.email
+        user.email = auth.info.email
+        user.save!
+    end
+  end
+
 
   def self.username_exists?(username)
     User.exists?(user_name: username)
