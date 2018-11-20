@@ -18,6 +18,8 @@
             - if !@current_user
               %li
                 = link_to 'Login/Sign up', login_path, :method => :get, :id => 'userLogging'
+              %li
+                = link_to 'Sign in with Google', "/auth/google_oauth2/"
             - else
               %li
                 - profile_string = @current_user.user_name + "'s Profile"
