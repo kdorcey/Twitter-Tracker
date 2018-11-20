@@ -8,6 +8,12 @@ class SessionsController < ApplicationController
 
   end
 
+  def createauth
+    user = User.find_or_create_from_auth_hash(env["omniauth.auth"])
+    session[:session_token] = user.session_token
+    redirect_to root_path
+  end
+
   def create
 
     user_logged_in = Session.verify_login(sessions_params)

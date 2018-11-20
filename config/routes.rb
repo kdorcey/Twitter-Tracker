@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-
   root 'searches#index'
+
+  get 'auth/:provider/callback', to: 'sessions#createauth'
+  get 'auth/failure', to: redirect('/')
 
   resources :users
 
