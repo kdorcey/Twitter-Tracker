@@ -7,25 +7,55 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_name, :email, :session_token, :password, :country)
   end
 
+
   def show
+    redir = true
 
     if @current_user.nil?
-      flash[:notice] = "can't view that profile page!"
-      redirect_to root_path
+      flash[:notice] = "Must be logged in to view a profile page!"
+      redirect_to root_path and return
     end
 
-    if params[:id].to_s == @current_user.id.to_s # && not on friends list) #have to do to_s.
+    #needs to be broken up so we can show either the current users profile, or their friends profile.
+    if (params[:id].to_s != @current_user.id.to_s)
+      user_friends = User.get_user_friends_and_ids(@current_user.user_name)
+
+      user_friends_ids = user_friends[1]
+
+      user_friends_ids_to_string = user_friends_ids.map(&:to_s)
+      if user_friends_ids_to_string.include?(params[:id].to_s)
+        @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+        @graph_data = User.get_history(params[:id].to_s)
+        redir = false
+      else
+        flash[:notice] = "cannot view that profile page!"
+        redirect_to root_path and return #redirect doesn't exit the method call: so, need to also return
+      end
+
+    end
+
+    if redir
+    if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
       @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
       #array of search hashes.
       @graph_data = User.get_history(@current_user.id)
-      else
+
+      @user_friends = @current_user.friends_list
+      @user_friends_ids = User.get_user_friends_and_ids(@current_user.user_name)[1]
+
+      @at_users_home = true
+
+    #This else executes for both if statements. (don't put a redirect in the previous if statement)
+    else
         flash[:notice] = "can't view that profile page!"
         redirect_to root_path
     end
+    end
+
   end
 
-  def index
 
+  def index
   end
 
   def add_friend

@@ -10,16 +10,23 @@
     %h1.title Welcome to your homepage!
 
 %h1 Options
-%li
-  = link_to 'Add a friend!', add_friend_path
+- if @at_users_home
+  %li
+    = link_to 'Add a friend!', add_friend_path
 
-%h1 Friends List
-%table#friends
-  %thead
-    %tr
-      %th Friends User Name
-      %th Friends Profile Page
-  %tbody
+  %h1 Friends List
+  %table#friends
+    %thead
+      %tr
+        %th Friends User Name
+        %th Friends Profile Page
+    %tbody
+      - if !@user_friends.nil?
+        - @user_friends.zip(@user_friends_ids).each do |curr_friend, curr_friend_id|
+          %tr
+            %td= "#{curr_friend}"
+            %td= link_to "Go to #{curr_friend}'s profile page ", user_path(curr_friend_id)
+
 
 %h1 Saved Topics
 %table#saved_searches
