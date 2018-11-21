@@ -11,6 +11,10 @@
 #
 users = [
   {:user_name => 'Kyle', :email => 'kylekyle@gmail.com', :password => 'lol', :country => 'United States'},
+  {:user_name => 'Bob'},
+  {:user_name => 'test'},
+  {:user_name => 'test2'},
+  {:user_name => 'test3'}
 ]
 
 users.each do |user|

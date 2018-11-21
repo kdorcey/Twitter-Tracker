@@ -28,6 +28,29 @@ class UsersController < ApplicationController
 
   end
 
+  def add_friend
+    #just renders the add friend page
+  end
+
+  def verify_add_friend
+
+    if User.exists?(user_name: params[:user_name])
+
+      if @current_user.friends_list.include?(params[:user_name])
+        flash[:notice] = "You already have that person as a friend."
+        redirect_to :controller => 'users', :action => 'add_friend'
+      else
+      @current_user.friends_list.push(params[:user_name])
+      @current_user.save!
+      redirect_to :controller => 'searches', :action => 'index'
+      end
+
+    else
+      flash[:notice] = "User Does not exist! Imaginary friends aren't allowed, sorry." #Todo:: y this no show?
+      redirect_to :controller => 'users', :action => 'add_friend'
+    end
+  end
+
   def new
     #this just renders the sign up page.
   end

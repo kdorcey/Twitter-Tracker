@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title User Homepage
+    = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %h1.title Add a friend!
+
+= form_tag verify_add_friend_path do
+
+  = label :user_name, 'Add a friend'
+  = text_field :user_name, params[:user_name]
+
+  = submit_tag 'Add friend'

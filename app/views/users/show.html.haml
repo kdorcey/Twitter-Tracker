@@ -10,6 +10,16 @@
     %h1.title Welcome to your homepage!
 
 %h1 Options
+%li
+  = link_to 'Add a friend!', add_friend_path
+
+%h1 Friends List
+%table#friends
+  %thead
+    %tr
+      %th Friends User Name
+      %th Friends Profile Page
+  %tbody
 
 %h1 Saved Topics
 %table#saved_searches

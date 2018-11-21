@@ -9037,3 +9037,1259 @@ Processing by SearchesController#index as HTML
   [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
   Rendered searches/index.html.haml within layouts/application (0.8ms)
 Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserFriendList (20181121001739)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "friends_list" varchar DEFAULT '--- []
+'[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181121001739"]]
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:20:24 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 276ms (Views: 244.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-11-20 18:20:27 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3SvZQRJCNs3AXaX9itCyRDdGVbDscNYOxrpCV4dLi2F4MtR1dCIzFPoQSy4qXcjCcGmZzwi7N+qmeXdFauKWhQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:20:27 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-20 18:20:29 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"1nX1j0xfVrWqypDo1Kn9pdjWUcH4Ua7LOM3mutzV5cRzbPi7Kj9TbJCHfjt0JIcjn/mdvhyaTy9YDtOoMXz4IA=="}
+  Rendered sessions/new.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 45ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login_create" for 127.0.0.1 at 2018-11-20 18:20:35 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iqnOmehtEVLNYbcDW/K3SLVUkpLkOdGX3aU7sruqCcovsMOtjg0Ui/csWdD7f83O8nte7QDyMHO9Zg6gVgMULg==", "user"=>{"user_name"=>"markusdrealan7@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login to my account"}
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."session_token", "users"."password" FROM "users" WHERE "users"."user_name" = ?[0m  [["user_name", "markusdrealan7@gmail.com"]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+BCrypt::Errors::InvalidHash (invalid hash):
+  app/models/session.rb:17:in `new'
+  app/models/session.rb:17:in `verify_login'
+  app/controllers/sessions_controller.rb:19:in `create'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (30.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (54.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-20 18:20:45 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:46:11 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 248ms (Views: 239.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2/" for 127.0.0.1 at 2018-11-20 18:46:20 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/" for 127.0.0.1 at 2018-11-20 18:46:20 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=17fa93db0e3e7b272a90b39ac067aae2baf44f09dd152c26&code=4/nADW_Fzwous080VEUvHMCgAZfgd5e6PAtG5Y97zkm7TtIGf7bQrKZFQquCx8wnzVs_v7uDZ0bQamp7PJqBAgROE&scope=email+profile+https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2018-11-20 18:46:20 -0600
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#createauth as HTML
+  Parameters: {"state"=>"17fa93db0e3e7b272a90b39ac067aae2baf44f09dd152c26", "code"=>"4/nADW_Fzwous080VEUvHMCgAZfgd5e6PAtG5Y97zkm7TtIGf7bQrKZFQquCx8wnzVs_v7uDZ0bQamp7PJqBAgROE", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."session_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["session_token", "113156058986000886008"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 45ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:46:21 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 53ms (Views: 19.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 18:46:24 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.5ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (42.1ms)
+Completed 200 OK in 72ms (Views: 59.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 18:46:24 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:46:24 -0600
+Processing by SearchesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (17.1ms)
+Completed 200 OK in 39ms (Views: 35.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 18:46:29 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (36.0ms)
+Completed 200 OK in 56ms (Views: 53.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 18:46:36 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PsFfHxMc2SLQkjc88OPc97LmuIYShhH2DCexWDO1u92b2FIrdXzc++rf2e9QbqZx9cl0+fZN8BJs5IRK3hymOQ==", "user"=>{"user_name"=>"bleargh!"}, "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+ActionView::MissingTemplate (Missing template users/verify_add_friend, application/verify_add_friend with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :haml, :jbuilder]}. Searched in:
+  * "/home/markus/RubymineProjects/selt18project-g005/app/views"
+):
+  actionview (4.2.10) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.10) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.10) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.10) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.10) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.10) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.10) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.10) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.10) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.10) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.10) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.10) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.10) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.10) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.10) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.10) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.10) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.10) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.10) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.10) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.10) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.10) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.10) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.10) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.10) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.10) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.10) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.10) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.10) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.10) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.10) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.10) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.10) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.10) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.10) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+  omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+  omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+  rack (1.6.10) lib/rack/etag.rb:24:in `call'
+  rack (1.6.10) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.10) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.10) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.10) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (20.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 18:47:16 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (17.6ms)
+Completed 200 OK in 44ms (Views: 24.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 18:47:16 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (20.0ms)
+Completed 200 OK in 31ms (Views: 25.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 18:47:16 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:47:16 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 25ms (Views: 22.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 18:47:19 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (16.9ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 18:47:21 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BvYU7QRIUv2rStduRmhM2b0CNzYkr7FKfjDeRp5x8A2j7xnZYihXJJEHOb3m5TZf+i37ScBkUK4e8+tUc9jt6Q==", "user"=>{"user_name"=>"asdf"}, "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:47:21 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 18:47:49 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (17.0ms)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 18:47:49 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:47:49 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 18:47:50 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (35.5ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 18:48:01 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (15.8ms)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 18:48:01 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 18:48:01 -0600
+Processing by SearchesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 18:48:03 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (22.0ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("user_name", "email", "password", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_name", "Kyle"], ["email", "kylekyle@gmail.com"], ["password", "lol"], ["country", "United States"], ["created_at", "2018-11-21 01:00:18.232811"], ["updated_at", "2018-11-21 01:00:18.232811"]]
+  [1m[35m (9.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("user_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["user_name", "Bob"], ["created_at", "2018-11-21 01:00:18.245195"], ["updated_at", "2018-11-21 01:00:18.245195"]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_name", "test"], ["created_at", "2018-11-21 01:00:18.255038"], ["updated_at", "2018-11-21 01:00:18.255038"]]
+  [1m[35m (7.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("user_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["user_name", "test2"], ["created_at", "2018-11-21 01:00:18.264965"], ["updated_at", "2018-11-21 01:00:18.264965"]]
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("user_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_name", "test3"], ["created_at", "2018-11-21 01:00:18.275473"], ["updated_at", "2018-11-21 01:00:18.275473"]]
+  [1m[35m (7.8ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:00:28 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 282ms (Views: 249.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:00:30 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:00:33 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (36.0ms)
+Completed 200 OK in 73ms (Views: 51.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:00:33 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:00:33 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:00:42 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (21.5ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:00:44 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qu2fzSrNNdbxeAx45zPctvLxD9Efji+fp11O4uf5qBLsrtLUssxDmGIDuJDEbX0nOQIQKC12VoeXkApZjb7RA==", "user"=>{"user_name"=>"test"}, "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" IS NULL LIMIT 1
+Redirected to http://localhost:3000/add_friend
+Redirected to 
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/users_controller.rb:44:in `verify_add_friend'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:01:20 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 46ms (Views: 25.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:01:20 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.0ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (25.3ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:01:20 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:01:20 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:01:22 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.3ms)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:01:22 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:01:22 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:01:26 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (20.1ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:01:32 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v2rU8hszPjryO2a/yQUQPDq7+0NSi+Zh/pfIYsRrn5wac9nGfVM748h2iGxpiGq6fZQ3PLZAB4WeVP1wKcKCeA==", "user"=>{"user_name"=>"hello"}, "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" IS NULL LIMIT 1
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:01:32 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (10.5ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:02:01 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hZETvJn3x1fWhRvgv5d7CbMV7Za/pgS3N4qon/RashggiB6I/5fCjuzI9TMfGgGP9Doh6Vtt5VNXSZ2NGfOv/A==", "user"=>{"user_name"=>"test"}, "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:02:01 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (16.1ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:02:40 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (12.8ms)
+Completed 200 OK in 31ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:02:44 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0gSTKqYDhmxoJlLh11Lwa4H10Y9OeV8gaEOxWxwPGkp3HZ4ewGODtVJrvDJ334rtxtod8KqyvsQIgIRJ8aYHrg==", "user"=>{"user_name"=>"test"}, "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", ""]]
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:02:44 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (10.9ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:03:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (10.6ms)
+Completed 200 OK in 49ms (Views: 18.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:03:00 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:03:00 -0600
+Processing by SearchesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:03:02 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (16.8ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:03:10 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFcpN7G+JUF/0LCdRjjv7+v/sKp9bnjAOKP1jgv3FA+JTiQD194gmEWdXk7mtZVprNB81ZmlmSRYYMCc5l4J6w==", "user"=>{"user_name"=>"test"}, "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", ""]]
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:03:10 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (12.2ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:04:44 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (17.4ms)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:04:44 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:04:45 -0600
+Processing by SearchesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:04:47 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (20.2ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:04:59 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (12.8ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:05:15 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (14.2ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:05:18 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jssOx5kB/z7Z3KUc1ND2jU9xM1dvlPzIyMDtBUuJhVor0gPz/2H65+ORS890XYwLCF7/KItfHSyoA9gXpiCYvg==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "[\"test\"]"]]
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:05:18 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (11.4ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:06:17 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ND1TMPVAehQDgvjOziRyRGAeegpovF+fdyR4wXdv+r6RJF4EkyB/zTnPFh1uqQjCJzG2dYx3vnsX503TmsbnWg==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "[\"test\"]"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "[\"test\"]"]]
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:06:17 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:06:47 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SQw8eMlFjFEAh8Bs0G/ml5Ol8XRG+JhLqj9s1GbdKVTsFTFMryWJiDrKLr9w4pwR1Io9C6Izea/K/FnGi3Q0sA==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "[\"test\"]"]]
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:06:47 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (11.2ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:07:09 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N5gGuvXD4i4N9MnPir3eIEiG/PPecGaokYC7hYWVd8GSgQuOk6Pn9ze5JxwqMKSmD6kwjDq7h0zxQ46XaDxqJQ==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `push' for "--- []\n":String):
+  app/controllers/users_controller.rb:38:in `verify_add_friend'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.4ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:09:40 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N5gGuvXD4i4N9MnPir3eIEiG/PPecGaokYC7hYWVd8GSgQuOk6Pn9ze5JxwqMKSmD6kwjDq7h0zxQ46XaDxqJQ==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `push' for "--- []\n":String):
+  app/controllers/users_controller.rb:38:in `verify_add_friend'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:09:52 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 263ms (Views: 233.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:09:55 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (25.8ms)
+Completed 200 OK in 59ms (Views: 44.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:09:55 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:09:55 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (19.9ms)
+Completed 200 OK in 60ms (Views: 56.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:09:56 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (27.5ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:09:58 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5mgAafKNM9+2zZH5nkZOpWYCg9TxK7nv6bW5674mqIJDcQ1dlO02BoyAfyo+yzQjIS1PqxXgWAuJdoz5U4+1Zg==", "user_name"=>["ah"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'ah' LIMIT 1
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:09:58 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (17.1ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:10:02 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3uz6mXFn22GC6XULNrdxZw6CrkBqJ3YK3PZ0aFz0WFV79fetFwfeuLikm9iWOgvhSa1iP47sl+68NUF6sV1FsQ==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `push' for "--- []\n":String):
+  app/controllers/users_controller.rb:38:in `verify_add_friend'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:12:38 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (10.5ms)
+Completed 200 OK in 304ms (Views: 269.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:12:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (28.8ms)
+Completed 200 OK in 58ms (Views: 46.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:12:42 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:12:42 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (20.2ms)
+Completed 200 OK in 60ms (Views: 56.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:12:44 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (29.8ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:12:45 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H+mf5QoMALGCGSUUOLgcvFYOnFeEbwU69Pu/66mXfqm68JLRbGwFaLhUy8eYNWY6ESFQKGCk5N6UOIr5RD5jTQ==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `push' for "--- []\n":String):
+  app/controllers/users_controller.rb:41:in `verify_add_friend'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:14:48 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (10.9ms)
+Completed 200 OK in 342ms (Views: 283.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:14:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.8ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (17.1ms)
+Completed 200 OK in 51ms (Views: 36.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:14:51 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:14:51 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (19.4ms)
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:14:53 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (27.7ms)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:14:56 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U7YJp8Fck3IBC8aOZNMFoOPzMI2wMXOekTxpDv5bS+j2rwSTpzyWqztGKF3EXn8mpNz88lT6knrx/1wcE/JWDA==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:14:56 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.3ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:17:33 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?[0m  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (12.3ms)
+Completed 200 OK in 51ms (Views: 24.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:17:33 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:17:33 -0600
+Processing by SearchesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearches Load (0.6ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:17:34 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (16.9ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:17:37 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eJKslKhu/yiM+TLrA/Zj3OS6vrtTgVMiYY/9h6f5Aordi6Ggzg768ba03Dijexlao5VyxLdKssYBTMiVSlAfbg==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:17:37 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:18:06 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (13.6ms)
+Completed 200 OK in 63ms (Views: 28.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:18:06 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:18:06 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 46ms (Views: 42.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:18:07 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (18.3ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:18:09 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtMTauAv+jseofhRYN2yIsK0lVRzUVeicCKLZf48VOzTyh5ehk//4iTsFoLAUMikhZtZK5eatkYQ4b53E5VJCA==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `save!' for [["test"]]:Array):
+  app/controllers/users_controller.rb:44:in `verify_add_friend'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.9ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:18:30 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtMTauAv+jseofhRYN2yIsK0lVRzUVeicCKLZf48VOzTyh5ehk//4iTsFoLAUMikhZtZK5eatkYQ4b53E5VJCA==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "friends_list" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["friends_list", "---\n- - test\n"], ["updated_at", "2018-11-21 01:18:30.192208"], ["id", 2]]
+  [1m[36m (8.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:18:30 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 24ms (Views: 14.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-20 19:18:32 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 2]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSearches Load (0.4ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ? AND "searches"."saved" = ?  [["user_id", 2], ["saved", "t"]]
+  Rendered users/show.html.haml within layouts/application (13.2ms)
+Completed 200 OK in 26ms (Views: 21.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/show-history.js" for 127.0.0.1 at 2018-11-20 19:18:32 -0600
+Processing by UsersController#show as JS
+  Parameters: {"id"=>"show-history"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:18:32 -0600
+Processing by SearchesController#index as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:18:45 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (14.8ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:18:47 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dHKg7PfDN0jiOe/tZRVtXarwUHl/ijsQR4x2aaiPtFnRa63YkaMykdh0AT7FmBfb7d+cBptB2vQnT0N7RSapvQ==", "user_name"=>["test"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:18:47 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:18:50 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cN8veLMJevx65/OU3FIg1aV5NRy7f2PL4b/Lq1VAfS3VxiJM1Wl/JUCqHUd831pT4lb5Y1+0gi+BfP65uOlgyQ==", "user_name"=>["bob"], "commit"=>"Add friend"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'bob' LIMIT 1[0m
+Redirected to http://localhost:3000/add_friend
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/add_friend" for 127.0.0.1 at 2018-11-20 19:18:50 -0600
+Processing by UsersController#add_friend as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered users/add_friend.html.haml within layouts/application (9.8ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/verify_add_friend" for 127.0.0.1 at 2018-11-20 19:18:52 -0600
+Processing by UsersController#verify_add_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"++jYUN26Lxy5nBKWwZuscUPwYk9bk/3Cyp2D2uOg9mFe8dVku9oqxYPR/EVhFtb3BN+uML9YHCaqXrbIDgnrhQ==", "user_name"=>["test2"], "commit"=>"Add friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'test2' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "friends_list" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["friends_list", "---\n- - test\n- - test2\n"], ["updated_at", "2018-11-21 01:18:52.963566"], ["id", 2]]
+  [1m[36m (33.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms (ActiveRecord: 34.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 19:18:53 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearches Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."user_id" = ?  ORDER BY "searches"."id" ASC LIMIT 1000[0m  [["user_id", 2]]
+  Rendered searches/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.1ms)
