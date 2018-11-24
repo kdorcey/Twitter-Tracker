@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     #needs to be broken up so we can show either the current users profile, or their friends profile.
     if (params[:id].to_s != @current_user.id.to_s)
+
       user_friends = User.get_user_friends_and_ids(@current_user.user_name)
 
       user_friends_ids = user_friends[1]

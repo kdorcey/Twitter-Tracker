@@ -34,7 +34,19 @@ var history_graph_show = {
       var div = document.createElement('div');
       graph.appendChild(div);
       Plotly.plot(div, data_arr);
+
+
+
+      var delete_button = document.createElement('input');
+      delete_button.type = "Button";
+      delete_button.id = "button_" + initial.toString(); //to associate
+      console.log(delete_button.id.toString());
+      delete_button.value = "Delete This Graph!";
+      //delete_button.addEventListener()
+      graph.appendChild(delete_button);
       // jQuery('#graph2').load();
+
+
     }
   }
 };
