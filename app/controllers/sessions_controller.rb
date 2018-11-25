@@ -24,7 +24,8 @@ class SessionsController < ApplicationController
     else
       session[:session_token] = user_logged_in
       flash[:notice]  = "You are logged in as " + sessions_params[:user_name]
-      redirect_to :controller => 'users', :action => 'show'
+      #redirect_to :controller => 'users', :action => 'show'
+      redirect_to root_path #Todo:: change this and pass params to users show to do the correct reroute.
     end
   end
 

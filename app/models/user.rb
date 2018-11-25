@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :searches, :dependent => :destroy
 
+  serialize :friends_list #friends list is an array.
+
   include BCrypt
 
   def self.create_user!(hash_of_user)
@@ -25,7 +27,29 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.get_user_friends_and_ids(user_name)
+    #check if user exists
+    if User.exists?(user_name: user_name)
+      user = User.find_by_user_name(user_name)
+      friends_list = user.friends_list
+
+      friends_list_ids = Array.new
+
+      #need to check for nil at all?
+      #
+      friends_list.each do |friend|
+        curr_user = User.find_by_user_name(friend)
+        friends_list_ids.push(curr_user.id)
+      end
+
+      return friends_list, friends_list_ids
+    else
+      return [] #return empty array
+    end
+  end
+
   #checks our DB if we have the user, updates info as well.
+  # Got this code from a tutorial pretty much.
   def self.find_or_create_from_auth_hash(auth)
     where(provider: auth.provider, session_token: auth.uid).first_or_initialize.tap do |user|
         user.provider = auth.provider
