@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  #Returns user friends list and corresponding ID's if available. If not, returns 2 empty array.
   def self.get_user_friends_and_ids(user_name)
     #check if user exists
     if User.exists?(user_name: user_name)
@@ -36,7 +38,6 @@ class User < ActiveRecord::Base
       friends_list_ids = Array.new
 
       #need to check for nil at all?
-      #
       friends_list.each do |friend|
         curr_user = User.find_by_user_name(friend)
         friends_list_ids.push(curr_user.id)
@@ -44,7 +45,7 @@ class User < ActiveRecord::Base
 
       return friends_list, friends_list_ids
     else
-      return [] #return empty array
+      return [], [] #return empty array
     end
   end
 
@@ -89,12 +90,10 @@ class User < ActiveRecord::Base
 
   def self.get_history(user_id)
     final_hash = Array.new
+
     if User.exists?(id: user_id)
     user_history = Searches.where(user_id: user_id)
-
    # test = Searches.joins(:graph_data).where(user_id: user_id)
-
-
 
     if !user_history.empty? #if user has searches
     user_history.each do |user_search|
@@ -104,7 +103,6 @@ class User < ActiveRecord::Base
       final_hash.push(curr_graph_as_array_of_hash)
 
     end
-
     end
     end
     return final_hash
