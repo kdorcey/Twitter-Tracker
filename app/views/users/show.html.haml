@@ -14,6 +14,13 @@
   %li
     = link_to 'Add a friend!', add_friend_path
 
+  = form_tag update_country_path do
+    = label :user, :country, 'Update Country'
+    = select_tag :country,options_for_select(['Canada', 'The Moon', 'Mars', 'Rhode Island'])
+
+    = submit_tag 'Update Country'
+
+
   %h1 Friends List
   %table#friends
     %thead

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   match 'users/show', to: 'users#show', via: :show
   match 'add_friend', to: 'users#add_friend', via: :get
   match 'verify_add_friend', to:'users#verify_add_friend', via: :post
+  match 'update_country', to: 'users#update_country', via: :post
 
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post

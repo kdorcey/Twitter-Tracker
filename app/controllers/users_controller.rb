@@ -109,6 +109,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_country
+    @current_user.country = params[:country]
+    @current_user.save!
+    redirect_to :controller => 'users', :action => 'show'
+  end
+
   #def edit
   #  @user = User.find params[:id]
   #end
