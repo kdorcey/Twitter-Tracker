@@ -7,7 +7,10 @@
     = csrf_meta_tags
 
   %body
-    %h1.title Welcome to your homepage!
+    - if @at_users_home
+      %h1.title Welcome to your homepage!
+    - else
+      %h1.title Welcome to the homepage of #{@user_friend_name} !
 
 %h1 Options
 - if @at_users_home
