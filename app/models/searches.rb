@@ -2,21 +2,29 @@ class Searches < ActiveRecord::Base
 
   belongs_to :user
 
+  #adds search to the database
   def self.create_search!(hash_of_search)
     search = Searches.create!(hash_of_search)
   end
 
+  #primary method for gathering tweets
   def self.gather_tweets(query, search_user, from, now, formatter)
     client = Searches.authenticate
 
     total_count = 0
     date_vals = {}
+    #the dates need to be formatted really specifically for the twitter search, this calls the method that does that
     date_vals = format_date_holder(from, now, formatter)
 
 
     client.search("from:#{search_user} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
 
+      #ok this parts a little wonky. Basically what's happening here, is deciding where on the graph
+      # times should be rounded to. The "formatter" variable basically tells the method whether it should care
+      # about the hour that the tweets were gathered from. And due to how levy's graph works, it only cares about hours
+      # for 2 days or less. The rest of the method is used to assign tweets to specific plot points based on when they
+      # were actually tweeted
       if formatter == 1 || formatter == 2
         tweet_date = tweet_date.to_s[0,13]
         edit = tweet_date.to_s[-2,2].to_i
