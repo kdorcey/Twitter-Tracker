@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.4.4'
 
+gem 'sentimental'
+
 gem 'simplecov', :require => false
 
 gem 'twitter' ##think this is what we need.

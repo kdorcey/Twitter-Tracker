@@ -4,8 +4,8 @@ jQuery(document).ready(function() {
   graph = document.getElementById('graph');
   data = $('#data').data('key1');
 
-  console.log(data);
-
+  //Convert the graph data from a string to a JS Object
+  data['graph_data'] = JSON.parse(data['graph_data']);
 
   graph_title = "'" + data['search_term'] + "' tweeted by @" + data['twitter_handle'];
 //Create an array for the x and y values
