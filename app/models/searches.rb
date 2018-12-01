@@ -1,3 +1,4 @@
+require 'date'
 class Searches < ActiveRecord::Base
 
   belongs_to :user
@@ -88,13 +89,14 @@ class Searches < ActiveRecord::Base
 
   def self.format_date_holder(from, now, formatter)
     date_vals={}
-
+    from = Date.parse(from)
+    now = Date.parse(now)
 
     if formatter == 1
-      date_vals[from+" 00:00:00"] = 0
-      date_vals[from+" 12:00:00"] = 0
-      date_vals[from+" 18:00:00"] = 0
-      date_vals[from+" 23:59:00"] = 0
+      date_vals[from.to_s+" 00:00:00"] = 0
+      date_vals[from.to_s+" 12:00:00"] = 0
+      date_vals[from.to_s+" 18:00:00"] = 0
+      date_vals[from.to_s+" 23:59:00"] = 0
     elsif formatter == 2
       all_dates = (from..now).map(&:to_s)
       all_dates.each do |key|
