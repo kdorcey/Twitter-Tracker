@@ -19,7 +19,6 @@ class Searches < ActiveRecord::Base
 
     client.search("from:#{search_user} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
-
       #ok this parts a little wonky. Basically what's happening here, is deciding where on the graph
       # times should be rounded to. The "formatter" variable basically tells the method whether it should care
       # about the hour that the tweets were gathered from. And due to how levy's graph works, it only cares about hours
@@ -66,8 +65,10 @@ class Searches < ActiveRecord::Base
       value_array<<count
       #to_return<<{"date"=> date, "value"=>count}
     end
-    to_return[:dates] = date_array
-    to_return[:values] = value_array
+
+    #Keys are string instead of symbols because it makes the transition to JSON easier
+    to_return['dates'] = date_array
+    to_return['values'] = value_array
 
     return total_count, to_return
   end
