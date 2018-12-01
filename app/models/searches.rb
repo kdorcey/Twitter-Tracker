@@ -19,6 +19,19 @@ class Searches < ActiveRecord::Base
 
     client.search("from:#{search_user} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
+
+      #Method of grabbing the full tweet instead of a truncated version found here:
+      # https://stackoverflow.com/questions/47383617/ruby-twitter-retrieving-full-tweet-text
+      status = client.status(tweet, tweet_mode: "extended")
+
+      if status.truncated? && status.attrs[:extended_tweet]
+        # Streaming API, and REST API default
+        full_tweet = status.attrs[:extended_tweet][:full_text]
+      else
+        # REST API with extended mode, or untruncated text in Streaming API
+        full_tweet = status.attrs[:text] || status.attrs[:full_text]
+      end
+
       #ok this parts a little wonky. Basically what's happening here, is deciding where on the graph
       # times should be rounded to. The "formatter" variable basically tells the method whether it should care
       # about the hour that the tweets were gathered from. And due to how levy's graph works, it only cares about hours
