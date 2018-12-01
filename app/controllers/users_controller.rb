@@ -23,10 +23,16 @@ class UsersController < ApplicationController
 
       user_friends_ids = user_friends[1]
 
+
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
         @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+
+        friend_info = User.find_by(id: params[:id])
+        @user_friend_name = friend_info.user_name
+
         @graph_data = User.get_history(params[:id].to_s)
+
         redir = false
       else
         flash[:notice] = "cannot view that profile page!"
@@ -107,6 +113,12 @@ class UsersController < ApplicationController
       flash[:notice] = "Passwords do not match!"
       redirect_to :controller => 'users', :action => 'new'
     end
+  end
+
+  def update_country
+    @current_user.country = params[:country]
+    @current_user.save!
+    redirect_to :controller => 'users', :action => 'show'
   end
 
   #def edit
