@@ -23,6 +23,6 @@
 
   =submit_tag 'Save Topic', :method => :save_topic
 
-  = content_tag 'div', '', id: 'data', data: {key1: @graph_data, key2: @curr_view_search.search_term, key3: @curr_view_search.twitter_handle }
+  = content_tag 'div', '', id: 'data', data: {key1: @search_info}
 
   %script(src='display-search.js' type='text/javascript')

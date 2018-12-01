@@ -2,11 +2,12 @@
 jQuery(document).ready(function() {
 //Grab the graph div and the data from the data div
   graph = document.getElementById('graph');
-  data = jQuery('#data').data('key1');
-  search_term = $('#data').data('key2');
-  twitter_handle = $('#data').data('key3');
+  data = $('#data').data('key1');
 
-  graph_title = "'" + search_term + "' tweeted by @" + twitter_handle;
+  console.log(data);
+
+
+  graph_title = "'" + data['search_term'] + "' tweeted by @" + data['twitter_handle'];
 //Create an array for the x and y values
   var dates = new Array();
   var y_vals = new Array();
@@ -16,9 +17,9 @@ jQuery(document).ready(function() {
 
 //Iterate over the JSON and push the elements into appropriate arrays
   var i;
-  for (i = 0; i < data.length; i++) {
-    dates.push(data[i]['date']);
-    y_vals.push(data[i]['value']);
+  for (i = 0; i < data['graph_data']['dates'].length; i++) {
+    dates.push(data['graph_data']['dates'][i]);
+    y_vals.push(data['graph_data']['values'][i]);
   }
 
 //Place the data into a trace

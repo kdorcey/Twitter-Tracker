@@ -58,10 +58,16 @@ class Searches < ActiveRecord::Base
       end
     end
 
-    to_return = []
+    to_return = {}
+    date_array = []
+    value_array = []
     date_vals.each do |date, count|
-      to_return<<{"date"=> date, "value"=>count}
+      date_array<<date
+      value_array<<count
+      #to_return<<{"date"=> date, "value"=>count}
     end
+    to_return[:dates] = date_array
+    to_return[:values] = value_array
 
     return total_count, to_return
   end

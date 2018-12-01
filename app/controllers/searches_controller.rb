@@ -45,27 +45,21 @@ class SearchesController < ApplicationController
 
 
     if searches_params[:search_term].to_s.blank?
-      flash[:notice] = "please enter search term"
+      flash[:notice] = "Please enter a search term"
       redirect_to searches_path
     else
       if @current_user != nil
         now = Date.today
         from_date = now - params[:time].to_i
         total_count, graph_data = Searches.gather_tweets(searches_params[:search_term].to_s, searches_params[:search_user], from_date.to_s, now.to_s, params[:time].to_i)
-        search_hash = {}
-        search_hash[:user_id] = @current_user.id
-        search_hash[:search_term] = searches_params[:search_term].to_s
-        search_hash[:twitter_handle] = searches_params[:search_user].to_s
-        search_hash[:from_date] = from_date
-        search_hash[:to_date] = now
-        search_hash[:number_of_tweets] = total_count
-        search_hash[:country] = @current_user.country
-       # search_hash[:saved] = false
-        search_hash[:graph_data] = graph_data
+
+        search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s,
+                       twitter_handle: searches_params[:search_user].to_s, from_date: from_date,
+                        to_date: now, number_of_tweets: total_count, graph_data: graph_data}
+
 
         new_search = Searches.create_search!(search_hash)
 
-        search_hash[:graph_data] = graph_data.to_json
 
         @current_user.current_search=new_search.id #Set users current search to the search they just made
         @current_user.save
@@ -82,8 +76,7 @@ class SearchesController < ApplicationController
   end
 
   def display
-    search_info = params[:search_hash]
-    @graph_data = search_info[:graph_data]
+    @search_info = params[:search_hash]
     if !@current_user.current_search.nil?
     @curr_view_search = Searches.find_by_id(@current_user.current_search)
     else
