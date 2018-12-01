@@ -50,13 +50,13 @@
   %tbody
     -#this will probably be problematic with multiple users but for now it's aight
     - if !@user_saved_topics.nil?
-      - @user_saved_topics.each do |print|
+      - @user_saved_topics.zip(@search_hashes).each do |print, go_to_search|
         %tr
           %td= print.search_term
           %td= print.from_date
           %td= print.to_date
           %td= print.number_of_tweets
-
+          %td= link_to 'View This Search!', searches_display_path(:search_hash => go_to_search)
 
 %h1 Search History
 

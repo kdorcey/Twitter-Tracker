@@ -44,6 +44,28 @@ class UsersController < ApplicationController
     if redir
     if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
       @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+
+      @search_hashes = []
+
+      if !@user_saved_topics.empty?
+      @user_saved_topics.each do |search|
+        curr_user_id = search.user_id
+        curr_search_term = search.search_term
+        curr_twitter_handle = search.twitter_handle
+        curr_from_date = search.from_date
+        curr_to_date = search.to_date
+        curr_num_tweets = search.number_of_tweets
+        curr_graph_data = search.graph_data
+
+        curr_search_hash = {user_id: curr_user_id, search_term: curr_search_term.to_s,
+                            twitter_handle: curr_twitter_handle.to_s, from_date: curr_from_date,
+                            to_date: curr_to_date, number_of_tweets: curr_num_tweets,
+                            graph_data: curr_graph_data } #mo lines mo money
+
+        @search_hashes.push(curr_search_hash)
+      end
+      end
+
       #array of search hashes.
       @graph_data = User.get_history(@current_user.id)
 
@@ -139,20 +161,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-#####Legacy code
-
-=begin
-    if (!User.username_exists?(user_params[:user_name]) && !User.email_exists?(user_params[:email]) && (password == verify_password))
-      user_params[:country] = params[:country] #set users country.
-      input_params = user_params
-      input_params[:country] = params[:country]
-      User.create_user!(input_params)
-      flash[:notice] = "New Account Created! Welcome, " + user_params[:user_name] + " - Enjoy your stay. :D"
-      redirect_to :controller => 'sessions', :action => 'new'
-    else
-      redirect_to :controller => 'users', :action => 'new'
-    end
-=end
-
-

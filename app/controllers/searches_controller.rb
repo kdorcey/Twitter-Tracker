@@ -77,12 +77,6 @@ class SearchesController < ApplicationController
 
   def display
     @search_info = params[:search_hash]
-    if !@current_user.current_search.nil?
-    @curr_view_search = Searches.find_by_id(@current_user.current_search)
-    else
-      flash[:notice] = "Hmm - Looks like you don't have any search..."
-    end
-   # @user_searches = Searches.update_table
   end
 
 
