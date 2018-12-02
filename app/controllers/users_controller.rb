@@ -16,22 +16,27 @@ class UsersController < ApplicationController
       redirect_to root_path and return
     end
 
-    #needs to be broken up so we can show either the current users profile, or their friends profile.
+    #Logic for users friends page
+
     if (params[:id].to_s != @current_user.id.to_s)
 
       user_friends = User.get_user_friends_and_ids(@current_user.user_name)
-
       user_friends_ids = user_friends[1]
-
 
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
         @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+        @search_hashes = []
+        if !@user_saved_topics.empty?
+          @user_saved_topics.each do |search|
+            @search_hashes.push({id: search.id})
+          end
+        end
 
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
-
-        @graph_data = User.get_history(params[:id].to_s)
+        graph_data, search_ids = User.get_history(params[:id].to_s)
+        @history_search_hashes = organize_history_search(search_ids)
 
         redir = false
       else
@@ -41,48 +46,51 @@ class UsersController < ApplicationController
 
     end
 
+    ##Logic for users home page.
+
     if redir
-    if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
+    if (params[:id].to_s == @current_user.id.to_s)
+
+      ##GRAB saved searches ID info so it can be optionally displayed later.
+
       @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
-
       @search_hashes = []
-
       if !@user_saved_topics.empty?
       @user_saved_topics.each do |search|
-        curr_user_id = search.user_id
-        curr_search_term = search.search_term
-        curr_twitter_handle = search.twitter_handle
-        curr_from_date = search.from_date
-        curr_to_date = search.to_date
-        curr_num_tweets = search.number_of_tweets
-        curr_graph_data = search.graph_data
-
-        curr_search_hash = {user_id: curr_user_id, search_term: curr_search_term.to_s,
-                            twitter_handle: curr_twitter_handle.to_s, from_date: curr_from_date,
-                            to_date: curr_to_date, number_of_tweets: curr_num_tweets,
-                            graph_data: curr_graph_data } #mo lines mo money
-
-        @search_hashes.push(curr_search_hash)
+        @search_hashes.push({id: search.id})
       end
       end
 
-      #array of search hashes.
-      @graph_data = User.get_history(@current_user.id)
+      ##GRAB past 10 search history ID info so it can be optionally displayed later.
+
+      graph_data, search_ids = User.get_history(@current_user.id)
+      @history_search_hashes = organize_history_search(search_ids)
 
       @user_friends = @current_user.friends_list
       @user_friends_ids = User.get_user_friends_and_ids(@current_user.user_name)[1]
-
       @at_users_home = true
-
     #This else executes for both if statements. (don't put a redirect in the previous if statement)
     else
         flash[:notice] = "can't view that profile page!"
         redirect_to root_path
     end
     end
-
   end
 
+  ####HELPER methods for show
+  def organize_history_search(search_ids)
+    history_search_hashes = []
+    if !search_ids.empty?
+      search_ids = search_ids.reverse #newest searches first
+      if search_ids.size > 10
+        search_ids = search_ids.take(10)
+      end
+      search_ids.each do |search|
+        history_search_hashes.push({id: search})
+      end
+    end
+    return history_search_hashes
+  end
 
   def index
   end
@@ -158,6 +166,17 @@ class UsersController < ApplicationController
     #   @movie = Movie.find(params[:id])
     #   @movie.destroy
     #   flash[:notice] = "Movie '#{@movie.title}' deleted."
+  end
+
+  def go_to_search
+    @current_user.current_search=params[:search_id]
+
+    if !@current_user.current_search.nil?
+      @curr_view_search = Searches.find_by_id(@current_user.current_search)
+    else
+      flash[:notice] = "Hmm - Looks like you don't have any search..."
+    end
+
   end
 
 end

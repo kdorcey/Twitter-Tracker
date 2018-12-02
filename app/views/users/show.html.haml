@@ -46,20 +46,30 @@
       %th Geographical Restriction
       %th Search Date
       %th Additional Details
-      %th Delete Term
+      %th View Search
   %tbody
-    -#this will probably be problematic with multiple users but for now it's aight
     - if !@user_saved_topics.nil?
-      - @user_saved_topics.zip(@search_hashes).each do |print, go_to_search|
+      - @user_saved_topics.zip(@search_hashes).each do |print, search|
         %tr
           %td= print.search_term
           %td= print.from_date
           %td= print.to_date
           %td= print.number_of_tweets
-          %td= link_to 'View This Search!', searches_display_path(:search_hash => go_to_search)
+          %td= button_to 'View This Search!', go_to_search_path(:search_id => search[:id])
+
+
+
 
 %h1 Search History
-
-#graph2
-  = content_tag 'div', '', id: 'data', data: {key1: @graph_data}
-  %script(src="show-history.js" type="text/javascript")
+%table#search_history
+  %thead
+    %tr
+      %th View Previous Search
+  %tbody
+    - if !@history_search_hashes.nil?
+      - @history_search_hashes.each do |search|
+        %tr
+          %td= button_to 'View Previous Search!', go_to_search_path(:search_id => search[:id])
+- # #graph2
+- # = content_tag 'div', '', id: 'data', data: {key1: @graph_data}
+- # %script(src="show-history.js" type="text/javascript")

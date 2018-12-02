@@ -90,6 +90,7 @@ class User < ActiveRecord::Base
 
   def self.get_history(user_id)
     final_hash = Array.new
+    search_ids = Array.new
 
     if User.exists?(id: user_id)
     user_history = Searches.where(user_id: user_id)
@@ -102,10 +103,11 @@ class User < ActiveRecord::Base
       curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
       final_hash.push(curr_graph_as_array_of_hash)
 
+      search_ids.push(user_search.id)
     end
     end
     end
-    return final_hash
+    return final_hash, search_ids
   end
 
 end

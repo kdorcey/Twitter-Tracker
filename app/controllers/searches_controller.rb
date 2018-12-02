@@ -85,8 +85,6 @@ class SearchesController < ApplicationController
    # @user_searches = Searches.update_table
   end
 
-
-
 end
 end
 
