@@ -170,6 +170,7 @@ class UsersController < ApplicationController
 
   def go_to_search
     @current_user.current_search=params[:search_id]
+    @current_user.save!
 
     if !@current_user.current_search.nil?
       @curr_view_search = Searches.find_by_id(@current_user.current_search)
@@ -177,6 +178,16 @@ class UsersController < ApplicationController
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
 
+  end
+
+  def save_topic
+    to_save = Searches.find_by_id(@current_user.current_search)
+    new_record = to_save.dup
+    new_record.user_id=@current_user.id
+    new_record.update(saved: true)
+    new_record.save!
+
+    redirect_to user_path(:id => @current_user.id)
   end
 
 end

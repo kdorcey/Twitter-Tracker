@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'searches#index'
 
+  ##OAUTH paths
   get 'auth/:provider/callback', to: 'sessions#createauth'
   get 'auth/failure', to: redirect('/')
 
@@ -12,11 +13,15 @@ Rails.application.routes.draw do
   match 'verify_add_friend', to:'users#verify_add_friend', via: :post
   match 'update_country', to: 'users#update_country', via: :post
 
+
+  ##Sessions: login, create
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
 
+  ###Viewing other peoples searches, or their searches, and saving them
   match '/go_to_search', to: 'users#go_to_search', via: :post
+  match '/users/save_topic', to: 'users#save_topic', via: :post
 
   resources :searches
 
