@@ -2,7 +2,9 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-  has_many :searches, :dependent => :destroy
+  #has_many :searches, :dependent => :destroy
+  has_many :search_user
+  has_many :search, through: :search_user
 
   serialize :friends_list #friends list is an array.
 
@@ -92,7 +94,7 @@ class User < ActiveRecord::Base
     final_hash = Array.new
 
     if User.exists?(id: user_id)
-    user_history = Searches.where(user_id: user_id)
+    user_history = Search.where(user_id: user_id)
    # test = Searches.joins(:graph_data).where(user_id: user_id)
 
     if !user_history.empty? #if user has searches

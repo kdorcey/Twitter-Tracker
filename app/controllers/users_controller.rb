@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
-        @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+        @user_saved_topics = Search.joins(:user_id).where(user_id: params[:id].to_s)
 
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
     if redir
     if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
-      @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+      @user_saved_topics = @current_user.search_user
 
       @search_hashes = []
 
