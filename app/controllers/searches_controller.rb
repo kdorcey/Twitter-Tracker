@@ -25,11 +25,14 @@ class SearchesController < ApplicationController
 
   def save_topic
     if !@current_user.nil?
-      to_save = Search.get_searches(@current_user).last
-      if !to_save.nil?
-        to_save.update(saved: true)
-        to_save.user_id = @current_user
-      end
+      to_save = @current_user.current_search
+      #if !to_save.nil?
+        #to_save.update(saved: true)
+        #to_save.user_id = @current_user
+        puts "woof"
+        @current_user.search_user.create(search_id: to_save)
+      #end
+      puts "bark"
 
       Search.get_searches(@current_user)
 
@@ -58,7 +61,7 @@ class SearchesController < ApplicationController
         total_count, graph_data = Search.gather_tweets(searches_params[:search_term].to_s, searches_params[:search_user], from_date.to_s, now.to_s, params[:time].to_i)
 
         #All of the information of the search stored into a hash
-        search_hash = {search_term: searches_params[:search_term].to_s,
+        search_hash = {user_id: @current_user.id,search_term: searches_params[:search_term].to_s,
                        twitter_handle: searches_params[:search_user].to_s, from_date: from_date,
                         to_date: now, number_of_tweets: total_count, graph_data: graph_data}
 

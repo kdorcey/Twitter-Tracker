@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20181202205439) do
   end
 
   create_table "searches_users", force: :cascade do |t|
-    t.integer "searches_id"
+    t.integer "search_id"
     t.integer "user_id"
   end
 

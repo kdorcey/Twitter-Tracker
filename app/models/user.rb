@@ -3,8 +3,9 @@ require 'bcrypt'
 class User < ActiveRecord::Base
 
   #has_many :searches, :dependent => :destroy
-  has_many :search_user
   has_many :search, through: :search_user
+  has_many :search_user
+
 
   serialize :friends_list #friends list is an array.
 
