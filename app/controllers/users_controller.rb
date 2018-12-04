@@ -27,8 +27,32 @@ class UsersController < ApplicationController
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
         #@user_saved_topics = Search.joins(:user_id).where(user_id: params[:id].to_s)
-        @user_saved_topics = @current_user.search
         friend_info = User.find_by(id: params[:id])
+        @user_saved_topics = friend_info.search
+
+        @search_hashes = []
+
+        if !@user_saved_topics.empty?
+          @user_saved_topics.each do |search_temp|
+
+
+            curr_user_id = search_temp.user_id
+            curr_search_term = search_temp.search_term
+            curr_twitter_handle = search_temp.twitter_handle
+            curr_from_date = search_temp.from_date
+            curr_to_date = search_temp.to_date
+            curr_num_tweets = search_temp.number_of_tweets
+            curr_graph_data = search_temp.graph_data
+
+            curr_search_hash = {user_id: curr_user_id, search_term: curr_search_term.to_s,
+                                twitter_handle: curr_twitter_handle.to_s, from_date: curr_from_date,
+                                to_date: curr_to_date, number_of_tweets: curr_num_tweets,
+                                graph_data: curr_graph_data } #mo lines mo money
+
+            @search_hashes.push(curr_search_hash)
+          end
+        end
+
         @user_friend_name = friend_info.user_name
 
         @graph_data = User.get_history(params[:id].to_s)
