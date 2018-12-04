@@ -43,19 +43,21 @@ class UsersController < ApplicationController
 
     if redir
     if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
-      @user_saved_topics = @current_user.search_user
+      @user_saved_topics = @current_user.search
 
       @search_hashes = []
 
       if !@user_saved_topics.empty?
-      @user_saved_topics.each do |search|
-        curr_user_id = search.user_id
-        curr_search_term = search.search_term
-        curr_twitter_handle = search.twitter_handle
-        curr_from_date = search.from_date
-        curr_to_date = search.to_date
-        curr_num_tweets = search.number_of_tweets
-        curr_graph_data = search.graph_data
+      @user_saved_topics.each do |search_temp|
+
+
+        curr_user_id = search_temp.user_id
+        curr_search_term = search_temp.search_term
+        curr_twitter_handle = search_temp.twitter_handle
+        curr_from_date = search_temp.from_date
+        curr_to_date = search_temp.to_date
+        curr_num_tweets = search_temp.number_of_tweets
+        curr_graph_data = search_temp.graph_data
 
         curr_search_hash = {user_id: curr_user_id, search_term: curr_search_term.to_s,
                             twitter_handle: curr_twitter_handle.to_s, from_date: curr_from_date,

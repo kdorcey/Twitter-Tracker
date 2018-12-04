@@ -121,8 +121,8 @@ class Search < ActiveRecord::Base
     #                 :number_of_tweets=>4)
 
     puts "mooooooo"
-    puts current_user.class
-    current_user.search_user do |search_history|
+    puts current_user.search.class
+    current_user.search do |search_history|
       search_holder<<search_history
     end
     return search_holder
