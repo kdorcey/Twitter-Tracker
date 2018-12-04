@@ -1,3 +1,4 @@
+require 'date'
 class Searches < ActiveRecord::Base
 
   belongs_to :user
@@ -19,6 +20,18 @@ class Searches < ActiveRecord::Base
 
     client.search("from:#{search_user} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
+
+      #Method of grabbing the full tweet instead of a truncated version found here:
+      # https://stackoverflow.com/questions/47383617/ruby-twitter-retrieving-full-tweet-text
+      status = client.status(tweet, tweet_mode: "extended")
+
+      if status.truncated? && status.attrs[:extended_tweet]
+        # Streaming API, and REST API default
+        full_tweet = status.attrs[:extended_tweet][:full_text]
+      else
+        # REST API with extended mode, or untruncated text in Streaming API
+        full_tweet = status.attrs[:text] || status.attrs[:full_text]
+      end
 
       #ok this parts a little wonky. Basically what's happening here, is deciding where on the graph
       # times should be rounded to. The "formatter" variable basically tells the method whether it should care
@@ -58,23 +71,32 @@ class Searches < ActiveRecord::Base
       end
     end
 
-    to_return = []
+    to_return = {}
+    date_array = []
+    value_array = []
     date_vals.each do |date, count|
-      to_return<<{"date"=> date, "value"=>count}
+      date_array<<date
+      value_array<<count
+      #to_return<<{"date"=> date, "value"=>count}
     end
+
+    #Keys are string instead of symbols because it makes the transition to JSON easier
+    to_return['dates'] = date_array
+    to_return['values'] = value_array
 
     return total_count, to_return
   end
 
   def self.format_date_holder(from, now, formatter)
     date_vals={}
-
+    from = Date.parse(from)
+    now = Date.parse(now)
 
     if formatter == 1
-      date_vals[from+" 00:00:00"] = 0
-      date_vals[from+" 12:00:00"] = 0
-      date_vals[from+" 18:00:00"] = 0
-      date_vals[from+" 23:59:00"] = 0
+      date_vals[from.to_s+" 00:00:00"] = 0
+      date_vals[from.to_s+" 12:00:00"] = 0
+      date_vals[from.to_s+" 18:00:00"] = 0
+      date_vals[from.to_s+" 23:59:00"] = 0
     elsif formatter == 2
       all_dates = (from..now).map(&:to_s)
       all_dates.each do |key|

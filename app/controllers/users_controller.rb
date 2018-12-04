@@ -16,22 +16,27 @@ class UsersController < ApplicationController
       redirect_to root_path and return
     end
 
-    #needs to be broken up so we can show either the current users profile, or their friends profile.
+    #Logic for users friends page
+
     if (params[:id].to_s != @current_user.id.to_s)
 
       user_friends = User.get_user_friends_and_ids(@current_user.user_name)
-
       user_friends_ids = user_friends[1]
-
 
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
         @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+        @search_hashes = []
+        if !@user_saved_topics.empty?
+          @user_saved_topics.each do |search|
+            @search_hashes.push({id: search.id})
+          end
+        end
 
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
-
-        @graph_data = User.get_history(params[:id].to_s)
+        graph_data, search_ids = User.get_history(params[:id].to_s)
+        @history_search_hashes = organize_history_search(search_ids)
 
         redir = false
       else
@@ -41,26 +46,51 @@ class UsersController < ApplicationController
 
     end
 
+    ##Logic for users home page.
+
     if redir
-    if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
+    if (params[:id].to_s == @current_user.id.to_s)
+
+      ##GRAB saved searches ID info so it can be optionally displayed later.
+
       @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
-      #array of search hashes.
-      @graph_data = User.get_history(@current_user.id)
+      @search_hashes = []
+      if !@user_saved_topics.empty?
+      @user_saved_topics.each do |search|
+        @search_hashes.push({id: search.id})
+      end
+      end
+
+      ##GRAB past 10 search history ID info so it can be optionally displayed later.
+
+      graph_data, search_ids = User.get_history(@current_user.id)
+      @history_search_hashes = organize_history_search(search_ids)
 
       @user_friends = @current_user.friends_list
       @user_friends_ids = User.get_user_friends_and_ids(@current_user.user_name)[1]
-
       @at_users_home = true
-
     #This else executes for both if statements. (don't put a redirect in the previous if statement)
     else
         flash[:notice] = "can't view that profile page!"
         redirect_to root_path
     end
     end
-
   end
 
+  ####HELPER methods for show
+  def organize_history_search(search_ids)
+    history_search_hashes = []
+    if !search_ids.empty?
+      search_ids = search_ids.reverse #newest searches first
+      if search_ids.size > 10
+        search_ids = search_ids.take(10)
+      end
+      search_ids.each do |search|
+        history_search_hashes.push({id: search})
+      end
+    end
+    return history_search_hashes
+  end
 
   def index
   end
@@ -138,21 +168,26 @@ class UsersController < ApplicationController
     #   flash[:notice] = "Movie '#{@movie.title}' deleted."
   end
 
-end
+  def go_to_search
+    @current_user.current_search=params[:search_id]
+    @current_user.save!
 
-#####Legacy code
-
-=begin
-    if (!User.username_exists?(user_params[:user_name]) && !User.email_exists?(user_params[:email]) && (password == verify_password))
-      user_params[:country] = params[:country] #set users country.
-      input_params = user_params
-      input_params[:country] = params[:country]
-      User.create_user!(input_params)
-      flash[:notice] = "New Account Created! Welcome, " + user_params[:user_name] + " - Enjoy your stay. :D"
-      redirect_to :controller => 'sessions', :action => 'new'
+    if !@current_user.current_search.nil?
+      @curr_view_search = Searches.find_by_id(@current_user.current_search)
     else
-      redirect_to :controller => 'users', :action => 'new'
+      flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
-=end
 
+  end
 
+  def save_topic
+    to_save = Searches.find_by_id(@current_user.current_search)
+    new_record = to_save.dup
+    new_record.user_id=@current_user.id
+    new_record.update(saved: true)
+    new_record.save!
+
+    redirect_to user_path(:id => @current_user.id)
+  end
+
+end

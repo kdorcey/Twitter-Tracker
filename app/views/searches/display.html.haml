@@ -1,28 +1,12 @@
 %h1 Current Search
 = form_tag searches_save_topic_path do
-  %table
-    %thead
-      %tr
-      %th Search Term
-      %th Twitter Handle
-      %th From
-      %th To
-      %th Number of Associated Tweets
-    %tbody
-    -#this will probably be problematic with multiple users but for now it's aight
-    - if !@current_user.current_search.nil?
-      %tr
-        %td= @curr_view_search.search_term
-        %td= @curr_view_search.twitter_handle
-        %td= @curr_view_search.from_date
-        %td= @curr_view_search.to_date
-        %td= @curr_view_search.number_of_tweets
 
   %br
   #graph{:style => "width:600px;height:250px;"}
 
   =submit_tag 'Save Topic', :method => :save_topic
-
-  = content_tag 'div', '', id: 'data', data: {key1: @graph_data, key2: @curr_view_search.search_term, key3: @curr_view_search.twitter_handle }
+  -#Using gsub to make the hash JSON parseable
+  -@curr_view_search.graph_data.gsub!('=>', ':')
+  = content_tag 'div', '', id: 'data', data: {key1: @curr_view_search}
 
   %script(src='display-search.js' type='text/javascript')
