@@ -26,8 +26,8 @@ class UsersController < ApplicationController
 
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
-        @user_saved_topics = Search.joins(:user_id).where(user_id: params[:id].to_s)
-
+        #@user_saved_topics = Search.joins(:user_id).where(user_id: params[:id].to_s)
+        @user_saved_topics = @current_user.search
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
 

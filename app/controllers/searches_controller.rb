@@ -26,13 +26,12 @@ class SearchesController < ApplicationController
   def save_topic
     if !@current_user.nil?
       to_save = @current_user.current_search
-      #if !to_save.nil?
+      if !to_save.nil?
         #to_save.update(saved: true)
-        #to_save.user_id = @current_user
-        puts "woof"
+        #to_save.user_id = @current_use
         @current_user.search_user.create(search_id: to_save)
-      #end
-      puts "bark"
+      end
+
 
       Search.get_searches(@current_user)
 
