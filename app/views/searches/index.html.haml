@@ -7,12 +7,13 @@
 %h1 Search Keyword
 
 = form_tag searches_create_path do
-
-  = label :searches, :search_term, 'Keyword'
-  = text_field :searches, 'search_term'
-
-  = label :searches, :search_user, 'Twitter Handle'
-  = text_field :searches, 'search_user'
+  %ul#fieldList
+    %li
+      = label :searches, :search_term, 'Keyword'
+      = text_field :searches, 'search_term'
+    %li
+      = label :searches, :search_user, 'Twitter Handle'
+      = text_field :searches, 'search_user'
 
   = select_tag :time, options_for_select([['Past day', '1'], ['Past two days', '2'], ['Past three days', '3'], ['Past four days', '4'], ['Past five days', '5'], ['Past six days', '6'], ['Past week', '7']])
 
@@ -39,7 +40,7 @@
                 %td= search.from_date
                 %td= search.to_date
                 %td= search.number_of_tweets
-
+= javascript_include_tag 'addTwitterHandle.js.erb'
 :css
   #searches {
       width: 100%;
@@ -56,5 +57,9 @@
       margin-left: 50%;
       border-left-style: solid;
       border-width: 0 .5px 0 .5px;
+  }
+
+  ul {
+  list-style: none;
   }
 

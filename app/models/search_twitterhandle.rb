@@ -1,4 +1,4 @@
-class SearchTwitterhandle
+class SearchTwitterhandle < ActiveRecord::Base
   belongs_to :search
   belongs_to :twitterhandle
 

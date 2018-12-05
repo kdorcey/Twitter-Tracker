@@ -5,7 +5,7 @@ class Search < ActiveRecord::Base
   has_many :user, through: :search_user
 
   has_many :search_twitterhandles
-  has_many :search_twitterhandles, through: :search_twitterhandles
+
 
   #adds search to the database
   def self.create_search!(hash_of_search)
