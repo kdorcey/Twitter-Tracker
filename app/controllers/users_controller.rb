@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
-        @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+        @user_saved_topics = Search.where(user_id: params[:id].to_s).where(saved:true)
         @search_hashes = []
         if !@user_saved_topics.empty?
           @user_saved_topics.each do |search|
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
       ##GRAB saved searches ID info so it can be optionally displayed later.
 
-      @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
+      @user_saved_topics = Search.where(user_id: @current_user.id).where(saved: true)
       @search_hashes = []
       if !@user_saved_topics.empty?
       @user_saved_topics.each do |search|
@@ -173,7 +173,7 @@ class UsersController < ApplicationController
     @current_user.save!
 
     if !@current_user.current_search.nil?
-      @curr_view_search = Searches.find_by_id(@current_user.current_search)
+      @curr_view_search = Search.find_by_id(@current_user.current_search)
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
@@ -181,7 +181,7 @@ class UsersController < ApplicationController
   end
 
   def save_topic
-    to_save = Searches.find_by_id(@current_user.current_search)
+    to_save = Search.find_by_id(@current_user.current_search)
     new_record = to_save.dup
     new_record.user_id=@current_user.id
     new_record.update(saved: true)

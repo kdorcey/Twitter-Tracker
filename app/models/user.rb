@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
     search_ids = Array.new
 
     if User.exists?(id: user_id)
-    user_history = Searches.where(user_id: user_id)
+    user_history = Search.where(user_id: user_id)
    # test = Searches.joins(:graph_data).where(user_id: user_id)
 
     if !user_history.empty? #if user has searches
