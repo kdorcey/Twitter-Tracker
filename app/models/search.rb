@@ -1,16 +1,20 @@
 require 'date'
-class Searches < ActiveRecord::Base
+class Search < ActiveRecord::Base
 
-  belongs_to :user
+  has_many :search_user
+  has_many :user, through: :search_user
+
+  has_many :search_twitterhandles
+  has_many :search_twitterhandles, through: :search_twitterhandles
 
   #adds search to the database
   def self.create_search!(hash_of_search)
-    search = Searches.create!(hash_of_search)
+    search = Search.create!(hash_of_search)
   end
 
   #primary method for gathering tweets
   def self.gather_tweets(query, search_user, from, now, formatter)
-    client = Searches.authenticate
+    client = Search.authenticate
 
     total_count = 0
     date_vals = {}
@@ -113,9 +117,13 @@ class Searches < ActiveRecord::Base
     return date_vals
   end
 
-  def self.get_searches(id)
+  def self.get_searches(current_user)
     search_holder = []
-    Searches.where(user_id: id).find_each do |search_history|
+    #Searches.where(user_id: id).find_each do |search_history|
+    #t = Searches.create!(:search_term =>'overthinking', :from_date=>'2018-11-11',:to_date=>'2018-11-12',
+    #                 :number_of_tweets=>4)
+
+    current_user.search do |search_history|
       search_holder<<search_history
     end
     return search_holder

@@ -25,7 +25,11 @@ class UsersController < ApplicationController
 
       user_friends_ids_to_string = user_friends_ids.map(&:to_s)
       if user_friends_ids_to_string.include?(params[:id].to_s)
-        @user_saved_topics = Searches.where(user_id: params[:id].to_s).where(saved:true)
+
+        friend_info = User.find_by(id: params[:id])
+        @user_friend_name = friend_info.user_name
+        @user_saved_topics = friend_info.search
+
         @search_hashes = []
         if !@user_saved_topics.empty?
           @user_saved_topics.each do |search|
@@ -33,8 +37,6 @@ class UsersController < ApplicationController
           end
         end
 
-        friend_info = User.find_by(id: params[:id])
-        @user_friend_name = friend_info.user_name
         graph_data, search_ids = User.get_history(params[:id].to_s)
         @history_search_hashes = organize_history_search(search_ids)
 
@@ -49,14 +51,13 @@ class UsersController < ApplicationController
     ##Logic for users home page.
 
     if redir
-    if (params[:id].to_s == @current_user.id.to_s)
+    if (params[:id].to_s == @current_user.id.to_s) #have to do to_s.
+      @user_saved_topics = @current_user.search
 
       ##GRAB saved searches ID info so it can be optionally displayed later.
-
-      @user_saved_topics = Searches.where(user_id: @current_user.id).where(saved: true)
       @search_hashes = []
       if !@user_saved_topics.empty?
-      @user_saved_topics.each do |search|
+        @user_saved_topics.each do |search|
         @search_hashes.push({id: search.id})
       end
       end
@@ -173,7 +174,7 @@ class UsersController < ApplicationController
     @current_user.save!
 
     if !@current_user.current_search.nil?
-      @curr_view_search = Searches.find_by_id(@current_user.current_search)
+      @curr_view_search = Search.find_by_id(@current_user.current_search)
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
@@ -181,7 +182,7 @@ class UsersController < ApplicationController
   end
 
   def save_topic
-    to_save = Searches.find_by_id(@current_user.current_search)
+    to_save = Search.find_by_id(@current_user.current_search)
     new_record = to_save.dup
     new_record.user_id=@current_user.id
     new_record.update(saved: true)
