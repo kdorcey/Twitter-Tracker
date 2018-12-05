@@ -2,7 +2,7 @@ require 'date'
 class Search < ActiveRecord::Base
 
   has_many :search_twitterhandles
-  has_many :search_twitterhandles, through: :search_twitterhandles
+
 
   belongs_to :user
 
