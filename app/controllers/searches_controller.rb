@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   before_filter :set_current_user
 
   def searches_params
-    params.require(:Searches).permit(:search_term, :search_user, :time)
+    params.require(:searches).permit(:search_term, :search_user, :time)
   end
 
   def user_search
@@ -15,7 +15,7 @@ class SearchesController < ApplicationController
     @user_searches = {}
     @top_searches = {}
     if !@current_user.nil?
-      @user_searches = Search.get_searches(@current_user.id)
+      @user_searches = Search.get_searches(@current_user)
     end
      # @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
      # @top_searches = Searches.where(country: @current_user.country).group(:search_term).limit(10)
@@ -25,9 +25,15 @@ class SearchesController < ApplicationController
 
   def save_topic
     if !@current_user.nil?
-      to_save = Search.get_searches(@current_user.id).last
-      to_save.update(saved: true)
-      Search.get_searches(@current_user.id)
+      to_save = @current_user.current_search
+      if !to_save.nil?
+        #to_save.update(saved: true)
+        #to_save.user_id = @current_use
+        @current_user.search_user.create(search_id: to_save)
+      end
+
+
+      Search.get_searches(@current_user)
 
       redirect_to root_path #Todo:: change this back to user path whene the JS is working properly.
 
@@ -54,7 +60,7 @@ class SearchesController < ApplicationController
         total_count, graph_data = Search.gather_tweets(searches_params[:search_term].to_s, searches_params[:search_user], from_date.to_s, now.to_s, params[:time].to_i)
 
         #All of the information of the search stored into a hash
-        search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s,
+        search_hash = {user_id: @current_user.id,search_term: searches_params[:search_term].to_s,
                        twitter_handle: searches_params[:search_user].to_s, from_date: from_date,
                         to_date: now, number_of_tweets: total_count, graph_data: graph_data}
 

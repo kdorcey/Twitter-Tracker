@@ -8,11 +8,11 @@
 
 = form_tag searches_create_path do
 
-  = label :Searches, :search_term, 'Keyword'
-  = text_field :Searches, 'search_term'
+  = label :searches, :search_term, 'Keyword'
+  = text_field :searches, 'search_term'
 
-  = label :Searches, :search_user, 'Twitter Handle'
-  = text_field :Searches, 'search_user'
+  = label :searches, :search_user, 'Twitter Handle'
+  = text_field :searches, 'search_user'
 
   = select_tag :time, options_for_select([['Past day', '1'], ['Past two days', '2'], ['Past three days', '3'], ['Past four days', '4'], ['Past five days', '5'], ['Past six days', '6'], ['Past week', '7']])
 

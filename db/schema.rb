@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20181205000454) do
     t.datetime "updated_at"
   end
 
+  create_table "searches_users", force: :cascade do |t|
+    t.integer "search_id"
+    t.integer "user_id"
+  end
+
   create_table "twitterhandles", force: :cascade do |t|
     t.string   "handle"
     t.datetime "created_at"
