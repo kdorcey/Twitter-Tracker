@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181202205439) do
+ActiveRecord::Schema.define(version: 20181205000454) do
 
   create_table "searches", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,9 +27,22 @@ ActiveRecord::Schema.define(version: 20181202205439) do
     t.string   "twitter_handle"
   end
 
+  create_table "searches_twitterhandles", force: :cascade do |t|
+    t.integer  "search_id"
+    t.integer  "twitterhandle_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "searches_users", force: :cascade do |t|
     t.integer "search_id"
     t.integer "user_id"
+  end
+
+  create_table "twitterhandles", force: :cascade do |t|
+    t.string   "handle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
