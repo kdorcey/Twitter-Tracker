@@ -78,6 +78,8 @@ class SearchesController < ApplicationController
 
           all_hashes.push search_hash
           new_search = Search.create_search!(search_hash, all_twitter_handles)
+          new_search.view_count=0
+          new_search.save!
 
           @current_user.current_search = new_search.id #Set users current search to the search they just made
           @current_user.save

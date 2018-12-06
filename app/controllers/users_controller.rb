@@ -175,6 +175,8 @@ class UsersController < ApplicationController
 
     if !@current_user.current_search.nil?
       @curr_view_search = Search.find_by_id(@current_user.current_search)
+      @curr_view_search.view_count= @curr_view_search.view_count+1
+      @curr_view_search.save!
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
@@ -182,11 +184,14 @@ class UsersController < ApplicationController
   end
 
   def save_topic
+
     to_save = Search.find_by_id(@current_user.current_search)
     new_record = to_save.dup
     new_record.user_id=@current_user.id
     new_record.update(saved: true)
+    new_record.view_count=0
     new_record.save!
+    @current_user.search_user.create(search_id: new_record.id)
 
     redirect_to user_path(:id => @current_user.id)
   end

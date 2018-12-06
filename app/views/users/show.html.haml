@@ -44,9 +44,9 @@
   %thead
     %tr
       %th Search Term
-      %th Geographical Restriction
-      %th Search Date
-      %th Additional Details
+      %th Search Date Start
+      %th Search Date End
+      %th Total Views
       %th View Search
   %tbody
     - if !@user_saved_topics.nil?
@@ -55,7 +55,7 @@
           %td= print.search_term
           %td= print.from_date
           %td= print.to_date
-          %td= print.number_of_tweets
+          %td= print.view_count
           %td= button_to 'View This Search!', go_to_search_path(:search_id => search[:id])
 
 
