@@ -59,6 +59,7 @@ class SearchesController < ApplicationController
       flash[:notice] = "Please enter a search term"
       redirect_to searches_path
     else
+      new_search = nil
       if @current_user != nil
         now = Date.today
         from_date = now - params[:time].to_i
@@ -76,14 +77,16 @@ class SearchesController < ApplicationController
                          to_date: now, number_of_tweets: total_count, graph_data: graph_data}
 
           all_hashes.push search_hash
+          new_search = Search.create_search!(search_hash, all_twitter_handles)
+
+          @current_user.current_search = new_search.id #Set users current search to the search they just made
+          @current_user.save
+
         end
 
 
-        new_search = Search.create_search!(search_hash)
 
 
-        @current_user.current_search = new_search.id #Set users current search to the search they just made
-        @current_user.save
 
         redirect_to searches_display_path
       else
