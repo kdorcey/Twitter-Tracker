@@ -4,12 +4,22 @@ class Search < ActiveRecord::Base
   has_many :search_user
   has_many :user, through: :search_user
 
-  has_many :search_twitterhandles
+  has_many :search_twitterhandle
+  has_many :twitterhandle, through: :search_twitterhandle
 
 
   #adds search to the database
-  def self.create_search!(hash_of_search)
+  def self.create_search!(hash_of_search, all_twitter_handles)
     search = Search.create!(hash_of_search)
+    test=  Twitterhandle.create_twitterhandle!(all_twitter_handles)
+
+    if !test.nil?
+      test.each do |handle_temp|
+        search.twitterhandle<<handle_temp
+      end
+    end
+    return search
+
   end
 
   #primary method for gathering tweets
