@@ -7,6 +7,7 @@ class Search < ActiveRecord::Base
   has_many :search_twitterhandle
   has_many :twitterhandle, through: :search_twitterhandle
 
+  serialize :viewed_by #each indice is the username of who has viewed it
 
   #adds search to the database
   def self.create_search!(hash_of_search, all_twitter_handles)

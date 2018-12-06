@@ -85,11 +85,6 @@ class SearchesController < ApplicationController
           @current_user.save
 
         end
-
-
-
-
-
         redirect_to searches_display_path
       else
         flash[:notice] = "Nah homie, gotta make an account first."

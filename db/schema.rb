@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206160256) do
+ActiveRecord::Schema.define(version: 20181206164423) do
 
   create_table "searches", force: :cascade do |t|
     t.integer  "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20181206160256) do
     t.string   "country"
     t.string   "twitter_handle"
     t.integer  "view_count"
+    t.string   "viewed_by",        default: "--- []\n"
   end
 
   create_table "searches_twitterhandles", force: :cascade do |t|

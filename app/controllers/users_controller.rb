@@ -176,6 +176,9 @@ class UsersController < ApplicationController
     if !@current_user.current_search.nil?
       @curr_view_search = Search.find_by_id(@current_user.current_search)
       @curr_view_search.view_count= @curr_view_search.view_count+1
+      if !@curr_view_search.viewed_by.include?(@current_user.user_name)
+        @curr_view_search.viewed_by.push(@current_user.user_name.to_s)
+      end
       @curr_view_search.save!
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
