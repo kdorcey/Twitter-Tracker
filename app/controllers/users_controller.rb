@@ -28,7 +28,8 @@ class UsersController < ApplicationController
 
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
-        @user_saved_topics = friend_info.search_user
+        #@user_saved_topics = friend_info.search_user
+        @user_saved_topics = friend_info.search
 
         @search_hashes = []
         if !@user_saved_topics.empty?
@@ -171,8 +172,6 @@ class UsersController < ApplicationController
 
   def go_to_search
     @current_user.current_search=params[:search_id]
-    puts "moo"
-    puts @current_user.current_search
     @current_user.save!
 
     if !@current_user.current_search.nil?
