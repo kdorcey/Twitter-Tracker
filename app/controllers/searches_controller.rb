@@ -73,7 +73,7 @@ class SearchesController < ApplicationController
 
           #All of the information of the search stored into a hash
           search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s,
-                         twitter_handle: searches_params[:search_user].to_s, from_date: from_date,
+                         twitter_handle: handle, from_date: from_date,
                          to_date: now, number_of_tweets: total_count, graph_data: graph_data}
 
           all_hashes.push search_hash
@@ -83,8 +83,8 @@ class SearchesController < ApplicationController
 
           @current_user.current_search = new_search.id #Set users current search to the search they just made
           @current_user.save
-
         end
+        
         redirect_to searches_display_path
       else
         flash[:notice] = "Nah homie, gotta make an account first."
