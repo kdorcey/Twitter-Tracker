@@ -1,48 +1,63 @@
-var displaySearch = function() {
+var displaySearch = function () {
 //Grab the graph div and the data from the data div
-    graph = document.getElementById('graph');
-    data = $('#data').data('key1');
+  graph = document.getElementById('graph');
+  data = $('#data').data('key1');
 
-    //Convert the graph data from a string to a JS Object
-    data['graph_data'] = JSON.parse(data['graph_data']);
+  console.log(data);
 
-    graph_title = "'" + data['search_term'] + "' tweeted by @" + data['twitter_handle'];
-//Create an array for the x and y values
-    var dates = new Array();
-    var y_vals = new Array();
+  //Kyle's playzone///////////////////////////////////
 
-//Array of all traces
+  var search_term = data[0];
+  var all_handles = new Array();
+  var date_arrays = new Array();
+  var value_arrays = new Array();
+  var sentiment_arrays = new Array();
+
+  //data[i] is {handle_obj: "twitter_handle", search_obj: search_hash}
+  for (var i = 1; i < data.length; i++) {
+    all_handles.push(data[i]['handle_obj']);
+    graph_data_obj = JSON.parse(data[i]['search_obj']['graph_data']);
+    date_arrays.push(graph_data_obj['dates']);
+    value_arrays.push(graph_data_obj['values']);
+  }
 
 
-//Iterate over the JSON and push the elements into appropriate arrays
-    var i;
-    for (i = 0; i < data['graph_data']['dates'].length; i++) {
-      dates.push(data['graph_data']['dates'][i]);
-      y_vals.push(data['graph_data']['values'][i]);
-    }
+  /////////////////////////////////////////////////////
+
+  graph_title = "'" + search_term + "'";
+
+  var data_arr = new Array();
+
+  for (var i = 0; i < all_handles.length; i++) {
+
+    var trace = {
+      x: date_arrays[i],
+      y: value_arrays[i],
+      mode: 'lines+markers',
+      name: '@' + all_handles[i]
+    };
+
+    data_arr.push(trace);
+  }
+
 
 //Place the data into a trace
-    var trace = {
-      x: dates,
-      y: y_vals,
-      mode: 'lines+markers'
-    };
 
 
-    var layout = {
-      title: graph_title,
-      xaxis: {
-        title: 'Dates of Tweets'
-      },
-      yaxis: {
-        title: '# of Tweets'
-      }
-    };
 
-    var data_arr = new Array();
-    data_arr.push(trace);
-
-    Plotly.plot(graph, data_arr, layout);
+  var layout = {
+    title: graph_title,
+    xaxis: {
+      title: 'Dates of Tweets'
+    },
+    yaxis: {
+      title: '# of Tweets'
+    }
   };
+
+
+
+  Plotly.plot(graph, data_arr, layout);
+};
 jQuery(document).ready(displaySearch);
 jQuery(document).on('page:change', displaySearch);
