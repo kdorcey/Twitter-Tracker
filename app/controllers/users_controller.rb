@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
-        @user_saved_topics = friend_info.search
+        @user_saved_topics = friend_info.search_user
 
         @search_hashes = []
         if !@user_saved_topics.empty?
@@ -171,15 +171,18 @@ class UsersController < ApplicationController
 
   def go_to_search
     @current_user.current_search=params[:search_id]
+    puts "moo"
+    puts @current_user.current_search
     @current_user.save!
 
     if !@current_user.current_search.nil?
-      @curr_view_search = Search.find_by_id(@current_user.current_search)
-      @curr_view_search.view_count= @curr_view_search.view_count+1
-      if !@curr_view_search.viewed_by.include?(@current_user.user_name)
-        @curr_view_search.viewed_by.push(@current_user.user_name.to_s)
+      current_search = Search.where(id: @current_user.current_search).take
+      current_search.view_count= current_search.view_count+1
+      if !current_search.viewed_by.include?(@current_user.user_name)
+        current_search.viewed_by.push(@current_user.user_name.to_s)
       end
-      @curr_view_search.save!
+      current_search.save!
+      @curr_view_search = Search.get_search_data(@current_user.current_search)[0]
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end

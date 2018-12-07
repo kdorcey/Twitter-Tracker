@@ -102,16 +102,11 @@ class SearchesController < ApplicationController
     def display
       if !@current_user.current_search.nil?
         #@curr_view_search = Search.find_by_id(@current_user.current_search)
-        current_search_object = Search.where(id: @current_user.current_search).take
-        data_holder = [] #holds graph data for each handle
-        handle_holder = [] #holds each handle in the same order as data_holder
+        data_holder = Search.get_search_data(@current_user.current_search)
 
-        current_search_object.search_twitterhandle.each do |st_obj|
-          handle_holder<< st_obj.twitterhandle.handle
-          data_holder << st_obj
-        end
-
+        #each index of data_holder holds the graph data for a search
         @curr_view_search = data_holder[0]
+        @curr_view_search.save!
       else
         flash[:notice] = "Hmm - Looks like you don't have any search..."
       end

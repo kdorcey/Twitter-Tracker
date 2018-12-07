@@ -99,6 +99,11 @@ class User < ActiveRecord::Base
       user_history = Search.where(user_id: user_id)
 
       if !user_history.empty? #if user has searches
+
+        user_history.each do |search_id|
+          search_ids << search_id
+        end
+
         test = user_history.take.search_twitterhandle
         test.each do |user_search|
 
@@ -106,7 +111,7 @@ class User < ActiveRecord::Base
           curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
           final_hash.push(curr_graph_as_array_of_hash)
 
-          search_ids.push(user_search.id)
+
         end
       end
     end

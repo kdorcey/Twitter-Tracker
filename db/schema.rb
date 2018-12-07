@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20181207032812) do
     t.boolean  "saved"
     t.string   "country"
     t.string   "twitter_handle"
-    t.integer  "view_count"
+    t.integer  "view_count",     default: 0
     t.string   "viewed_by",      default: "--- []\n"
   end
 

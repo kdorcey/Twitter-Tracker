@@ -132,6 +132,17 @@ class Search < ActiveRecord::Base
     return search_holder
   end
 
+  def self.get_search_data(search_id)
+    current_search_object = Search.where(id: search_id).take
+    data_holder = [] #holds graph data for each handle
+    handle_holder = [] #holds each handle in the same order as data_holder
+
+    current_search_object.search_twitterhandle.each do |st_obj|
+      handle_holder<< st_obj.twitterhandle.handle
+      data_holder << st_obj
+    end
+  end
+
   private
   def self.authenticate
     client = Twitter::REST::Client.new do |config|
