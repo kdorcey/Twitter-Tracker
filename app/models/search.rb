@@ -10,17 +10,9 @@ class Search < ActiveRecord::Base
   serialize :viewed_by #each indice is the username of who has viewed it
 
   #adds search to the database
-  def self.create_search!(hash_of_search, all_twitter_handles)
+  def self.create_search!(hash_of_search)
     search = Search.create!(hash_of_search)
-    test=  Twitterhandle.create_twitterhandle!(all_twitter_handles)
-
-    if !test.nil?
-      test.each do |handle_temp|
-        search.twitterhandle<<handle_temp
-      end
-    end
     return search
-
   end
 
   #primary method for gathering tweets

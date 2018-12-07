@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206164423) do
+ActiveRecord::Schema.define(version: 20181207032812) do
 
   create_table "searches", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "search_term"
     t.string   "from_date"
     t.string   "to_date"
-    t.string   "number_of_tweets"
     t.string   "graph_data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,7 +25,7 @@ ActiveRecord::Schema.define(version: 20181206164423) do
     t.string   "country"
     t.string   "twitter_handle"
     t.integer  "view_count"
-    t.string   "viewed_by",        default: "--- []\n"
+    t.string   "viewed_by",      default: "--- []\n"
   end
 
   create_table "searches_twitterhandles", force: :cascade do |t|
@@ -34,6 +33,8 @@ ActiveRecord::Schema.define(version: 20181206164423) do
     t.integer  "twitterhandle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "graph_data"
+    t.string   "number_of_tweets"
   end
 
   create_table "searches_users", force: :cascade do |t|

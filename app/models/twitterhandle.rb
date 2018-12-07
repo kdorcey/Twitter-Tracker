@@ -6,13 +6,13 @@ class Twitterhandle  < ActiveRecord::Base
 
   def self.create_twitterhandle!(list_of_handles)
     if !list_of_handles.nil?
-      ret = []
+      handle_objects = []
       list_of_handles.each do |temp|
         temp =Twitterhandle.where(handle: temp).first_or_create
 
-        ret<<temp
+        handle_objects<<temp
       end
-      return ret
+      return handle_objects
 
     end
 
