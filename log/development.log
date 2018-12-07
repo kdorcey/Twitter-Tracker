@@ -6367,3 +6367,283 @@ Processing by SearchesController#index as HTML
   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
   Rendered searches/index.html.haml within layouts/application (7.4ms)
 Completed 200 OK in 35ms (Views: 30.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-06 20:06:09 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered searches/index.html.haml within layouts/application (358.5ms)
+Completed 200 OK in 515ms (Views: 472.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-12-06 20:06:25 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3xENN9v1NP0MwRuekDdqHVVsdiEWiSCWqnBGs1Lw2Ul6CAADvZUxJDaM9U0wuhCbEkO6XvJCwXLKs3Ohv1nErQ==", "searches"=>{"search_term"=>"test", "search_user"=>"test", "extra_handle1"=>"test2", "extra_handle2"=>"test3"}, "time"=>"1", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "twitter_handle", "from_date", "to_date", "number_of_tweets", "graph_data", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["search_term", "test"], ["twitter_handle", "test"], ["from_date", "2018-12-05"], ["to_date", "2018-12-06"], ["number_of_tweets", "0"], ["graph_data", "{\"dates\"=>[\"2018-12-05 00:00:00\", \"2018-12-05 12:00:00\", \"2018-12-05 18:00:00\", \"2018-12-05 23:59:00\"], \"values\"=>[0, 0, 0, 0]}"], ["created_at", "2018-12-07 02:06:25.448928"], ["updated_at", "2018-12-07 02:06:25.448928"]]
+  [1m[35m (8.6ms)[0m  commit transaction
+  [1m[36mTwitterhandle Load (0.1ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1[0m  [["handle", "test"]]
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1  [["handle", "test2"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "twitterhandles" ("handle", "created_at", "updated_at") VALUES (?, ?, ?)  [["handle", "test2"], ["created_at", "2018-12-07 02:06:25.465625"], ["updated_at", "2018-12-07 02:06:25.465625"]]
+  [1m[36m (7.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1  [["handle", "test3"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "twitterhandles" ("handle", "created_at", "updated_at") VALUES (?, ?, ?)  [["handle", "test3"], ["created_at", "2018-12-07 02:06:25.476108"], ["updated_at", "2018-12-07 02:06:25.476108"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["search_id", 5], ["twitterhandle_id", 1], ["created_at", "2018-12-07 02:06:25.532700"], ["updated_at", "2018-12-07 02:06:25.532700"]]
+  [1m[35m (7.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["search_id", 5], ["twitterhandle_id", 2], ["created_at", "2018-12-07 02:06:25.545504"], ["updated_at", "2018-12-07 02:06:25.545504"]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["search_id", 5], ["twitterhandle_id", 3], ["created_at", "2018-12-07 02:06:25.559246"], ["updated_at", "2018-12-07 02:06:25.559246"]]
+  [1m[35m (12.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "searches" SET "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?  [["view_count", 0], ["updated_at", "2018-12-07 02:06:25.575843"], ["id", 5]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "5"], ["updated_at", "2018-12-07 02:06:25.587060"], ["id", 1]]
+  [1m[35m (6.7ms)[0m  commit transaction
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "twitter_handle", "from_date", "to_date", "number_of_tweets", "graph_data", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 1], ["search_term", "test"], ["twitter_handle", "test"], ["from_date", "2018-12-05"], ["to_date", "2018-12-06"], ["number_of_tweets", "0"], ["graph_data", "{\"dates\"=>[\"2018-12-05 00:00:00\", \"2018-12-05 12:00:00\", \"2018-12-05 18:00:00\", \"2018-12-05 23:59:00\"], \"values\"=>[0, 0, 0, 0]}"], ["created_at", "2018-12-07 02:06:26.032082"], ["updated_at", "2018-12-07 02:06:26.032082"]]
+  [1m[36m (16.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mTwitterhandle Load (0.2ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1  [["handle", "test"]]
+  [1m[36mTwitterhandle Load (0.1ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1[0m  [["handle", "test2"]]
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1  [["handle", "test3"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["search_id", 6], ["twitterhandle_id", 1], ["created_at", "2018-12-07 02:06:26.059623"], ["updated_at", "2018-12-07 02:06:26.059623"]]
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["search_id", 6], ["twitterhandle_id", 2], ["created_at", "2018-12-07 02:06:26.073892"], ["updated_at", "2018-12-07 02:06:26.073892"]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["search_id", 6], ["twitterhandle_id", 3], ["created_at", "2018-12-07 02:06:26.086798"], ["updated_at", "2018-12-07 02:06:26.086798"]]
+  [1m[36m (7.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "searches" SET "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?[0m  [["view_count", 0], ["updated_at", "2018-12-07 02:06:26.097165"], ["id", 6]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "6"], ["updated_at", "2018-12-07 02:06:26.108184"], ["id", 1]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+Unpermitted parameters: extra_handle1, extra_handle2
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "twitter_handle", "from_date", "to_date", "number_of_tweets", "graph_data", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["search_term", "test"], ["twitter_handle", "test"], ["from_date", "2018-12-05"], ["to_date", "2018-12-06"], ["number_of_tweets", "0"], ["graph_data", "{\"dates\"=>[\"2018-12-05 00:00:00\", \"2018-12-05 12:00:00\", \"2018-12-05 18:00:00\", \"2018-12-05 23:59:00\"], \"values\"=>[0, 0, 0, 0]}"], ["created_at", "2018-12-07 02:06:26.657092"], ["updated_at", "2018-12-07 02:06:26.657092"]]
+  [1m[35m (8.1ms)[0m  commit transaction
+  [1m[36mTwitterhandle Load (0.1ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1[0m  [["handle", "test"]]
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1  [["handle", "test2"]]
+  [1m[36mTwitterhandle Load (0.0ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1[0m  [["handle", "test3"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["search_id", 7], ["twitterhandle_id", 1], ["created_at", "2018-12-07 02:06:26.674812"], ["updated_at", "2018-12-07 02:06:26.674812"]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["search_id", 7], ["twitterhandle_id", 2], ["created_at", "2018-12-07 02:06:26.686961"], ["updated_at", "2018-12-07 02:06:26.686961"]]
+  [1m[36m (7.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "searches_twitterhandles" ("search_id", "twitterhandle_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["search_id", 7], ["twitterhandle_id", 3], ["created_at", "2018-12-07 02:06:26.700956"], ["updated_at", "2018-12-07 02:06:26.700956"]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "searches" SET "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?  [["view_count", 0], ["updated_at", "2018-12-07 02:06:26.711987"], ["id", 7]]
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "7"], ["updated_at", "2018-12-07 02:06:26.724554"], ["id", 1]]
+  [1m[35m (7.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display
+Completed 302 Found in 1589ms (ActiveRecord: 175.9ms)
+
+
+Started GET "/searches_display" for 127.0.0.1 at 2018-12-06 20:06:26 -0600
+Processing by SearchesController#display as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearch Load (0.2ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered searches/display.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-06 20:06:26 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (47.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (52.7ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-12-06 20:06:29 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fNet95cIreI5fVIM1x/K4jvDQop97pLEI29Q01IfxW3ZzqDD8WioOwMwvN93krBkfOyO9ZklcyBDrGXBv7bYiQ==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSearch Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "searches_users" ("search_id", "user_id") VALUES (?, ?)  [["search_id", 7], ["user_id", 1]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-06 20:06:29 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  Rendered searches/index.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-06 20:06:32 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearch Exists (0.2ms)[0m  SELECT  1 AS one FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mSearch Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSearch Load (0.2ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1[0m
+  Rendered users/show.html.haml within layouts/application (22.8ms)
+Completed 200 OK in 50ms (Views: 30.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/go_to_search?search_id=7" for 127.0.0.1 at 2018-12-06 20:06:37 -0600
+Processing by UsersController#go_to_search as HTML
+  Parameters: {"authenticity_token"=>"G5/CIUuit0tmd0saKzF3I8NPOLFj7ufVRVxPOKZiCXu+hs8VLcKyklw6pcmLvA2lhGD0zoclBjEln3oqS8sUnw==", "search_id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mSearch Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "searches" SET "viewed_by" = ?, "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?[0m  [["viewed_by", "---\n- markusdrealan7@gmail.com\n"], ["view_count", 1], ["updated_at", "2018-12-07 02:06:37.292129"], ["id", 7]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  Rendered users/go_to_search.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 31ms (Views: 16.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-06 20:06:37 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (47.5ms)
+
+
+Started POST "/users/save_topic" for 127.0.0.1 at 2018-12-06 20:06:39 -0600
+Processing by UsersController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l3qVFrqjygQCBTGRVp5Qx2IsGJafWSUQr+Xt7ARX2SAyY5gi3MPP3ThI30L2EypBJQPU6XuSxPTPJtj+6f7ExA==", "commit"=>"Save Topic"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearch Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "number_of_tweets", "graph_data", "twitter_handle", "view_count", "viewed_by", "saved", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 1], ["search_term", "test"], ["from_date", "2018-12-05"], ["to_date", "2018-12-06"], ["number_of_tweets", "0"], ["graph_data", "{\"dates\"=>[\"2018-12-05 00:00:00\", \"2018-12-05 12:00:00\", \"2018-12-05 18:00:00\", \"2018-12-05 23:59:00\"], \"values\"=>[0, 0, 0, 0]}"], ["twitter_handle", "test"], ["view_count", 1], ["viewed_by", "---\n- markusdrealan7@gmail.com\n"], ["saved", "t"], ["created_at", "2018-12-07 02:06:39.081819"], ["updated_at", "2018-12-07 02:06:39.081819"]]
+  [1m[36m (11.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "searches" SET "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?[0m  [["view_count", 0], ["updated_at", "2018-12-07 02:06:39.096969"], ["id", 8]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSearch Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "searches_users" ("search_id", "user_id") VALUES (?, ?)[0m  [["search_id", 8], ["user_id", 1]]
+  [1m[35m (7.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 40ms (ActiveRecord: 27.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-06 20:06:39 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearch Exists (0.1ms)[0m  SELECT  1 AS one FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mSearch Load (0.1ms)[0m  [1mSELECT "searches".* FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSearch Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1[0m
+  Rendered users/show.html.haml within layouts/application (14.2ms)
+Completed 200 OK in 25ms (Views: 19.8ms | ActiveRecord: 0.7ms)
