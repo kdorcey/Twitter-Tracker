@@ -44,6 +44,7 @@
   %thead
     %tr
       %th Search Term
+      %th Twitter Handles
       %th View Search
       %th Search Date Start
       %th Search Date End
@@ -54,6 +55,7 @@
       - @user_saved_topics.zip(@search_hashes).each do |print, search|
         %tr
           %td= print.search_term
+          %td= print.twitter_handle
           %td= button_to 'View This Search!', go_to_search_path(:search_id => search[:id])
           %td= print.from_date
           %td= print.to_date
