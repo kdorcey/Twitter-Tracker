@@ -96,18 +96,19 @@ class User < ActiveRecord::Base
     search_ids = Array.new
 
     if User.exists?(id: user_id)
-    user_history = Search.where(user_id: user_id)
+      user_history = Search.where(user_id: user_id)
 
-    if !user_history.empty? #if user has searches
-    user_history.each do |user_search|
+      if !user_history.empty? #if user has searches
+        test = user_history.take.search_twitterhandle
+        test.each do |user_search|
 
-      curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
-      curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
-      final_hash.push(curr_graph_as_array_of_hash)
+          curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
+          curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
+          final_hash.push(curr_graph_as_array_of_hash)
 
-      search_ids.push(user_search.id)
-    end
-    end
+          search_ids.push(user_search.id)
+        end
+      end
     end
     return final_hash, search_ids
   end
