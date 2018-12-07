@@ -179,7 +179,6 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
-
   end
 
   def save_topic
