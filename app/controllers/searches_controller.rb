@@ -68,22 +68,32 @@ class SearchesController < ApplicationController
         all_hashes = Array.new
 
         #For every twitter handle entry, gather all of the tweets and put the data into the search hash
+        search_hash= {}
         all_twitter_handles.each do |handle|
           total_count, graph_data = Search.gather_tweets(searches_params[:search_term].to_s, handle, from_date.to_s, now.to_s, params[:time].to_i)
 
           #All of the information of the search stored into a hash
-          search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s,
-                         twitter_handle: handle, from_date: from_date,
+          search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s, from_date: from_date,
                          to_date: now, number_of_tweets: total_count, graph_data: graph_data}
 
           all_hashes.push search_hash
-          new_search = Search.create_search!(search_hash, all_twitter_handles)
-          new_search.view_count=0
-          new_search.save!
 
-          @current_user.current_search = new_search.id #Set users current search to the search they just made
-          @current_user.save
         end
+        new_search = Search.create_search!(search_hash, all_twitter_handles)
+        new_search.view_count=0
+        new_search.save!
+
+        temp = []
+        new_search.twitterhandle do |test|
+          temp << test
+          puts "wow"
+          puts test
+        end
+        puts "woof"
+        puts temp
+
+        @current_user.current_search = new_search.id #Set users current search to the search they just made
+        @current_user.save
         
         redirect_to searches_display_path
       else
