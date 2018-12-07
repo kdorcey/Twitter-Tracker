@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
     if User.exists?(user_name: user_name)
       user = User.find_by_user_name(user_name)
       friends_list = user.friends_list
-
       friends_list_ids = Array.new
 
       #need to check for nil at all?
@@ -94,7 +93,6 @@ class User < ActiveRecord::Base
   def self.get_history(user_id)
     final_hash = Array.new
     search_ids = Array.new
-
     if User.exists?(id: user_id)
       user_history = Search.where(user_id: user_id)
 
@@ -110,12 +108,20 @@ class User < ActiveRecord::Base
           curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
           curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
           final_hash.push(curr_graph_as_array_of_hash)
-
-
         end
       end
     end
     return final_hash, search_ids
+  end
+
+  def self.save_topic(current_user)
+    to_save = Search.find_by_id(current_user.current_search)
+    new_record = to_save.dup
+    new_record.user_id = current_user.id
+    new_record.update(saved: true)
+    new_record.view_count=0
+    new_record.save!
+    current_user.search_user.create(search_id: new_record.id)
   end
 
 end

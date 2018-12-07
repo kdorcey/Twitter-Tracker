@@ -10,16 +10,13 @@ class UsersController < ApplicationController
 
   def show
     redir = true
-
     if @current_user.nil?
       flash[:notice] = "Must be logged in to view a profile page!"
       redirect_to root_path and return
     end
 
     #Logic for users friends page
-
     if (params[:id].to_s != @current_user.id.to_s)
-
       user_friends = User.get_user_friends_and_ids(@current_user.user_name)
       user_friends_ids = user_friends[1]
 
@@ -102,9 +99,7 @@ class UsersController < ApplicationController
   end
 
   def verify_add_friend
-
     if User.exists?(user_name: params[:user_name])
-
       if @current_user.friends_list.include?(params[:user_name])
         flash[:notice] = "You already have that person as a friend."
         redirect_to :controller => 'users', :action => 'add_friend'
@@ -113,7 +108,6 @@ class UsersController < ApplicationController
       @current_user.save!
       redirect_to :controller => 'searches', :action => 'index'
       end
-
     else
       flash[:notice] = "User Does not exist! Imaginary friends aren't allowed, sorry." #Todo:: y this no show?
       redirect_to :controller => 'users', :action => 'add_friend'
@@ -189,16 +183,15 @@ class UsersController < ApplicationController
   end
 
   def save_topic
+    if !@current_user.nil?
+      User.save_topic(@current_user)
+      redirect_to user_path(:id => @current_user.id)
+    else
+      flash[:notice] = "Hm you're still not logged in, not sure how you even got here..."
+      redirect_to root_path
+    end
 
-    to_save = Search.find_by_id(@current_user.current_search)
-    new_record = to_save.dup
-    new_record.user_id=@current_user.id
-    new_record.update(saved: true)
-    new_record.view_count=0
-    new_record.save!
-    @current_user.search_user.create(search_id: new_record.id)
-
-    redirect_to user_path(:id => @current_user.id)
   end
+
 
 end
