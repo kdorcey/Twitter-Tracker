@@ -24,10 +24,10 @@ class Search < ActiveRecord::Base
     #the dates need to be formatted really specifically for the twitter search, this calls the method that does that
     date_vals = format_date_holder(from, now, formatter)
 
-
-    client.search("from:#{search_user} #{query}", since: from).each do |tweet|
+    client.search("from:#{search_user.handle} #{query}", since: from).each do |tweet|
       tweet_date = tweet.created_at.in_time_zone('Central Time (US & Canada)')
-
+      puts "woof"
+      puts tweet_date
       #Method of grabbing the full tweet instead of a truncated version found here:
       # https://stackoverflow.com/questions/47383617/ruby-twitter-retrieving-full-tweet-text
       status = client.status(tweet, tweet_mode: "extended")
