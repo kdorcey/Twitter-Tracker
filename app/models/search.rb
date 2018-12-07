@@ -126,8 +126,10 @@ class Search < ActiveRecord::Base
     #t = Searches.create!(:search_term =>'overthinking', :from_date=>'2018-11-11',:to_date=>'2018-11-12',
     #                 :number_of_tweets=>4)
 
-    current_user.search do |search_history|
-      search_holder<<search_history
+    if User.exists?(current_user.id)
+      current_user.search do |search_history|
+        search_holder<<search_history
+      end
     end
     return search_holder
   end
