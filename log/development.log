@@ -13521,3 +13521,550 @@ Processing by UsersController#show as HTML
   [1m[35mSearch Load (0.3ms)[0m  SELECT "searches".* FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ?  [["user_id", 1]]
   Rendered users/show.html.haml within layouts/application (31.5ms)
 Completed 200 OK in 53ms (Views: 43.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:21:37 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (213.9ms)
+Completed 200 OK in 383ms (Views: 325.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-07 23:21:39 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[35mSearch Load (1.0ms)[0m  SELECT "searches".* FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ?  [["user_id", 1]]
+  Rendered users/show.html.haml within layouts/application (44.9ms)
+Completed 200 OK in 71ms (Views: 59.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:21:42 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-12-07 23:21:46 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LEkAnCpbXnn/0CgeY/OkvfZRWDAlbwqhD1Lqr5buZviJUA2oTDtboMWdxs3Dft47sX6UT8Gk60Vvkd+9e0d7HA==", "searches"=>{"search_term"=>"test", "search_user"=>"test", "search_from"=>"", "search_to"=>""}, "commit"=>"Search"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Unpermitted parameters: search_from, search_to
+Unpermitted parameters: search_from, search_to
+Unpermitted parameters: search_from, search_to
+  [1m[35mTwitterhandle Load (0.2ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1  [["handle", "test"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "twitterhandles" ("handle", "created_at", "updated_at") VALUES (?, ?, ?)  [["handle", "test"], ["created_at", "2018-12-08 05:21:46.267602"], ["updated_at", "2018-12-08 05:21:46.267602"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["search_term", "test"], ["from_date", "2018-12-07"], ["to_date", "2018-12-07"], ["created_at", "2018-12-08 05:21:46.290593"], ["updated_at", "2018-12-08 05:21:46.290593"]]
+  [1m[35m (6.9ms)[0m  commit transaction
+Unpermitted parameters: search_from, search_to
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "searches_twitterhandles" ("twitterhandle_id", "number_of_tweets", "graph_data", "search_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["twitterhandle_id", 1], ["number_of_tweets", "0"], ["graph_data", "{\"sentiment\"=>[0], \"dates\"=>[\"2018-12-07\"], \"values\"=>[0]}"], ["search_id", 1], ["created_at", "2018-12-08 05:21:46.530521"], ["updated_at", "2018-12-08 05:21:46.530521"]]
+  [1m[35m (7.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_search", "1"], ["updated_at", "2018-12-08 05:21:46.541743"], ["id", 1]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/searches_display
+Completed 302 Found in 302ms (ActiveRecord: 32.7ms)
+
+
+Started GET "/searches_display" for 127.0.0.1 at 2018-12-07 23:21:46 -0600
+Processing by SearchesController#display as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearch Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSearchTwitterhandle Load (0.1ms)[0m  SELECT "searches_twitterhandles".* FROM "searches_twitterhandles" WHERE "searches_twitterhandles"."search_id" = ?  [["search_id", 1]]
+  [1m[36mTwitterhandle Load (0.0ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered searches/display.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 36ms (Views: 30.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-07 23:21:46 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (42.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.7ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-07 23:21:46 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.2ms)
+
+
+Started POST "/searches_save_topic" for 127.0.0.1 at 2018-12-07 23:21:49 -0600
+Processing by SearchesController#save_topic as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VIlxOxTLmeheNOLSbTiDUbt/9ZgPP4ZhmUVPCF7ADZPxkHwPcqucMWR5DAHNtfnX/FA55+v0Z4X5hnoas2kQdw==", "commit"=>"Save Topic"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSearch Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "searches_users" ("search_id", "user_id") VALUES (?, ?)[0m  [["search_id", 1], ["user_id", 1]]
+  [1m[35m (11.3ms)[0m  commit transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:21:49 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-07 23:21:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mSearch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mSearch Load (0.1ms)[0m  SELECT "searches".* FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSearch Load (0.3ms)[0m  [1mSELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSearchTwitterhandle Load (0.1ms)[0m  SELECT "searches_twitterhandles".* FROM "searches_twitterhandles" WHERE "searches_twitterhandles"."search_id" = ?  [["search_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markusdrealan7@gmail.com"]]
+  Rendered users/show.html.haml within layouts/application (16.6ms)
+Completed 200 OK in 33ms (Views: 23.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/go_to_search?search_id=1" for 127.0.0.1 at 2018-12-07 23:21:52 -0600
+Processing by UsersController#go_to_search as HTML
+  Parameters: {"authenticity_token"=>"cJtwkqBDtfjIRAmmuWkaFHK3bBsawPa6SlhUmcUOiAzVgn2mxiOwIfIJ53UZ5GCSNZigZP4LF14qm2GLKKeV6A==", "search_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mSearch Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "searches" SET "viewed_by" = ?, "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?  [["viewed_by", "---\n- markusdrealan7@gmail.com\n"], ["view_count", 1], ["updated_at", "2018-12-08 05:21:52.751319"], ["id", 1]]
+  [1m[36m (44.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSearch Load (0.1ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSearchTwitterhandle Load (0.1ms)[0m  [1mSELECT "searches_twitterhandles".* FROM "searches_twitterhandles" WHERE "searches_twitterhandles"."search_id" = ?[0m  [["search_id", 1]]
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/go_to_search.html.haml within layouts/application (10.1ms)
+Completed 200 OK in 76ms (Views: 21.3ms | ActiveRecord: 45.8ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-07 23:21:52 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (37.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (45.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-12-07 23:21:55 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1Eal+nOdyBM0kNpQdZf8xFNuOg6V23A92+Iz6JjkKwlxX6jOFf3Nyg7dNIPVGoZCFEH2cXEQkdm7IQb6dU027Q=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:21:55 -0600
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:36:32 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  Rendered searches/index.html.haml within layouts/application (172.0ms)
+Completed 200 OK in 260ms (Views: 252.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2/" for 127.0.0.1 at 2018-12-07 23:36:36 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/" for 127.0.0.1 at 2018-12-07 23:36:36 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=19497e08eef1cd85fb7584f27b0007df1a6280d568535acc&code=4/rQBvGd_v_f7qvtZV3kkVNyBl5zx78VvDu9NzzitkMlbdb7F9Y5f-0yNnRsmM9gMbCxS7aeZGD5s7KeDSAwLhsmI&scope=email+profile+https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email" for 127.0.0.1 at 2018-12-07 23:36:37 -0600
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#createauth as HTML
+  Parameters: {"state"=>"19497e08eef1cd85fb7584f27b0007df1a6280d568535acc", "code"=>"4/rQBvGd_v_f7qvtZV3kkVNyBl5zx78VvDu9NzzitkMlbdb7F9Y5f-0yNnRsmM9gMbCxS7aeZGD5s7KeDSAwLhsmI", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."session_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["session_token", "113156058986000886008"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 41ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:36:37 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 86ms (Views: 17.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-07 23:36:39 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearch Exists (0.2ms)[0m  SELECT  1 AS one FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mSearch Load (0.2ms)[0m  [1mSELECT "searches".* FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSearch Load (0.1ms)[0m  SELECT "searches".* FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSearchTwitterhandle Load (0.1ms)[0m  [1mSELECT "searches_twitterhandles".* FROM "searches_twitterhandles" WHERE "searches_twitterhandles"."search_id" = ?[0m  [["search_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "markusdrealan7@gmail.com"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "markusdrealan7@gmail.com"]]
+  Rendered users/show.html.haml within layouts/application (44.4ms)
+Completed 200 OK in 101ms (Views: 54.4ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/go_to_search?search_id=1" for 127.0.0.1 at 2018-12-07 23:36:41 -0600
+Processing by UsersController#go_to_search as HTML
+  Parameters: {"authenticity_token"=>"RJ36FxDv6MBeHKgO6HumiJbl7bIFYK0gIsFgYvUBoO7hhPcjdo/tGWRRRt1I9twO0cohzeGrTMRCAlVwGKi9Cg==", "search_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.3ms)[0m  commit transaction
+  [1m[36mSearch Load (0.2ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "searches" SET "view_count" = ?, "updated_at" = ? WHERE "searches"."id" = ?[0m  [["view_count", 2], ["updated_at", "2018-12-08 05:36:41.011734"], ["id", 1]]
+  [1m[35m (28.6ms)[0m  commit transaction
+  [1m[36mSearch Load (0.1ms)[0m  [1mSELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSearchTwitterhandle Load (0.1ms)[0m  SELECT "searches_twitterhandles".* FROM "searches_twitterhandles" WHERE "searches_twitterhandles"."search_id" = ?  [["search_id", 1]]
+  [1m[36mTwitterhandle Load (0.1ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/go_to_search.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 73ms (Views: 22.8ms | ActiveRecord: 35.0ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-07 23:36:41 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (40.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (24.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (48.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:36:45 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-12-07 23:37:11 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LBWubTF4ekrvu+KMKZvJkNLBov9BfD4pQEKUeEooEBCJDKNZVxh/k9X2DF+JFrMWle5ugKW3380ggaFqp4EN9A==", "searches"=>{"search_term"=>"Mueller", "search_user"=>"realDonaldTrump", "search_from"=>"2016-01-27", "search_to"=>"2018-01-01"}, "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+Unpermitted parameters: search_from, search_to
+Unpermitted parameters: search_from, search_to
+Unpermitted parameters: search_from, search_to
+  [1m[36mTwitterhandle Load (0.2ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."handle" = ?  ORDER BY "twitterhandles"."id" ASC LIMIT 1[0m  [["handle", "realDonaldTrump"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "twitterhandles" ("handle", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["handle", "realDonaldTrump"], ["created_at", "2018-12-08 05:37:11.297065"], ["updated_at", "2018-12-08 05:37:11.297065"]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "searches" ("user_id", "search_term", "from_date", "to_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["search_term", "Mueller"], ["from_date", "2018-12-07"], ["to_date", "2018-12-07"], ["created_at", "2018-12-08 05:37:11.306615"], ["updated_at", "2018-12-08 05:37:11.306615"]]
+  [1m[36m (8.4ms)[0m  [1mcommit transaction[0m
+Unpermitted parameters: search_from, search_to
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mTwitterhandle Load (0.1ms)[0m  [1mSELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "searches_twitterhandles" ("twitterhandle_id", "number_of_tweets", "graph_data", "search_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["twitterhandle_id", 2], ["number_of_tweets", "4"], ["graph_data", "{\"sentiment\"=>[-0.541975], \"dates\"=>[\"2018-12-07\"], \"values\"=>[4]}"], ["search_id", 2], ["created_at", "2018-12-08 05:37:12.095678"], ["updated_at", "2018-12-08 05:37:12.095678"]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_search" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_search", "2"], ["updated_at", "2018-12-08 05:37:12.104589"], ["id", 1]]
+  [1m[35m (7.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/searches_display
+Completed 302 Found in 820ms (ActiveRecord: 31.0ms)
+
+
+Started GET "/searches_display" for 127.0.0.1 at 2018-12-07 23:37:12 -0600
+Processing by SearchesController#display as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mSearch Load (0.0ms)[0m  SELECT  "searches".* FROM "searches" WHERE "searches"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSearchTwitterhandle Load (0.1ms)[0m  [1mSELECT "searches_twitterhandles".* FROM "searches_twitterhandles" WHERE "searches_twitterhandles"."search_id" = ?[0m  [["search_id", 2]]
+  [1m[35mTwitterhandle Load (0.1ms)[0m  SELECT  "twitterhandles".* FROM "twitterhandles" WHERE "twitterhandles"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered searches/display.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-07 23:37:12 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (24.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (50.6ms)
+
+
+Started GET "/display-search.js" for 127.0.0.1 at 2018-12-07 23:37:12 -0600
+
+ActionController::RoutingError (No route matches [GET] "/display-search.js"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/markus/.rbenv/versions/2.4.4/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+
+
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.1ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.9ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/markus/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-07 23:37:27 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/searches_create" for 127.0.0.1 at 2018-12-07 23:37:36 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qW4IvvUuV4d9cxl+KwZwbofOw6CLkxd5c69hXqbl7X0MdwWKk05SXkc+962LiwrowOEP329Y9p0TbFRMS0zwmQ==", "searches"=>{"search_term"=>"", "search_user"=>"", "search_from"=>"", "search_to"=>"", "extra_handle1"=>"", "extra_handle2"=>"", "extra_handle3"=>""}, "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "113156058986000886008"]]
+Unpermitted parameters: search_from, search_to, extra_handle1, extra_handle2, extra_handle3
+Unpermitted parameters: search_from, search_to, extra_handle1, extra_handle2, extra_handle3
+Redirected to http://localhost:3000/searches
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/searches" for 127.0.0.1 at 2018-12-07 23:37:36 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "113156058986000886008"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered searches/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.2ms)
