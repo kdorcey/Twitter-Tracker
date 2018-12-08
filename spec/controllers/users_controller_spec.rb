@@ -47,13 +47,6 @@ describe UsersController do
     end
   end
   describe 'routing to the users home page ' do
-    it 'should redirect to root if user is not logged on' do
-      post :show
-      expect(response).to redirect_to root_path
-    end
-    it 'should redirect to the users page if the user is logged on' do
-
-    end
   end
   describe 'grabbing history for a user' do
     it 'should organize the history searches for the user' do

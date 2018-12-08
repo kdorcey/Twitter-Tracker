@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_name, :email, :session_token, :password, :country)
   end
 
-
   def show
     redir = true
     if @current_user.nil?
