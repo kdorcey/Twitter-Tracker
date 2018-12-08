@@ -15,7 +15,7 @@ describe SessionsController do
 
       post :create, :user => {:user_name => "hi"}
       #response.should redirect_to users_show_path
-      expect(response).to redirect_to users_show_path
+      expect(response).to redirect_to root_path
     end
     it 'should redirect back to the login page after incorrect login' do
       allow(Session).to receive(:verify_login).and_return(nil)

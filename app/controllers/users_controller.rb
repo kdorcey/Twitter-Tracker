@@ -10,16 +10,13 @@ class UsersController < ApplicationController
 
   def show
     redir = true
-
     if @current_user.nil?
       flash[:notice] = "Must be logged in to view a profile page!"
       redirect_to root_path and return
     end
 
     #Logic for users friends page
-
     if (params[:id].to_s != @current_user.id.to_s)
-
       user_friends = User.get_user_friends_and_ids(@current_user.user_name)
       user_friends_ids = user_friends[1]
 
@@ -28,6 +25,7 @@ class UsersController < ApplicationController
 
         friend_info = User.find_by(id: params[:id])
         @user_friend_name = friend_info.user_name
+        #@user_saved_topics = friend_info.search_user
         @user_saved_topics = friend_info.search
 
         @search_hashes = []
@@ -101,9 +99,7 @@ class UsersController < ApplicationController
   end
 
   def verify_add_friend
-
     if User.exists?(user_name: params[:user_name])
-
       if @current_user.friends_list.include?(params[:user_name])
         flash[:notice] = "You already have that person as a friend."
         redirect_to :controller => 'users', :action => 'add_friend'
@@ -112,7 +108,6 @@ class UsersController < ApplicationController
       @current_user.save!
       redirect_to :controller => 'searches', :action => 'index'
       end
-
     else
       flash[:notice] = "User Does not exist! Imaginary friends aren't allowed, sorry." #Todo:: y this no show?
       redirect_to :controller => 'users', :action => 'add_friend'
@@ -147,9 +142,13 @@ class UsersController < ApplicationController
   end
 
   def update_country
+    if !@current_user.nil?
     @current_user.country = params[:country]
     @current_user.save!
-    redirect_to :controller => 'users', :action => 'show'
+    redirect_to user_path(:id => @current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   #def edit
@@ -174,21 +173,27 @@ class UsersController < ApplicationController
     @current_user.save!
 
     if !@current_user.current_search.nil?
-      @curr_view_search = Search.find_by_id(@current_user.current_search)
+      current_search = Search.where(id: @current_user.current_search).take
+      current_search.view_count= current_search.view_count+1
+      if !current_search.viewed_by.include?(@current_user.user_name)
+        current_search.viewed_by.push(@current_user.user_name.to_s)
+      end
+      current_search.save!
+      @curr_view_search = Search.make_for_graph(@current_user)
+
+      #@curr_view_search = Search.get_search_data(@current_user.current_search)[0]
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
-
   end
 
   def save_topic
-    to_save = Search.find_by_id(@current_user.current_search)
-    new_record = to_save.dup
-    new_record.user_id=@current_user.id
-    new_record.update(saved: true)
-    new_record.save!
-
-    redirect_to user_path(:id => @current_user.id)
+    if !@current_user.nil?
+      User.save_topic(@current_user)
+      redirect_to user_path(:id => @current_user.id)
+    else
+      flash[:notice] = "Hm you're still not logged in, not sure how you even got here..."
+      redirect_to root_path
+    end
   end
-
 end
