@@ -1,4 +1,20 @@
 %h1 Current Search
+%table
+  %thead
+    %tr
+    %th Main Twitter Handle
+    %th From
+    %th To
+    %th Number of Associated Tweets
+  %tbody
+    -#this will probably be problematic with multiple users but for now it's aight
+
+  - if !@current_user.current_search.nil?
+    -@curr_view_search.each do |single_search|
+      %tr
+      -if single_search.class != String
+        %td= single_search[:handle_obj]
+
 = form_tag searches_save_topic_path do
 
   %br

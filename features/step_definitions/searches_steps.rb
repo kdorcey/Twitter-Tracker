@@ -8,10 +8,11 @@ end
 #   end
 # end
 
-When /^I make a search with search term "(.*?)", twitter handle "(.*?)", and time range "(.*?)"$/ do |search_term, handle, time|
+When /^I make a search with search term "(.*?)", twitter handle "(.*?)", from date "(.*?)", and to date "(.*?)"$/ do |search_term, handle, from, to|
   fill_in 'Keyword', :with => search_term
   fill_in 'Twitter Handle', :with => handle
-  select time, :from => 'time'
+  fill_in 'From Date', :with => from
+  fill_in 'To Date', :with => to
   click_button 'Search'
 end
 
