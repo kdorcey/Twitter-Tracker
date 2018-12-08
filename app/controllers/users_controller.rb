@@ -142,9 +142,13 @@ class UsersController < ApplicationController
   end
 
   def update_country
+    if !@current_user.nil?
     @current_user.country = params[:country]
     @current_user.save!
-    redirect_to :controller => 'users', :action => 'show'
+    redirect_to user_path(:id => @current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   #def edit
