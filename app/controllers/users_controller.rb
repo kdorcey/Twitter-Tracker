@@ -191,8 +191,5 @@ class UsersController < ApplicationController
       flash[:notice] = "Hm you're still not logged in, not sure how you even got here..."
       redirect_to root_path
     end
-
   end
-
-
 end

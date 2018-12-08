@@ -32,11 +32,33 @@ describe User do
   describe 'grabbing data for the users history' do
       it 'should return an empty array if there is no user associated' do
         results = User.get_history(25723)
-        expect(results).to eq([])
+        expect(results).to eq([[], []])
       end
       it 'should return an empty array if there are no searches associated with a user' do
         results = User.get_history(4)
-        expect(results).to eq([])
+        expect(results).to eq([[], []])
+      end
+  end
+  describe 'getting user information' do
+      it 'should return empty arrays if the user doesnt exist.' do
+        friend_list, friend_list_id = User.get_user_friends_and_ids("Not a username")
+        expect(friend_list). to eq([])
+        expect(friend_list_id). to eq([])
+      end
+      it 'should return empty arrays if a user has no friends, like Kyle!' do
+        friends_list, friends_list_id = User.get_user_friends_and_ids(User.find_by_user_name('test').user_name)
+        expect(friends_list). to eq([])
+        expect(friends_list_id). to eq([])
+      end
+      it 'should return an array object if the history search call corresponds to no user input' do
+        final_hash , search_ids = User.get_history("not a user")
+        expect(final_hash).to be_an_instance_of(Array)
+        expect(search_ids).to be_an_instance_of(Array)
+      end
+      it 'should return an array object if the history search call corresponds to an actual user' do
+        final_hash, search_ids = User.get_history(User.find_by_user_name('test').id)
+        expect(final_hash).to be_an_instance_of(Array)
+        expect(search_ids).to be_an_instance_of(Array)
       end
   end
   end

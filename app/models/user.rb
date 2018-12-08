@@ -40,9 +40,11 @@ class User < ActiveRecord::Base
       friends_list_ids = Array.new
 
       #need to check for nil at all?
+      if !friends_list.nil? && !(friends_list === "")
       friends_list.each do |friend|
         curr_user = User.find_by_user_name(friend)
         friends_list_ids.push(curr_user.id)
+      end
       end
 
       return friends_list, friends_list_ids
@@ -114,6 +116,7 @@ class User < ActiveRecord::Base
     return final_hash, search_ids
   end
 
+  ###integration testing needed for this
   def self.save_topic(current_user)
     to_save = Search.find_by_id(current_user.current_search)
     new_record = to_save.dup
