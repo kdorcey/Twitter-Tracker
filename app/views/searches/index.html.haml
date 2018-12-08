@@ -14,8 +14,12 @@
     %li
       = label :searches, :search_user, 'Twitter Handle'
       = text_field :searches, 'search_user'
-
-  = select_tag :time, options_for_select([['Past day', '1'], ['Past two days', '2'], ['Past three days', '3'], ['Past four days', '4'], ['Past five days', '5'], ['Past six days', '6'], ['Past week', '7']])
+    %li
+      = label :searches, :search_from, 'From Date'
+      = date_field :searches, 'search_from'
+    %li
+      = label :searches, :search_to, 'To Date'
+      = date_field :searches, 'search_to'
 
   = submit_tag 'Search'
 
