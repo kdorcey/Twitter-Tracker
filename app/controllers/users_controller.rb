@@ -175,7 +175,9 @@ class UsersController < ApplicationController
         current_search.viewed_by.push(@current_user.user_name.to_s)
       end
       current_search.save!
-      @curr_view_search = Search.get_search_data(@current_user.current_search)[0]
+      @curr_view_search = Search.make_for_graph(@current_user)
+
+      #@curr_view_search = Search.get_search_data(@current_user.current_search)[0]
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
