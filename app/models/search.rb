@@ -168,6 +168,22 @@ class Search < ActiveRecord::Base
     end
   end
 
+  def self.make_for_graph(current_user)
+    data_holder = Search.get_search_data(current_user.current_search)
+
+    #each index of data_holder holds the graph data for a search
+    ret = [data_holder[0].search.search_term]
+
+    data_holder.each do |indiv_data|
+      indiv_data.graph_data.gsub!('=>',':')
+      temp = {}
+      temp[:handle_obj] = indiv_data.twitterhandle.handle
+      temp[:search_obj] = indiv_data
+      ret<<temp
+    end
+    return ret
+  end
+
   private
 
   def self.authenticate
