@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       ##GRAB past 10 search history ID info so it can be optionally displayed later.
 
       graph_data, search_ids = User.get_history(@current_user.id)
-      @history_search_hashes = organize_history_search(search_ids)
+      @history_search_hashes = UsersController.organize_history_search(search_ids)
 
       @user_friends = @current_user.friends_list
       @user_friends_ids = User.get_user_friends_and_ids(@current_user.user_name)[1]
