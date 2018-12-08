@@ -1,4 +1,4 @@
-class SearchTwitterhandle < ActiveRecord::Base
+class SearchTwitterhandle  < ActiveRecord::Base
   belongs_to :search
   belongs_to :twitterhandle
 
@@ -7,4 +7,5 @@ class SearchTwitterhandle < ActiveRecord::Base
 
   validates :twitterhandle, :presence => true
   validates_associated :twitterhandle
+
 end

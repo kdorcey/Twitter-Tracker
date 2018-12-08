@@ -31,4 +31,19 @@ describe UsersController do
     # Testing for this should be done in capybara and jasmin
     # results are user-dependant (on the person that is logged on).
   end
+  describe 'saving a topic' do
+    it 'should call redirect to root if no user exists' do
+      test_user = {:user_name => 'test', :email => 'testing@gmail.com', :password => 'password'}
+      @current_user = test_user
+      post :save_topic, {:user => 'bleh'}
+      expect(response).to redirect_to root_path
+    end
+  end
+  describe 'updating the country' do
+    it 'should redirect to the users show page after updating the country' do
+      test_user = {:user_name => 'test', :email => 'testing@gmail.com', :password => 'password'}
+      post :update_country, {:country => 'Moon', @current_user => test_user}
+      expect(response).to redirect_to root_path
+    end
+  end
 end

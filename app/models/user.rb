@@ -37,13 +37,14 @@ class User < ActiveRecord::Base
     if User.exists?(user_name: user_name)
       user = User.find_by_user_name(user_name)
       friends_list = user.friends_list
-
       friends_list_ids = Array.new
 
       #need to check for nil at all?
+      if !friends_list.nil? && !(friends_list === "")
       friends_list.each do |friend|
         curr_user = User.find_by_user_name(friend)
         friends_list_ids.push(curr_user.id)
+      end
       end
 
       return friends_list, friends_list_ids
@@ -94,22 +95,36 @@ class User < ActiveRecord::Base
   def self.get_history(user_id)
     final_hash = Array.new
     search_ids = Array.new
-
     if User.exists?(id: user_id)
-    user_history = Search.where(user_id: user_id)
+      user_history = Search.where(user_id: user_id)
 
-    if !user_history.empty? #if user has searches
-    user_history.each do |user_search|
+      if !user_history.empty? #if user has searches
 
-      curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
-      curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
-      final_hash.push(curr_graph_as_array_of_hash)
+        user_history.each do |search_id|
+          search_ids << search_id
+        end
 
-      search_ids.push(user_search.id)
-    end
-    end
+        test = user_history.take.search_twitterhandle
+        test.each do |user_search|
+
+          curr_graph = user_search.graph_data            #TODO:: use serialize instead of eval.
+          curr_graph_as_array_of_hash = eval(curr_graph) #convert string to array of hashes
+          final_hash.push(curr_graph_as_array_of_hash)
+        end
+      end
     end
     return final_hash, search_ids
+  end
+
+  ###integration testing needed for this
+  def self.save_topic(current_user)
+    to_save = Search.find_by_id(current_user.current_search)
+    new_record = to_save.dup
+    new_record.user_id = current_user.id
+    new_record.update(saved: true)
+    new_record.view_count=0
+    new_record.save!
+    current_user.search_user.create(search_id: new_record.id)
   end
 
 end
