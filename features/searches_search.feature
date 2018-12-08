@@ -14,19 +14,48 @@ Feature: Allow Emotions of Twitter user to search a term
       | evanm     | evan-meyer@uiowa.edu     | evanpass   | The Moon     |
       | darreng   | darren-goh@uiowa.edu     | darrenpass | Rhode Island |
 
-  Scenario: happy search
+  Scenario: Attempt search without login
+    Given I am on the main page
+    When I make a search with search term "ABC", twitter handle "evanmeyer07", from date "2018/12/4", and to date "2018/12/7"
+    Then The same page should display a "Nah homie, gotta make an account first." error
+
+
+  Scenario: No search term has been entered
     Given I am on the login page
     When I choose to login with the username "kylel" and the password "levypass"
     Then My homepage should welcome me as "kylel"
     Given I am on the main page
-    When I make a search with search term "ABC", twitter handle "@evanmeyer07", and time range "Past week"
-    Then I should see the term searched "ABC" in the table
+    When I make a search with search term "", twitter handle "evanmeyer07", from date "2018/12/4", and to date "2018/12/7"
+    Then The same page should display a "Please enter a search term & a twitter handle!" error
 
-  Scenario: sad search
+  Scenario: No twitter handle has been entered
+    Given I am on the login page
+    When I choose to login with the username "kylel" and the password "levypass"
+    Then My homepage should welcome me as "kylel"
     Given I am on the main page
-    When I make a search without a search term but with a handle "@evanmeyer07" and time "Past day"
-    Then The search page should flash notice the user
+    When I make a search with search term "ABC", twitter handle "", from date "2018/12/4", and to date "2018/12/7"
+    Then The same page should display a "Please enter a search term & a twitter handle!" error
 
-#  Scenario:  Search a keyword (Declarative)
-#    When I have search a term "Ruby" in the "Past 2 days"
-#    Then I should see a search list entry with title "Ruby" and the number of times tweeted in a time frame
+  Scenario: No dates have been entered
+    Given I am on the login page
+    When I choose to login with the username "kylel" and the password "levypass"
+    Then My homepage should welcome me as "kylel"
+    Given I am on the main page
+    When I make a search with search term "ABC", twitter handle "evanmeyer07", from date "", and to date ""
+    Then The same page should display a "Enter both dates" error
+
+  Scenario: From date comes before to date
+    Given I am on the login page
+    When I choose to login with the username "kylel" and the password "levypass"
+    Then My homepage should welcome me as "kylel"
+    Given I am on the main page
+    When I make a search with search term "ABC", twitter handle "evanmeyer07", from date "2018/12/7", and to date "2018/12/4"
+    Then The same page should display a "Date entered incorrectly!" error
+
+  Scenario: One of the dates is in the future
+    Given I am on the login page
+    When I choose to login with the username "kylel" and the password "levypass"
+    Then My homepage should welcome me as "kylel"
+    Given I am on the main page
+    When I make a search with search term "ABC", twitter handle "evanmeyer07", from date "2060/12/7", and to date "2018/12/4"
+    Then The same page should display a "Date entered incorrectly!" error

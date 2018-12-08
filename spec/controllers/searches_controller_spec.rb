@@ -3,46 +3,46 @@ require 'rails_helper'
 
 describe SearchesController do
   describe 'Search Controller' do
-    context 'searching user' do
-      it 'should find the current users current search' do
+    context 'making search' do
+      # it 'should redirect to searches_display_path' do
+      #   search = Search.new
+      #   search.instance_variable_set(:@current_user, 'asdf')
+      #   test_term = 'Test'
+      #   test_user = 'evanmeyer07'
+      #   test_from = '2018-01-01'
+      #   test_to = '2018-01-01'
+      #   post :create, {:searches => {:search_term => test_term, :search_user => test_user, :search_from => test_from, :search_to => test_to}}
+      #   expect(response).to redirect_to searches_display_path
+      # end
+      it 'should redirect to root_path' do
+        search = Search.new
+        search.instance_variable_set(:@current_user, nil)
+        test_term = 'Test'
+        test_user = 'evanmeyer07'
+        test_from = '2018-01-01'
+        test_to = '2018-01-01'
+        @current_user = nil
+        post :create, {:searches => {:search_term => test_term, :search_user => test_user, :search_from => test_from, :search_to => test_to}}
+        expect(response).to redirect_to root_path
       end
     end
-
-    context 'searching a term' do
-      #describe 'searching a keyword' do
-
-      #before(:each) do
-      #allow_any_instance_of(SearchesController).to receive(:current_user).and_return(user)
-      #end
-
-      #before(:each) do
-      #  allow(SearchesController).to receive(@current_user).and_return(user)
-      #end
-
-      #it 'should call the model method that performs Twitter search' do
-      # fake_results = [double('searches1'), double('searches2'), double('searches3'), double('searches4'),
-      #                 double('searches5'), double('searches6')]
-      # test_search = {:search_term => 'Ruby', :search_user => 'Test'}
-      # expect(Searches).to receive(:gather_tweets).with('Ruby', 'Test', (Date.today - 2).to_s, Date.today.to_s, 2).
-      #  and_return(fake_results)
-      #post :create, {:searches => test_search, :time => '2'}
-      #end
-      #it 'should select the Search Results template for rendering' do
-      #test_search = {:search_term => 'Ruby', :search_user => 'Test'}
-      #fake_user = double('user')
-      #allow(SearchesController).to receive(@current_user).and_return(:current_user)
-      #post :create, {:searches => test_search, :time => '3'}
-      #response.should redirect_to searches_display_path
-      #end
-      #it 'should make the amount of Twitter search results available to that template' do
-      # fake_results = [double('searches1'), double('searches2'), double('searches3'), double('searches4'),
-      #                double('searches5'), double('searches6')]
-      #test_search = {:search_term => 'Ruby', :search_user => 'Test'}
-      #allow(Searches).to receive(:gather_tweets).and_return (fake_results)
-      #post :create, {:searches => test_search, :time => '2'}
-      #expect(assigns(:graph_data)).to eq(fake_results)
-      #end
-      #end
+    context 'saving search' do
+      # it 'should redirect to root_path' do
+      #   test_user = {:user_name => 'test', :email => 'testing@gmail.com', :password => 'password'}
+      #   @current_user = test_user
+      #   post :save_topic
+      #   expect(response).to redirect_to root_path
+      # end
+      it 'should redirect to searches_path' do
+        search = Search.new
+        search.instance_variable_set(:@current_user, nil)
+        test_term = 'Test'
+        test_user = 'evanmeyer07'
+        test_from = '2018-01-01'
+        test_to = '2018-01-01'
+        post :save_topic, {:searches => {:search_term => test_term, :search_user => test_user, :search_from => test_from, :search_to => test_to}}
+        expect(response).to redirect_to searches_path
+      end
     end
   end
 end
