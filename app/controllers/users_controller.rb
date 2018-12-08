@@ -142,9 +142,13 @@ class UsersController < ApplicationController
   end
 
   def update_country
+    if !@current_user.nil?
     @current_user.country = params[:country]
     @current_user.save!
-    redirect_to :controller => 'users', :action => 'show'
+    redirect_to user_path(:id => @current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   #def edit
@@ -175,7 +179,9 @@ class UsersController < ApplicationController
         current_search.viewed_by.push(@current_user.user_name.to_s)
       end
       current_search.save!
-      @curr_view_search = Search.get_search_data(@current_user.current_search)[0]
+      @curr_view_search = Search.make_for_graph(@current_user)
+
+      #@curr_view_search = Search.get_search_data(@current_user.current_search)[0]
     else
       flash[:notice] = "Hmm - Looks like you don't have any search..."
     end
@@ -189,8 +195,5 @@ class UsersController < ApplicationController
       flash[:notice] = "Hm you're still not logged in, not sure how you even got here..."
       redirect_to root_path
     end
-
   end
-
-
 end

@@ -23,9 +23,8 @@ ActiveRecord::Schema.define(version: 20181207032812) do
     t.datetime "updated_at"
     t.boolean  "saved"
     t.string   "country"
-    t.string   "twitter_handle"
-    t.integer  "view_count",     default: 0
-    t.string   "viewed_by",      default: "--- []\n"
+    t.integer  "view_count",  default: 0
+    t.string   "viewed_by",   default: "--- []\n"
   end
 
   create_table "searches_twitterhandles", force: :cascade do |t|

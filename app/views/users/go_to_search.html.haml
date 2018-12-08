@@ -3,7 +3,6 @@
   %br
     #graph
     -#Using gsub to make the hash JSON parseable
-    -@curr_view_search.graph_data.gsub!('=>', ':')
     = content_tag 'div', '', id: 'data', data: {key1: @curr_view_search}
 
     =submit_tag 'Save Topic',:controller => :users, :method => :save_topic
