@@ -41,7 +41,7 @@ class Search < ActiveRecord::Base
         # REST API with extended mode, or untruncated text in Streaming API
         full_tweet = status.attrs[:text] || status.attrs[:full_text]
       end
-      
+
       all_tweet_scores << analyzer.score(full_tweet)
 
       #ok this parts a little wonky. Basically what's happening here, is deciding where on the graph
@@ -149,8 +149,10 @@ class Search < ActiveRecord::Base
     #t = Searches.create!(:search_term =>'overthinking', :from_date=>'2018-11-11',:to_date=>'2018-11-12',
     #                 :number_of_tweets=>4)
 
-    current_user.search do |search_history|
-      search_holder << search_history
+    if User.exists?(current_user.id)
+      current_user.search do |search_history|
+        search_holder<<search_history
+      end
     end
     return search_holder
   end
