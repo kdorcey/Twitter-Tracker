@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   before_filter :set_current_user
 
   def searches_params
-    params.require(:searches).permit(:search_term, :search_user, :time)
+    params.require(:searches).permit(:search_term, :search_user, :search_from, :search_to)
   end
 
   def user_search
@@ -46,6 +46,13 @@ class SearchesController < ApplicationController
   def create
     #levy's multiple handles thing
     all_twitter_handles = [searches_params[:search_user]]
+
+    puts "SEARCHES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    puts searches_params[:search_from]
+    search_from = Date.parse(searches_params[:search_from])
+    search_to = Date.parse(searches_params[:search_to])
+
+
     params['searches'].keys.each do |field_name|
       if field_name.include? "extra_handle"
         all_twitter_handles.push params['searches'][field_name]
@@ -57,61 +64,62 @@ class SearchesController < ApplicationController
 
       flash[:notice] = "Please enter a search term!"
       redirect_to searches_path
+    elsif search_from > search_to || search_from > Date.today || search_to > Date.today
+
+      flash[:notice] = "Date entered incorrectly!"
+      redirect_to searches_path
     else
-    #logic for running a search
-       if !@current_user.nil?
-         now = Date.today
-         from_date = now - params[:time].to_i
-         all_hashes = Array.new #holds each handles search hash
-         search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s, from_date: from_date,
-                        to_date: now}
+      #logic for running a search
+      if !@current_user.nil?
+        search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s, from_date: search_from,
+                       to_date: search_to}
 
-         handles_to_link = Twitterhandle.create_twitterhandle!(all_twitter_handles)
-         new_search = Search.create_search!(search_hash)
+        handles_to_link = Twitterhandle.create_twitterhandle!(all_twitter_handles)
+        new_search = Search.create_search!(search_hash)
 
-         #Gathers data for each handle, I feel like this loop should be handled by the model buuuutttt o well
-         handles_to_link.each do |handle|
-           #links search with handle
+        #Gathers data for each handle, I feel like this loop should be handled by the model buuuutttt o well
+        handles_to_link.each do |handle|
+          #links search with handle
 
 
-           total_count, graph_stuff = Search.gather_tweets(searches_params[:search_term], handle, from_date.to_s,now.to_s, params[:time].to_i)
+          total_count, graph_stuff = Search.gather_tweets(searches_params[:search_term], handle, search_from.to_s, search_to.to_s, search_to-search_from)
 
-           new_search.search_twitterhandle.create(twitterhandle_id: handle.id, graph_data: graph_stuff, number_of_tweets: total_count  )
+          new_search.search_twitterhandle.create(twitterhandle_id: handle.id, graph_data: graph_stuff, number_of_tweets: total_count)
 
-         end
+        end
 
-         @current_user.current_search = new_search.id
-         @current_user.save
-         redirect_to searches_display_path
+        @current_user.current_search = new_search.id
+        @current_user.save
+        redirect_to searches_display_path
 
-
-       else
-         flash[:notice] = "Nah homie, gotta make an account first."
-         redirect_to root_path
-       end
-
-    end
-  end
-
-
-    def destroy
-
-    end
-
-    def display
-      if !@current_user.current_search.nil?
-        #@curr_view_search = Search.find_by_id(@current_user.current_search)
-        @curr_view_search = Search.make_for_graph(@current_user)
-
-        #@curr_view_search[:sth_obj] = data_holder[0]
-        #@curr_view_search[:handle_holder] = handle_holderz
 
       else
-        flash[:notice] = "Hmm - Looks like you don't have any search..."
+        flash[:notice] = "Nah homie, gotta make an account first."
+        redirect_to root_path
       end
-      # @user_searches = Searches.update_table
+
     end
+  end
+
+
+  def destroy
 
   end
+
+  def display
+    if !@current_user.current_search.nil?
+      #@curr_view_search = Search.find_by_id(@current_user.current_search)
+      @curr_view_search = Search.make_for_graph(@current_user)
+
+      #@curr_view_search[:sth_obj] = data_holder[0]
+      #@curr_view_search[:handle_holder] = handle_holderz
+
+    else
+      flash[:notice] = "Hmm - Looks like you don't have any search..."
+    end
+    # @user_searches = Searches.update_table
+  end
+
+end
 
 
