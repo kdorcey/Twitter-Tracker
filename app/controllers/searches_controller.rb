@@ -99,10 +99,12 @@ class SearchesController < ApplicationController
     end
 
     def display
+      puts "wwoooofff"
       if !@current_user.current_search.nil?
         #@curr_view_search = Search.find_by_id(@current_user.current_search)
+        puts "moooooooooo"
         @curr_view_search = Search.make_for_graph(@current_user)
-
+        puts "qqquuaacckkk"
         #@curr_view_search[:sth_obj] = data_holder[0]
         #@curr_view_search[:handle_holder] = handle_holderz
 
