@@ -19,6 +19,7 @@ var displaySearch = function () {
     graph_data_obj = JSON.parse(data[i]['search_obj']['graph_data']);
     date_arrays.push(graph_data_obj['dates']);
     value_arrays.push(graph_data_obj['values']);
+    sentiment_arrays.push(graph_data_obj['sentiment']);
   }
 
 
@@ -30,14 +31,23 @@ var displaySearch = function () {
 
   for (var i = 0; i < all_handles.length; i++) {
 
-    var trace = {
+    var traceCount = {
       x: date_arrays[i],
       y: value_arrays[i],
       mode: 'lines+markers',
-      name: '@' + all_handles[i]
+      name: '# of tweets made by @' + all_handles[i]
     };
 
-    data_arr.push(trace);
+    var traceSentiment = {
+      x: date_arrays[i],
+      y: sentiment_arrays[i],
+      mode: 'lines+markers',
+      name: 'Sentiment of tweets made by @' + all_handles[i]
+
+    };
+
+    data_arr.push(traceCount);
+    data_arr.push(traceSentiment);
   }
 
 
@@ -49,9 +59,6 @@ var displaySearch = function () {
     title: graph_title,
     xaxis: {
       title: 'Dates of Tweets'
-    },
-    yaxis: {
-      title: '# of Tweets'
     }
   };
 
