@@ -77,7 +77,7 @@ class UsersController < ApplicationController
   end
 
   ####HELPER methods for show
-  def organize_history_search(search_ids)
+  def self.organize_history_search(search_ids)
     history_search_hashes = []
     if !search_ids.empty?
       search_ids = search_ids.reverse #newest searches first

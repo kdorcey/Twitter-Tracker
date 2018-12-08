@@ -46,4 +46,19 @@ describe UsersController do
       expect(response).to redirect_to root_path
     end
   end
+  describe 'routing to the users home page ' do
+    it 'should redirect to root if user is not logged on' do
+      post :show
+      expect(response).to redirect_to root_path
+    end
+    it 'should redirect to the users page if the user is logged on' do
+
+    end
+  end
+  describe 'grabbing history for a user' do
+    it 'should organize the history searches for the user' do
+      results = UsersController.organize_history_search([1, 1, 2, 3])
+      expect(results).to be_an_instance_of(Array)
+    end
+  end
 end
