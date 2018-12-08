@@ -16,8 +16,6 @@ class SearchesController < ApplicationController
     @top_searches = {}
     if !@current_user.nil?
       @user_searches = Search.get_searches(@current_user)
-      @top_searches = Search.where(country: @current_user.country).group(:search_term).order('count(*) DESC')
-                        .select('search_term', 'country', 'number_of_tweets','to_date').limit(10)
     end
     # @top_searches = Searches.where(country: @current_user.country).group(:search_term).order('count(*) DESC').limit(10)
     # @top_searches = Searches.where(country: @current_user.country).group(:search_term).limit(10)
