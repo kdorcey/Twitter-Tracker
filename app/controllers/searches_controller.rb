@@ -47,10 +47,7 @@ class SearchesController < ApplicationController
     #levy's multiple handles thing
     all_twitter_handles = [searches_params[:search_user]]
 
-    puts "SEARCHES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    puts searches_params[:search_from]
-    search_from = Date.parse(searches_params[:search_from])
-    search_to = Date.parse(searches_params[:search_to])
+
 
 
     params['searches'].keys.each do |field_name|
@@ -60,15 +57,20 @@ class SearchesController < ApplicationController
     end
 
     #check that there is a search term
-    if searches_params[:search_term].to_s.blank?
-
-      flash[:notice] = "Please enter a search term!"
+    if searches_params[:search_term].to_s.blank? || searches_params[:search_user].to_s.blank?
+      flash[:notice] = "Please enter a search term & a twitter handle!"
       redirect_to searches_path
-    elsif search_from > search_to || search_from > Date.today || search_to > Date.today
 
+    elsif searches_params[:search_from].empty? || searches_params[:search_to].empty?
+      flash[:notice] = "Enter both dates"
+      redirect_to searches_path
+
+    elsif Date.parse(searches_params[:search_from]) > Date.parse(searches_params[:search_to]) || Date.parse(searches_params[:search_from]) > Date.today || Date.parse(searches_params[:search_to]) > Date.today
       flash[:notice] = "Date entered incorrectly!"
       redirect_to searches_path
     else
+      search_from = Date.parse(searches_params[:search_from])
+      search_to = Date.parse(searches_params[:search_to])
       #logic for running a search
       if !@current_user.nil?
         search_hash = {user_id: @current_user.id, search_term: searches_params[:search_term].to_s, from_date: search_from,
@@ -82,7 +84,7 @@ class SearchesController < ApplicationController
           #links search with handle
 
 
-          total_count, graph_stuff = Search.gather_tweets(searches_params[:search_term], handle, search_from.to_s, search_to.to_s, search_to-search_from)
+          total_count, graph_stuff = Search.gather_tweets(searches_params[:search_term], handle, search_from.to_s, search_to.to_s, search_to - search_from)
 
           new_search.search_twitterhandle.create(twitterhandle_id: handle.id, graph_data: graph_stuff, number_of_tweets: total_count)
 

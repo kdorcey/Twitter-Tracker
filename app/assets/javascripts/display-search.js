@@ -5,7 +5,6 @@ var displaySearch = function () {
 
   console.log(data);
 
-  //Kyle's playzone///////////////////////////////////
 
   var search_term = data[0];
   var all_handles = new Array();
@@ -22,8 +21,6 @@ var displaySearch = function () {
     sentiment_arrays.push(graph_data_obj['sentiment']);
   }
 
-
-  /////////////////////////////////////////////////////
 
   graph_title = "'" + search_term + "'";
 
