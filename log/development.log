@@ -13105,3 +13105,91 @@ Processing by UsersController#show as HTML
   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."user_name" = 'test' LIMIT 1
   Rendered users/show.html.haml within layouts/application (13.2ms)
 Completed 200 OK in 23ms (Views: 18.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2018-12-08 00:22:51 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "N39SKq7sQP/cl8BWi6uw4g=="]]
+  Rendered searches/index.html.haml within layouts/application (580.3ms)
+Completed 200 OK in 871ms (Views: 844.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/display-search.self-445a475b0aba416f2e089b9cc214a398c06ba1d00e142a14d08f2dea8fcca484.js?body=1" for ::1 at 2018-12-08 00:22:52 -0600
+
+
+Started POST "/searches_create" for ::1 at 2018-12-08 00:23:07 -0600
+Processing by SearchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jA1pLSOu9OkJE/+TDKOghkVnjRLROR7KZO0giap3GRa9Urkf/dvBxvV+UDA/kWnG1Wq6Y/VSNi4G8ZZuk0X91Q==", "searches"=>{"search_term"=>"Test", "search_user"=>"evanmeyer07", "search_from"=>"2018-12-01", "search_to"=>"2018-12-07"}, "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "N39SKq7sQP/cl8BWi6uw4g=="]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2018-12-08 00:23:07 -0600
+Processing by SearchesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1  [["session_token", "N39SKq7sQP/cl8BWi6uw4g=="]]
+  Rendered searches/index.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 47ms (Views: 46.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2018-12-08 00:23:11 -0600
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"jdSYN2bG6TxVQr1zAFaeyTJXmgyxH02+L0Pk0JKIO1i8i0gFuLPcE6kvEtAzZFeJolqtfZV0ZVpNX1I3q7rfmw=="}
+  Rendered sessions/new.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2/" for ::1 at 2018-12-08 00:23:21 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/" for ::1 at 2018-12-08 00:23:22 -0600
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=034f1184370df09b4e8c769de24d2b9efe4e971f0cb0e52e&code=4/rQDwR9flgfZqiMN87qSvHwcmbQqRAVZP5DHotpAj0r0CyrcCcMEJO1atl77WaGGyC0iL3uEuB-okOsDumenfc0k&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for ::1 at 2018-12-08 00:23:24 -0600
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#createauth as HTML
+  Parameters: {"state"=>"034f1184370df09b4e8c769de24d2b9efe4e971f0cb0e52e", "code"=>"4/rQDwR9flgfZqiMN87qSvHwcmbQqRAVZP5DHotpAj0r0CyrcCcMEJO1atl77WaGGyC0iL3uEuB-okOsDumenfc0k", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."session_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "google_oauth2"], ["session_token", "111680967653804770758"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("provider", "session_token", "user_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google_oauth2"], ["session_token", "111680967653804770758"], ["user_name", "evanmeyer07@gmail.com"], ["email", "evanmeyer07@gmail.com"], ["created_at", "2018-12-08 06:23:25.028411"], ["updated_at", "2018-12-08 06:23:25.028411"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2018-12-08 00:23:25 -0600
+Processing by SearchesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "111680967653804770758"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered searches/index.html.haml within layouts/application (3.6ms)
+Completed 200 OK in 72ms (Views: 33.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for ::1 at 2018-12-08 00:23:28 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT 1[0m  [["session_token", "111680967653804770758"]]
+  [1m[35mSearch Exists (0.1ms)[0m  SELECT  1 AS one FROM "searches" INNER JOIN "searches_users" ON "searches"."id" = "searches_users"."search_id" WHERE "searches_users"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "searches" WHERE "searches"."user_id" = ?  [["user_id", 3]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.5ms)
+
+NameError (uninitialized constant UsersController::UserController):
+  app/controllers/users_controller.rb:65:in `show'
+
+
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (99.0ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (102.4ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/evanmeyer/.rbenv/versions/2.4.4/lib/ruby/gems/2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (220.7ms)
